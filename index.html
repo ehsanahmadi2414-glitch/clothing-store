@@ -4,7 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>گالری پوشاک و مد 👗👕</title>
+  <title>پوشاک احمدی 👔</title>
+
+  <!-- آیکون سایت (لوگوی اختصاصی پوشاک احمدی) -->
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='90' fill='%231e1b4b'/><path d='M60 65 L100 85 L140 65 L125 50 L100 65 L75 50 Z' fill='%23f43f5e'/><path d='M60 65 L85 150 L100 150 L100 85 Z' fill='%23fb7185'/><path d='M140 65 L115 150 L100 150 L100 85 Z' fill='%23e11d48'/><polygon points='100,85 93,120 100,128 107,120' fill='%23ffffff'/></svg>" type="image/svg+xml">
 
   <style>
     :root {
@@ -30,12 +33,10 @@
       --input-bg: rgba(0, 0, 0, 0.25);
     }
 
-    /* اسکرول کاملاً نرم و روان برای تمام صفحه */
     html {
       scroll-behavior: smooth;
     }
 
-    /* سفارشی‌سازی اسکرول‌بار مرورگر (باریک و روان) */
     ::-webkit-scrollbar {
       width: 10px;
     }
@@ -63,10 +64,21 @@
     }
 
     header {
-      padding: 60px 20px 30px;
+      padding: 40px 20px 20px;
     }
 
-    /* منوی شناور شیشه‌ای */
+    /* استایل لوگوی اختصاصی SVG */
+    .brand-logo-svg {
+      width: 130px;
+      height: 130px;
+      filter: drop-shadow(0 10px 20px rgba(244, 63, 94, 0.35));
+      transition: transform 0.4s ease;
+    }
+
+    .brand-logo-svg:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
     nav {
       position: sticky;
       top: 20px;
@@ -123,7 +135,6 @@
 
     main { max-width: 850px; margin: auto; padding: 20px; }
 
-    /* کارت‌های شیشه‌ای نرم با انیمیشن ورود (Reveal) */
     .card {
       background: var(--glass-bg);
       backdrop-filter: blur(20px);
@@ -135,8 +146,6 @@
       border-radius: 28px;
       text-align: right;
       line-height: 2;
-      
-      /* انیمیشن شناور نرم */
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
@@ -145,7 +154,6 @@
       will-change: transform, opacity;
     }
 
-    /* وقتی کارت دیده شد */
     .card.visible {
       opacity: 1;
       transform: translateY(0);
@@ -235,16 +243,39 @@
       <a href="#contact">📞 ثبت سفارش</a>
       <button class="theme-btn" onclick="toggleDarkMode()">🌙 / ☀️</button>
     </nav>
-    <div style="font-size: 70px;">👗✨👕</div>
-    <h1>بوتیک و فروشگاه پوشاک آنلاین</h1>
+    
+    <!-- لوگوی برداری (SVG) شیک و مدرن "پوشاک احمدی" -->
+    <svg class="brand-logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#f43f5e;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#881337;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <!-- حلقه پس‌زمینه -->
+      <circle cx="100" cy="100" r="90" fill="rgba(30, 27, 75, 0.85)" stroke="url(#grad1)" stroke-width="4"/>
+      <!-- نشان کت و یقه -->
+      <path d="M 55,60 L 100,85 L 145,60 L 125,45 L 100,60 L 75,45 Z" fill="url(#grad1)" />
+      <path d="M 55,60 L 82,145 L 100,145 L 100,85 Z" fill="#fb7185" />
+      <path d="M 145,60 L 118,145 L 100,145 L 100,85 Z" fill="#e11d48" />
+      <polygon points="100,85 92,118 100,126 108,118" fill="url(#goldGrad)" />
+      <!-- متن مدرن پوشاک احمدی -->
+      <text x="100" y="172" font-family="Tahoma, Arial" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">پوشاک احمدی</text>
+    </svg>
+
+    <h1 style="margin-top: 10px;">پوشاک احمدی</h1>
     <p>جدیدترین ترندهای استایل با بالاترین کیفیت</p>
   </header>
 
   <main id="home">
 
     <div class="card">
-      <h2>خوش آمدید 🌟</h2>
-      <p>به آنلاین شاپ ما خوش آمدید. می‌توانید از طریق محاسبه‌گر زیر سایز دقیق خود را مشخص کنید و سپس سفارش خود را ثبت نمایید.</p>
+      <h2>خوش آمدید به پوشاک احمدی 🌟</h2>
+      <p>به فروشگاه آنلاین پوشاک احمدی خوش آمدید. می‌توانید از طریق محاسبه‌گر زیر سایز دقیق خود را مشخص کنید و سپس سفارش خود را ثبت نمایید.</p>
     </div>
 
     <div class="card" id="size-tool">
@@ -262,7 +293,7 @@
     </div>
 
     <div class="card" id="contact">
-      <h2>📞 ثبت سفارش آنلاین</h2>
+      <h2>📞 ثبت سفارش آنلاین در پوشاک احمدی</h2>
       <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 8px;">
         <input type="text" name="نام خریدار" placeholder="نام و نام خانوادگی" required>
         <input type="tel" name="شماره تماس" placeholder="شماره تماس" required>
@@ -281,7 +312,7 @@
   </main>
 
   <footer>
-    <p>© کلیه حقوق برای آنلاین شاپ محفوظ است | طراحی شده با ❤️</p>
+    <p>© کلیه حقوق برای پوشاک احمدی محفوظ است | طراحی شده با ❤️</p>
   </footer>
 
   <script>
@@ -310,7 +341,6 @@
       }
     }
 
-    /* اسکریپت ظاهر شدن نرم کارت‌ها در هنگام اسکرول (Scroll Reveal) */
     document.addEventListener("DOMContentLoaded", function () {
       const cards = document.querySelectorAll(".card");
       
@@ -328,4 +358,3 @@
 
 </body>
 </html>
-
