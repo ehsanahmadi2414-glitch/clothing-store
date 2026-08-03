@@ -59,19 +59,26 @@
       z-index: 999;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      max-width: 850px;
+      max-width: 900px;
       margin: 0 auto 20px auto;
       padding: 10px 15px;
       border-radius: 40px;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
       backdrop-filter: blur(10px);
     }
 
-    nav a {
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    nav a, .nav-cart-btn {
       color: var(--text-color);
       text-decoration: none;
       font-weight: 600;
@@ -79,11 +86,33 @@
       padding: 8px 16px;
       border-radius: 20px;
       transition: background 0.2s ease, color 0.2s ease;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
     }
 
-    nav a:hover {
+    nav a:hover, .nav-cart-btn:hover {
       background: var(--accent-color);
       color: white;
+    }
+
+    .nav-cart-btn {
+      position: relative;
+      background: rgba(244, 63, 94, 0.2);
+      border: 1px solid var(--accent-color);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cart-badge {
+      background: var(--accent-color);
+      color: white;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 50%;
+      font-weight: bold;
     }
 
     .theme-btn {
@@ -212,7 +241,7 @@
 
     .float-chat:hover { transform: scale(1.05); }
 
-    /* مدال جدول سایز */
+    /* مدال‌ها (جدول سایز و سبد خرید دیجی‌کالایی) */
     .modal {
       display: none;
       position: fixed;
@@ -231,6 +260,9 @@
       max-width: 500px;
       width: 90%;
       color: white;
+      max-height: 85vh;
+      overflow-y: auto;
+      text-align: right;
     }
 
     .size-table {
@@ -247,7 +279,7 @@
 
     .size-table th { background: var(--accent-color); }
 
-    /* سبد خرید */
+    /* سبد خرید درون مدال */
     .cart-box {
       background: rgba(0,0,0,0.3);
       border: 1px dashed var(--accent-color);
@@ -292,7 +324,7 @@
 
   <!-- مدال راهنمای ابعاد دقیق -->
   <div class="modal" id="sizeModal">
-    <div class="modal-content">
+    <div class="modal-content" style="text-align: center;">
       <h3 style="color:#fb7185; margin-top:0;">📏 جدول ابعاد دقیق (سانتی‌متر)</h3>
       <table class="size-table">
         <thead>
@@ -311,18 +343,57 @@
         </tbody>
       </table>
       <br>
-      <button class="action-btn" onclick="closeModal()">بستن راهنما</button>
+      <button class="action-btn" onclick="closeSizeModal()">بستن راهنما</button>
+    </div>
+  </div>
+
+  <!-- مدال سبد خرید و ثبت سفارش (سبک دیجی‌کالا) -->
+  <div class="modal" id="cartModal">
+    <div class="modal-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+        <h2 style="margin: 0; color: #fb7185;">🛒 سبد خرید و سفارش</h2>
+        <button onclick="closeCartModal()" style="background:none; border:none; color:white; font-size:20px; cursor:pointer;">✕</button>
+      </div>
+
+      <div class="cart-box">
+        <h4 style="margin-top:0; color:#fbbf24;">محصولات انتخابی شما:</h4>
+        <div id="cartList">سبد خرید شما خالی است.</div>
+      </div>
+
+      <h3 style="color:#fb7185; text-align:center; margin-top: 20px;">📞 اطلاعات ارسال سفارش</h3>
+      <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 6px;">
+        <input type="hidden" name="اقلام سبد خرید" id="cartInputHidden">
+        
+        <input type="text" name="نام خریدار" placeholder="نام و نام خانوادگی" required>
+        <input type="tel" name="شماره تماس" placeholder="شماره تماس (واتساپ)" required>
+
+        <select name="سایز انتخابی" required>
+          <option value="">سایز مورد نظر را انتخاب کنید</option>
+          <option value="سایز 1">سایز ۱ (مناسب ۳۶ - ۳۸)</option>
+          <option value="سایز 2">سایز ۲ (مناسب ۴۰ - ۴۲)</option>
+          <option value="سایز 3">سایز ۳ (مناسب ۴۴ - ۴۶)</option>
+          <option value="سایز 4">سایز ۴ (مناسب ۴۸ - ۵۰)</option>
+        </select>
+
+        <textarea name="توضیحات و آدرس" rows="3" placeholder="آدرس دقیق پستی و توضیحات..." required></textarea>
+        <button type="submit" class="action-btn" style="margin-top: 10px; padding: 12px; font-size:15px;">ثبت نهایی سفارش 🚀</button>
+      </form>
     </div>
   </div>
 
   <header>
     <nav>
-      <a href="#home">🏠 اصلی</a>
-      <a href="#models">🎨 مدل‌ها</a>
-      <a href="#size-tool">📏 راهنمای سایز</a>
-      <a href="#cart-section">🛒 سبد خرید</a>
-      <a href="#contact">📞 ثبت سفارش</a>
-      <button class="theme-btn" onclick="toggleDarkMode()">🌙 / ☀️</button>
+      <div class="nav-links">
+        <a href="#home">🏠 اصلی</a>
+        <a href="#models">🎨 مدل‌ها</a>
+        <a href="#size-tool">📏 راهنمای سایز</a>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: center;">
+        <button class="nav-cart-btn" onclick="openCartModal()">
+          🛒 سبد خرید <span class="cart-badge" id="cartCount">0</span>
+        </button>
+        <button class="theme-btn" onclick="toggleDarkMode()">🌙 / ☀️</button>
+      </div>
     </nav>
 
     <svg class="brand-logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -352,7 +423,7 @@
 
     <div class="card">
       <h2>خوش آمدید به پوشاک احمدی 🌟</h2>
-      <p>محصولات مورد نظر خود را انتخاب کرده و به سبد خرید اضافه کنید تا فرم سفارش شما آماده شود.</p>
+      <p>محصولات دلخواه خود را از بخش مدل‌ها انتخاب کنید و با کلیک روی دکمه سبد خرید در بالای صفحه، سفارش خود را ثبت کنید.</p>
     </div>
 
     <!-- گالری مدل‌ها -->
@@ -407,39 +478,8 @@
         </div>
         <br>
         <button class="action-btn" onclick="calculateSize()">تخمین سایز من 📐</button>
-        <button class="action-btn" style="background:#3b82f6;" onclick="openModal()">جدول ابعاد دقیق 📊</button>
+        <button class="action-btn" style="background:#3b82f6;" onclick="openSizeModal()">جدول ابعاد دقیق 📊</button>
         <h3 id="sizeResult" style="color: #fb7185; margin-top: 15px;"></h3>
-      </div>
-    </div>
-
-    <!-- بخش سبد خرید و ثبت سفارش -->
-    <div class="card" id="cart-section">
-      <h2>🛒 سبد خرید شما</h2>
-      
-      <div class="cart-box">
-        <h4 style="margin-top:0; color:#fbbf24;">محصولات انتخاب شده:</h4>
-        <div id="cartList">هیچ محصولی انتخاب نشده است. از بخش مدل‌ها محصول مورد نظر را اضافه کنید.</div>
-      </div>
-
-      <div id="contact">
-        <h2>📞 اطلاعات ثبت سفارش</h2>
-        <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 6px;">
-          <input type="hidden" name="اقلام سبد خرید" id="cartInputHidden">
-          
-          <input type="text" name="نام خریدار" placeholder="نام و نام خانوادگی" required>
-          <input type="tel" name="شماره تماس" placeholder="شماره تماس (واتساپ)" required>
-
-          <select name="سایز انتخابی" required>
-            <option value="">سایز مورد نظر را انتخاب کنید</option>
-            <option value="سایز 1">سایز ۱ (مناسب ۳۶ - ۳۸)</option>
-            <option value="سایز 2">سایز ۲ (مناسب ۴۰ - ۴۲)</option>
-            <option value="سایز 3">سایز ۳ (مناسب ۴۴ - ۴۶)</option>
-            <option value="سایز 4">سایز ۴ (مناسب ۴۸ - ۵۰)</option>
-          </select>
-
-          <textarea name="توضیحات و آدرس" rows="3" placeholder="آدرس دقیق پستی و توضیحات..." required></textarea>
-          <button type="submit" class="action-btn" style="margin-top: 10px; padding: 14px; font-size:16px;">ارسال فرم سفارش 🚀</button>
-        </form>
       </div>
     </div>
 
@@ -475,6 +515,7 @@
     function addToCart(title) {
       cart.push(title);
       updateCartUI();
+      alert(`«${title}» به سبد خرید شما اضافه شد.`);
     }
 
     function removeFromCart(index) {
@@ -484,10 +525,13 @@
 
     function updateCartUI() {
       const cartList = document.getElementById('cartList');
+      const cartCount = document.getElementById('cartCount');
       const hiddenInput = document.getElementById('cartInputHidden');
 
+      cartCount.innerText = cart.length;
+
       if (cart.length === 0) {
-        cartList.innerHTML = 'هیچ محصولی انتخاب نشده است. از بخش مدل‌ها محصول مورد نظر را اضافه کنید.';
+        cartList.innerHTML = 'سبد خرید شما خالی است.';
         hiddenInput.value = '';
         return;
       }
@@ -504,8 +548,11 @@
       hiddenInput.value = cart.join(' | ');
     }
 
-    function openModal() { document.getElementById('sizeModal').style.display = 'flex'; }
-    function closeModal() { document.getElementById('sizeModal').style.display = 'none'; }
+    function openSizeModal() { document.getElementById('sizeModal').style.display = 'flex'; }
+    function closeSizeModal() { document.getElementById('sizeModal').style.display = 'none'; }
+
+    function openCartModal() { document.getElementById('cartModal').style.display = 'flex'; }
+    function closeCartModal() { document.getElementById('cartModal').style.display = 'none'; }
   </script>
 
 </body>
