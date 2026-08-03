@@ -13,7 +13,7 @@
       --gold-light: #ffd77a;
       --pink: #f43f5e;
       --dark: #08090f;
-      --glass: rgba(20, 18, 25, 0.62);
+      --glass: rgba(25, 22, 30, 0.62);
       --text: #f8fafc;
       --border: rgba(255, 220, 150, 0.24);
     }
@@ -40,40 +40,38 @@
         ),
         radial-gradient(
           circle at 85% 75%,
-          rgba(244, 63, 94, 0.12),
+          rgba(244, 63, 94, 0.14),
           transparent 35%
         ),
         linear-gradient(
           135deg,
-          #05060a,
-          #17110c,
-          #070a12
+          #07070b,
+          #16100c,
+          #080b16
         );
 
       background-attachment: fixed;
       overflow-x: hidden;
     }
 
-    /* نورهای متحرک */
-
     body::before,
     body::after {
       content: "";
       position: fixed;
 
-      width: 330px;
-      height: 330px;
+      width: 340px;
+      height: 340px;
 
       border-radius: 50%;
 
-      filter: blur(90px);
+      filter: blur(80px);
 
-      opacity: 0.16;
+      opacity: 0.18;
 
       z-index: -1;
 
       animation:
-        floatingLight
+        floatLight
         12s
         ease-in-out
         infinite;
@@ -89,13 +87,13 @@
     body::after {
       background: var(--pink);
 
-      bottom: -100px;
+      bottom: -120px;
       left: -100px;
 
       animation-delay: -6s;
     }
 
-    @keyframes floatingLight {
+    @keyframes floatLight {
 
       0%,
       100% {
@@ -105,7 +103,7 @@
 
       50% {
         transform:
-          translate(-45px, 40px);
+          translate(-50px, 45px);
       }
 
     }
@@ -115,13 +113,13 @@
     nav {
       position: sticky;
 
-      top: 14px;
+      top: 15px;
 
-      z-index: 1000;
+      z-index: 100;
 
       width:
         min(
-          1000px,
+          950px,
           calc(100% - 24px)
         );
 
@@ -141,7 +139,8 @@
 
       gap: 10px;
 
-      flex-wrap: wrap;
+      flex-wrap:
+        wrap;
 
       background:
         var(--glass);
@@ -161,7 +160,7 @@
 
       box-shadow:
         0 15px 40px
-        rgba(0, 0, 0, 0.4);
+        rgba(0,0,0,.35);
     }
 
     .nav-links {
@@ -169,18 +168,21 @@
 
       gap: 5px;
 
-      flex-wrap: wrap;
+      flex-wrap:
+        wrap;
     }
 
     nav a,
     .nav-btn {
+
       color:
         var(--text);
 
       text-decoration:
         none;
 
-      border: 0;
+      border:
+        0;
 
       background:
         transparent;
@@ -201,17 +203,18 @@
         bold;
 
       transition:
-        0.25s;
+        .25s;
     }
 
     nav a:hover,
     .nav-btn:hover {
+
       background:
         rgba(
           230,
           169,
           60,
-          0.18
+          .2
         );
 
       color:
@@ -219,6 +222,7 @@
     }
 
     .cart-badge {
+
       background:
         var(--gold);
 
@@ -226,7 +230,7 @@
         #111;
 
       padding:
-        3px 8px;
+        2px 7px;
 
       border-radius:
         50%;
@@ -238,24 +242,27 @@
     /* هدر */
 
     header {
+
       padding:
-        25px 15px 20px;
+        25px 15px
+        25px;
 
       text-align:
         center;
     }
 
-    /* لوگوی PNG */
+    /* لوگوی اصلی */
 
     .logo {
+
       width:
-        180px;
+        190px;
 
       height:
-        180px;
+        190px;
 
       margin:
-        10px auto 20px;
+        20px auto;
 
       border-radius:
         50%;
@@ -274,10 +281,10 @@
 
       background:
         rgba(
-          5,
-          7,
-          12,
-          0.8
+          0,
+          0,
+          0,
+          .45
         );
 
       border:
@@ -286,54 +293,57 @@
           230,
           169,
           60,
-          0.65
+          .8
         );
 
       box-shadow:
-        0 0 28px
+
+        0 18px 50px
+        rgba(
+          0,
+          0,
+          0,
+          .6
+        ),
+
+        0 0 35px
         rgba(
           230,
           169,
           60,
-          0.2
-        ),
-
-        0 20px 50px
-        rgba(
-          0,
-          0,
-          0,
-          0.6
+          .25
         );
 
       transition:
-        0.35s;
+        .4s;
     }
 
     .logo:hover {
+
       transform:
-        scale(1.06)
-        rotate(2deg);
+        scale(1.05);
 
       box-shadow:
-        0 0 45px
+
+        0 20px 60px
+        rgba(
+          0,
+          0,
+          0,
+          .7
+        ),
+
+        0 0 50px
         rgba(
           230,
           169,
           60,
-          0.4
-        ),
-
-        0 22px 55px
-        rgba(
-          0,
-          0,
-          0,
-          0.65
+          .4
         );
     }
 
     .logo img {
+
       width:
         100%;
 
@@ -348,6 +358,7 @@
     }
 
     h1 {
+
       margin:
         8px;
 
@@ -356,21 +367,22 @@
 
       font-size:
         clamp(
-          28px,
+          27px,
           5vw,
           45px
         );
     }
 
     .subtitle {
-      max-width:
-        650px;
-
-      margin:
-        auto;
 
       opacity:
-        0.82;
+        .8;
+
+      margin:
+        0 auto;
+
+      max-width:
+        650px;
 
       line-height:
         2;
@@ -379,14 +391,17 @@
     /* اسلایدر */
 
     .hero-slider {
+
       width:
         min(
-          1000px,
-          calc(100% - 24px)
+          950px,
+          calc(
+            100% - 24px
+          )
         );
 
       height:
-        320px;
+        310px;
 
       margin:
         20px auto;
@@ -413,11 +428,12 @@
           0,
           0,
           0,
-          0.45
+          .4
         );
     }
 
     .slide {
+
       position:
         absolute;
 
@@ -444,11 +460,11 @@
     }
 
     .slide.active {
-      opacity:
-        1;
+      opacity: 1;
     }
 
     .slide::before {
+
       content:
         "";
 
@@ -459,24 +475,30 @@
         0;
 
       background:
+
         linear-gradient(
+
           120deg,
+
           rgba(
             0,
             0,
             0,
-            0.72
+            .72
           ),
+
           rgba(
             0,
             0,
             0,
-            0.2
+            .15
           )
+
         );
     }
 
     .slide-text {
+
       position:
         relative;
 
@@ -491,7 +513,7 @@
           0,
           0,
           0,
-          0.55
+          .55
         );
 
       border:
@@ -500,11 +522,8 @@
           255,
           255,
           255,
-          0.2
+          .2
         );
-
-      backdrop-filter:
-        blur(12px);
 
       font-size:
         clamp(
@@ -517,13 +536,16 @@
         bold;
     }
 
-    /* محتوای سایت */
+    /* کارت‌ها */
 
     main {
+
       width:
         min(
-          1000px,
-          calc(100% - 24px)
+          950px,
+          calc(
+            100% - 24px
+          )
         );
 
       margin:
@@ -531,6 +553,7 @@
     }
 
     .glass-card {
+
       padding:
         28px;
 
@@ -556,20 +579,23 @@
           0,
           0,
           0,
-          0.38
+          .35
         );
 
       opacity:
         0;
 
       transform:
-        translateY(25px);
+        translateY(
+          25px
+        );
 
       transition:
-        0.7s;
+        .7s;
     }
 
     .glass-card.visible {
+
       opacity:
         1;
 
@@ -578,6 +604,7 @@
     }
 
     h2 {
+
       color:
         var(--gold-light);
 
@@ -588,14 +615,16 @@
     /* محصولات */
 
     .product-grid {
+
       display:
         grid;
 
       grid-template-columns:
+
         repeat(
           auto-fit,
           minmax(
-            220px,
+            210px,
             1fr
           )
         );
@@ -605,6 +634,7 @@
     }
 
     .product {
+
       padding:
         14px;
 
@@ -616,7 +646,7 @@
           255,
           255,
           255,
-          0.055
+          .055
         );
 
       border:
@@ -625,41 +655,38 @@
           255,
           220,
           150,
-          0.18
+          .18
         );
 
       border-radius:
         21px;
 
       transition:
-        0.35s;
+        .35s;
     }
 
     .product:hover {
+
       transform:
-        translateY(-9px);
+        translateY(-8px);
 
       border-color:
-        rgba(
-          255,
-          210,
-          100,
-          0.65
-        );
+        var(--gold);
 
       box-shadow:
-        0 20px 45px
+        0 22px 45px
         rgba(
           0,
           0,
           0,
-          0.5
+          .5
         );
     }
 
     .product-image {
+
       height:
-        260px;
+        255px;
 
       overflow:
         hidden;
@@ -668,10 +695,11 @@
         16px;
 
       background:
-        #17131a;
+        #151118;
     }
 
     .product-image img {
+
       width:
         100%;
 
@@ -682,32 +710,17 @@
         cover;
 
       transition:
-        0.5s;
+        .5s;
     }
 
     .product:hover img {
+
       transform:
         scale(1.12);
     }
 
-    .product-info {
-      display:
-        flex;
-
-      justify-content:
-        space-between;
-
-      gap:
-        8px;
-
-      font-size:
-        13px;
-
-      opacity:
-        0.85;
-    }
-
     .price {
+
       color:
         var(--gold-light);
 
@@ -716,14 +729,12 @@
 
       font-weight:
         bold;
-
-      margin:
-        12px 0;
     }
 
     /* دکمه */
 
     .action-btn {
+
       border:
         0;
 
@@ -746,29 +757,35 @@
         bold;
 
       background:
+
         linear-gradient(
+
           135deg,
+
           #e6a93c,
-          #ad6510
+
+          #b96e12
+
         );
 
       transition:
-        0.25s;
+        .25s;
     }
 
     .action-btn:hover {
+
       transform:
-        translateY(-3px)
-        scale(1.03);
+        translateY(-3px);
     }
 
     .secondary-btn {
+
       background:
         rgba(
           255,
           255,
           255,
-          0.1
+          .1
         );
 
       border:
@@ -779,16 +796,21 @@
     /* مزایا */
 
     .benefits {
+
       display:
         grid;
 
       grid-template-columns:
+
         repeat(
+
           auto-fit,
+
           minmax(
             190px,
             1fr
           )
+
         );
 
       gap:
@@ -796,6 +818,7 @@
     }
 
     .benefit {
+
       padding:
         22px 15px;
 
@@ -807,7 +830,7 @@
           255,
           255,
           255,
-          0.055
+          .055
         );
 
       border:
@@ -819,19 +842,18 @@
     }
 
     .benefit span {
+
       display:
         block;
 
       font-size:
-        36px;
-
-      margin-bottom:
-        8px;
+        35px;
     }
 
-    /* پنجره‌ها */
+    /* پنجره */
 
     .modal {
+
       display:
         none;
 
@@ -842,7 +864,7 @@
         0;
 
       z-index:
-        3000;
+        2000;
 
       justify-content:
         center;
@@ -855,7 +877,7 @@
           0,
           0,
           0,
-          0.75
+          .78
         );
 
       backdrop-filter:
@@ -863,27 +885,22 @@
     }
 
     .modal-content {
+
       width:
         min(
           500px,
           90%
         );
 
-      max-height:
-        85vh;
-
-      overflow-y:
-        auto;
-
       padding:
         28px;
 
       background:
         rgba(
-          20,
-          18,
-          25,
-          0.9
+          22,
+          19,
+          26,
+          .9
         );
 
       border:
@@ -893,17 +910,12 @@
       border-radius:
         25px;
 
-      box-shadow:
-        0 25px 70px
-        rgba(
-          0,
-          0,
-          0,
-          0.7
-        );
+      text-align:
+        center;
     }
 
     .close-btn {
+
       float:
         left;
 
@@ -917,38 +929,16 @@
         white;
 
       font-size:
-        28px;
+        25px;
 
       cursor:
         pointer;
     }
 
-    .cart-item {
-      display:
-        flex;
-
-      justify-content:
-        space-between;
-
-      align-items:
-        center;
-
-      padding:
-        12px 0;
-
-      border-bottom:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.1
-        );
-    }
-
     /* پیام */
 
     .toast {
+
       position:
         fixed;
 
@@ -972,7 +962,7 @@
           20,
           18,
           25,
-          0.92
+          .95
         );
 
       border:
@@ -980,16 +970,19 @@
         var(--border);
 
       transform:
-        translateY(120px);
+        translateY(
+          120px
+        );
 
       opacity:
         0;
 
       transition:
-        0.4s;
+        .4s;
     }
 
     .toast.show {
+
       transform:
         translateY(0);
 
@@ -1000,6 +993,7 @@
     /* واتساپ */
 
     .chat {
+
       position:
         fixed;
 
@@ -1010,7 +1004,7 @@
         22px;
 
       z-index:
-        2000;
+        1000;
 
       color:
         white;
@@ -1029,20 +1023,12 @@
           37,
           211,
           102,
-          0.85
-        );
-
-      box-shadow:
-        0 10px 28px
-        rgba(
-          0,
-          0,
-          0,
-          0.4
+          .85
         );
     }
 
     footer {
+
       margin-top:
         50px;
 
@@ -1057,47 +1043,40 @@
           0,
           0,
           0,
-          0.3
+          .3
         );
-
-      border-top:
-        1px solid
-        var(--border);
     }
 
     @media (
-      max-width: 600px
+      max-width:
+      600px
     ) {
 
       nav {
+
         justify-content:
           center;
       }
 
-      .logo {
-        width:
-          145px;
-
-        height:
-          145px;
-      }
-
       .hero-slider {
+
         height:
           230px;
       }
 
-      .glass-card {
-        padding:
-          20px 14px;
+      .logo {
+
+        width:
+          150px;
+
+        height:
+          150px;
       }
 
-      .chat {
-        left:
-          12px;
+      .glass-card {
 
-        bottom:
-          12px;
+        padding:
+          18px;
       }
 
     }
@@ -1114,8 +1093,7 @@
     style="display:flex;">
 
     <div
-      class="modal-content"
-      style="text-align:center;">
+      class="modal-content">
 
       <h2>
         ✨ پوشاک زنانه احمدی
@@ -1139,57 +1117,14 @@
 
   </div>
 
-  <!-- جزئیات محصول -->
-
-  <div
-    class="modal"
-    id="productModal">
-
-    <div class="modal-content">
-
-      <button
-        class="close-btn"
-        onclick="closeProduct()">
-
-        ×
-
-      </button>
-
-      <h2
-        id="detailName">
-
-      </h2>
-
-      <p
-        id="detailText">
-
-      </p>
-
-      <h3
-        class="price"
-        id="detailPrice">
-
-      </h3>
-
-      <button
-        class="action-btn"
-        onclick="addDetailToCart()">
-
-        افزودن به سبد 🛒
-
-      </button>
-
-    </div>
-
-  </div>
-
   <!-- سبد خرید -->
 
   <div
     class="modal"
     id="cartModal">
 
-    <div class="modal-content">
+    <div
+      class="modal-content">
 
       <button
         class="close-btn"
@@ -1255,12 +1190,10 @@
 
   <header id="home">
 
-    <!-- لوگوی PNG -->
-
     <div class="logo">
 
       <img
-        src="images/logo.png"
+        src="ChatGPT Image ۱۲ مرداد ۱۴۰۵، ۱۶_۴۷_۳۲.png"
         alt="لوگوی پوشاک زنانه احمدی">
 
     </div>
@@ -1287,7 +1220,8 @@
       class="slide active"
       style="
       background-image:
-      url('images/light-flower.jpg');">
+      url('images/light-flower.jpg');
+      ">
 
       <div class="slide-text">
 
@@ -1301,7 +1235,8 @@
       class="slide"
       style="
       background-image:
-      url('images/burgundy.jpg');">
+      url('images/burgundy.jpg');
+      ">
 
       <div class="slide-text">
 
@@ -1315,7 +1250,8 @@
       class="slide"
       style="
       background-image:
-      url('images/cream.jpg');">
+      url('images/cream.jpg');
+      ">
 
       <div class="slide-text">
 
@@ -1332,15 +1268,15 @@
     <section class="glass-card">
 
       <h2>
-        به بوتیک احمدی خوش آمدید 🌸
+        به بوتیک احمدی
+        خوش آمدید 🌸
       </h2>
 
       <p>
 
-        مجموعه‌ای از مدل‌های خاص
-        و جدید برای استایل روز شما.
-        محصولات مورد علاقه‌تان را
-        به سبد خرید اضافه کنید.
+        مجموعه‌ای از مدل‌های
+        خاص و جدید برای
+        استایل روز شما.
 
       </p>
 
@@ -1372,36 +1308,11 @@
             🌺 شومیز گل‌دار
           </h3>
 
-          <div class="product-info">
-
-            <span>
-              رنگ: صورتی
-            </span>
-
-            <span>
-              سایز: S تا XL
-            </span>
-
-          </div>
-
-          <div class="price">
+          <p class="price">
 
             ۱٬۲۹۰٬۰۰۰ تومان
 
-          </div>
-
-          <button
-            class="action-btn secondary-btn"
-            onclick="
-            showProduct(
-            'شومیز گل‌دار',
-            'شومیز سبک و شیک مناسب استایل روزانه.',
-            '۱٬۲۹۰٬۰۰۰ تومان'
-            )">
-
-            جزئیات
-
-          </button>
+          </p>
 
           <button
             class="action-btn"
@@ -1422,7 +1333,7 @@
 
             <img
               src="images/burgundy.jpg"
-              alt="مانتو کتی زرشکی">
+              alt="مانتو زرشکی">
 
           </div>
 
@@ -1430,36 +1341,11 @@
             🍷 مانتو کتی زرشکی
           </h3>
 
-          <div class="product-info">
-
-            <span>
-              رنگ: زرشکی
-            </span>
-
-            <span>
-              سایز: M تا XL
-            </span>
-
-          </div>
-
-          <div class="price">
+          <p class="price">
 
             ۲٬۴۹۰٬۰۰۰ تومان
 
-          </div>
-
-          <button
-            class="action-btn secondary-btn"
-            onclick="
-            showProduct(
-            'مانتو کتی زرشکی',
-            'مانتوی مجلسی با طراحی مدرن و دوخت باکیفیت.',
-            '۲٬۴۹۰٬۰۰۰ تومان'
-            )">
-
-            جزئیات
-
-          </button>
+          </p>
 
           <button
             class="action-btn"
@@ -1480,7 +1366,7 @@
 
             <img
               src="images/cream.jpg"
-              alt="ست شومیز و شلوار">
+              alt="ست کرم">
 
           </div>
 
@@ -1488,36 +1374,11 @@
             🍃 ست شومیز و شلوار
           </h3>
 
-          <div class="product-info">
-
-            <span>
-              رنگ: کرم
-            </span>
-
-            <span>
-              سایز: S تا XL
-            </span>
-
-          </div>
-
-          <div class="price">
+          <p class="price">
 
             ۲٬۱۹۰٬۰۰۰ تومان
 
-          </div>
-
-          <button
-            class="action-btn secondary-btn"
-            onclick="
-            showProduct(
-            'ست شومیز و شلوار',
-            'ست راحت و شیک برای استایل روزمره.',
-            '۲٬۱۹۰٬۰۰۰ تومان'
-            )">
-
-            جزئیات
-
-          </button>
+          </p>
 
           <button
             class="action-btn"
@@ -1559,8 +1420,7 @@
           </b>
 
           <p>
-            ارسال سفارش
-            با بسته‌بندی مناسب
+            ارسال با بسته‌بندی مناسب
           </p>
 
         </div>
@@ -1576,8 +1436,8 @@
           </b>
 
           <p>
-            انتخاب پارچه و دوخت
-            با دقت
+            انتخاب دقیق پارچه
+            و دوخت باکیفیت
           </p>
 
         </div>
@@ -1589,12 +1449,12 @@
           </span>
 
           <b>
-            پشتیبانی خرید
+            پشتیبانی
           </b>
 
           <p>
             راهنمایی برای
-            انتخاب محصول
+            خرید بهتر
           </p>
 
         </div>
@@ -1605,8 +1465,6 @@
 
   </main>
 
-  <!-- واتساپ -->
-
   <a
     class="chat"
     href="https://wa.me/989000000000"
@@ -1615,8 +1473,6 @@
     💬 مشاوره خرید
 
   </a>
-
-  <!-- پیام -->
 
   <div
     class="toast"
@@ -1629,10 +1485,7 @@
   <footer>
 
     © پوشاک زنانه احمدی
-
-    <br>
-
-    همه حقوق محفوظ است ❤️
+    | همه حقوق محفوظ است ❤️
 
   </footer>
 
@@ -1640,48 +1493,14 @@
 
     let cart = [];
 
-    let selectedProduct = "";
-
     function closeWelcome() {
 
       document
-        .getElementById(
-          "welcomeModal"
-        )
-        .style.display =
-        "none";
-
-    }
-
-    function showToast() {
-
-      const toast =
-        document
-          .getElementById(
-            "toast"
-          );
-
-      toast
-        .classList
-        .add(
-          "show"
-        );
-
-      setTimeout(
-
-        function() {
-
-          toast
-            .classList
-            .remove(
-              "show"
-            );
-
-        },
-
-        2500
-
-      );
+      .getElementById(
+        "welcomeModal"
+      )
+      .style.display =
+      "none";
 
     }
 
@@ -1698,24 +1517,26 @@
     function updateCart() {
 
       document
-        .getElementById(
-          "cartCount"
-        )
-        .textContent =
-        cart.length;
+      .getElementById(
+        "cartCount"
+      )
+      .textContent =
+      cart.length;
 
       const list =
-        document
-          .getElementById(
-            "cartList"
-          );
+
+      document
+      .getElementById(
+        "cartList"
+      );
 
       if (
         cart.length === 0
       ) {
 
         list.innerHTML =
-          "سبد خرید خالی است.";
+
+        "سبد خرید خالی است.";
 
         return;
 
@@ -1733,19 +1554,36 @@
           list.innerHTML +=
 
           `
-          <div class="cart-item">
+          <div
+          style="
+          padding:12px;
+          border-bottom:
+          1px solid
+          rgba(
+          255,
+          255,
+          255,
+          .1
+          );
+          ">
 
-            <span>
-              ${item}
-            </span>
+          ${item}
 
-            <button
-              class="action-btn"
-              onclick="removeCart(${index})">
+          <button
+          class="action-btn"
+          style="
+          float:left;
+          padding:5px 10px;
+          "
 
-              حذف
+          onclick="
+          removeCart(
+          ${index}
+          )">
 
-            </button>
+          حذف
+
+          </button>
 
           </div>
           `;
@@ -1770,90 +1608,62 @@
     function openCart() {
 
       document
-        .getElementById(
-          "cartModal"
-        )
-        .style.display =
-        "flex";
+      .getElementById(
+        "cartModal"
+      )
+      .style.display =
+      "flex";
 
     }
 
     function closeCart() {
 
       document
-        .getElementById(
-          "cartModal"
-        )
-        .style.display =
-        "none";
+      .getElementById(
+        "cartModal"
+      )
+      .style.display =
+      "none";
 
     }
 
-    function showProduct(
-      name,
-      text,
-      price
-    ) {
+    function showToast() {
 
-      selectedProduct =
-        name;
+      const toast =
 
       document
-        .getElementById(
-          "detailName"
-        )
-        .textContent =
-        name;
-
-      document
-        .getElementById(
-          "detailText"
-        )
-        .textContent =
-        text;
-
-      document
-        .getElementById(
-          "detailPrice"
-        )
-        .textContent =
-        price;
-
-      document
-        .getElementById(
-          "productModal"
-        )
-        .style.display =
-        "flex";
-
-    }
-
-    function closeProduct() {
-
-      document
-        .getElementById(
-          "productModal"
-        )
-        .style.display =
-        "none";
-
-    }
-
-    function addDetailToCart() {
-
-      addToCart(
-        selectedProduct
+      .getElementById(
+        "toast"
       );
 
-      closeProduct();
+      toast.classList.add(
+        "show"
+      );
+
+      setTimeout(
+
+        function() {
+
+          toast.classList.remove(
+            "show"
+          );
+
+        },
+
+        2500
+
+      );
 
     }
 
+    /* اسلایدر */
+
     const slides =
-      document
-        .querySelectorAll(
-          ".slide"
-        );
+
+    document
+    .querySelectorAll(
+      ".slide"
+    );
 
     let currentSlide = 0;
 
@@ -1864,23 +1674,22 @@
         slides[
           currentSlide
         ]
-        .classList
-        .remove(
+        .classList.remove(
           "active"
         );
 
         currentSlide =
-          (
-            currentSlide + 1
-          )
-          %
-          slides.length;
+
+        (
+          currentSlide + 1
+        )
+        %
+        slides.length;
 
         slides[
           currentSlide
         ]
-        .classList
-        .add(
+        .classList.add(
           "active"
         );
 
@@ -1890,45 +1699,49 @@
 
     );
 
+    /* ظاهر شدن کارت‌ها */
+
     const cards =
-      document
-        .querySelectorAll(
-          ".glass-card"
-        );
+
+    document
+    .querySelectorAll(
+      ".glass-card"
+    );
 
     const observer =
-      new IntersectionObserver(
 
-        function(entries) {
+    new IntersectionObserver(
 
-          entries.forEach(
+      function(entries) {
 
-            function(entry) {
+        entries.forEach(
 
-              if (
-                entry.isIntersecting
-              ) {
+          function(entry) {
 
-                entry
-                  .target
-                  .classList
-                  .add(
-                    "visible"
-                  );
+            if (
+              entry.isIntersecting
+            ) {
 
-              }
+              entry
+              .target
+              .classList.add(
+                "visible"
+              );
 
             }
 
-          );
+          }
 
-        },
+        );
 
-        {
-          threshold: 0.12
-        }
+      },
 
-      );
+      {
+        threshold:
+        0.1
+      }
+
+    );
 
     cards.forEach(
 
