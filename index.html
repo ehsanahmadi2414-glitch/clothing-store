@@ -3,1759 +3,2907 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>پوشاک زنانه احمدی 👗 | بوتیک آنلاین بانوان</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>
+    پوشاک زنانه احمدی | بوتیک آنلاین
+  </title>
 
   <style>
+
     :root {
-      --gold: #e6a93c;
-      --gold-light: #ffd77a;
-      --pink: #f43f5e;
-      --dark: #08090f;
-      --glass: rgba(25, 22, 30, 0.62);
-      --text: #f8fafc;
-      --border: rgba(255, 220, 150, 0.24);
+
+      --gold: #e8b54f;
+
+      --gold-light: #ffe19a;
+
+      --pink: #ec5d7b;
+
+      --dark: #09090d;
+
+      --dark-2: #151017;
+
+      --glass:
+      rgba(25, 20, 27, 0.68);
+
+      --glass-light:
+      rgba(255, 255, 255, 0.07);
+
+      --text:
+      #f8f5f0;
+
+      --muted:
+      #c9c1c5;
+
+      --border:
+      rgba(232, 181, 79, 0.25);
+
+      --green:
+      #20b968;
+
     }
+
 
     * {
-      box-sizing: border-box;
+
+      box-sizing:
+      border-box;
+
     }
+
 
     html {
-      scroll-behavior: smooth;
+
+      scroll-behavior:
+      smooth;
+
     }
+
 
     body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Tahoma, Arial, sans-serif;
-      color: var(--text);
+
+      margin:
+      0;
+
+      min-height:
+      100vh;
+
+      font-family:
+      Tahoma,
+      Arial,
+      sans-serif;
+
+      color:
+      var(--text);
 
       background:
-        radial-gradient(
-          circle at 15% 20%,
-          rgba(230, 169, 60, 0.18),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 85% 75%,
-          rgba(244, 63, 94, 0.14),
-          transparent 35%
-        ),
-        linear-gradient(
-          135deg,
-          #07070b,
-          #16100c,
-          #080b16
-        );
 
-      background-attachment: fixed;
-      overflow-x: hidden;
+      radial-gradient(
+      circle at 15% 15%,
+      rgba(232,181,79,.16),
+      transparent 28%
+      ),
+
+      radial-gradient(
+      circle at 85% 75%,
+      rgba(236,93,123,.13),
+      transparent 30%
+      ),
+
+      linear-gradient(
+      135deg,
+      #07070b,
+      #1a1010,
+      #090b15
+      );
+
+      background-attachment:
+      fixed;
+
+      overflow-x:
+      hidden;
+
     }
+
 
     body::before,
+
     body::after {
-      content: "";
-      position: fixed;
 
-      width: 340px;
-      height: 340px;
+      content:
+      "";
 
-      border-radius: 50%;
+      position:
+      fixed;
 
-      filter: blur(80px);
+      width:
+      330px;
 
-      opacity: 0.18;
+      height:
+      330px;
 
-      z-index: -1;
+      border-radius:
+      50%;
+
+      filter:
+      blur(90px);
+
+      opacity:
+      .16;
+
+      z-index:
+      -1;
 
       animation:
-        floatLight
-        12s
-        ease-in-out
-        infinite;
+      lightMove
+      13s
+      ease-in-out
+      infinite;
+
     }
+
 
     body::before {
-      background: var(--gold);
 
-      top: -100px;
-      right: -100px;
+      top:
+      -120px;
+
+      right:
+      -100px;
+
+      background:
+      var(--gold);
+
     }
+
 
     body::after {
-      background: var(--pink);
 
-      bottom: -120px;
-      left: -100px;
+      bottom:
+      -120px;
 
-      animation-delay: -6s;
+      left:
+      -100px;
+
+      background:
+      var(--pink);
+
+      animation-delay:
+      -6s;
+
     }
 
-    @keyframes floatLight {
+
+    @keyframes lightMove {
 
       0%,
       100% {
+
         transform:
-          translate(0, 0);
+        translate(0,0);
+
       }
 
       50% {
+
         transform:
-          translate(-50px, 45px);
+        translate(-55px,45px);
+
       }
 
     }
 
-    /* نوار منو */
+
+    /* نوار بالا */
+
 
     nav {
-      position: sticky;
 
-      top: 15px;
+      position:
+      sticky;
 
-      z-index: 100;
+      top:
+      12px;
+
+      z-index:
+      1000;
 
       width:
-        min(
-          950px,
-          calc(100% - 24px)
-        );
+      min(
+      1150px,
+      calc(100% - 24px)
+      );
 
       margin:
-        15px auto;
+      12px auto;
 
       padding:
-        11px 16px;
+      10px 16px;
 
-      display: flex;
+      display:
+      flex;
 
       justify-content:
-        space-between;
+      space-between;
 
       align-items:
-        center;
+      center;
 
-      gap: 10px;
+      gap:
+      10px;
 
       flex-wrap:
-        wrap;
+      wrap;
 
       background:
-        var(--glass);
+      var(--glass);
 
       border:
-        1px solid
-        var(--border);
+      1px solid
+      var(--border);
 
       border-radius:
-        50px;
+      50px;
 
       backdrop-filter:
-        blur(20px);
+      blur(22px);
 
       -webkit-backdrop-filter:
-        blur(20px);
+      blur(22px);
 
       box-shadow:
-        0 15px 40px
-        rgba(0,0,0,.35);
+
+      0 15px 45px
+      rgba(0,0,0,.4),
+
+      inset 0 1px 0
+      rgba(255,255,255,.1);
+
     }
+
 
     .nav-links {
-      display: flex;
 
-      gap: 5px;
+      display:
+      flex;
+
+      align-items:
+      center;
+
+      gap:
+      4px;
 
       flex-wrap:
-        wrap;
+      wrap;
+
     }
+
 
     nav a,
+
     .nav-btn {
 
-      color:
-        var(--text);
-
-      text-decoration:
-        none;
-
       border:
-        0;
+      0;
+
+      color:
+      var(--text);
 
       background:
-        transparent;
+      transparent;
+
+      text-decoration:
+      none;
 
       padding:
-        9px 14px;
+      10px 14px;
 
       border-radius:
-        25px;
+      25px;
 
       cursor:
-        pointer;
+      pointer;
 
       font-family:
-        inherit;
+      inherit;
 
       font-weight:
-        bold;
+      bold;
 
       transition:
-        .25s;
+      .25s;
+
     }
 
+
     nav a:hover,
+
     .nav-btn:hover {
 
       background:
-        rgba(
-          230,
-          169,
-          60,
-          .2
-        );
+      rgba(232,181,79,.16);
 
       color:
-        var(--gold-light);
+      var(--gold-light);
+
     }
+
 
     .cart-badge {
 
-      background:
-        var(--gold);
+      display:
+      inline-grid;
 
-      color:
-        #111;
+      place-items:
+      center;
+
+      min-width:
+      22px;
+
+      height:
+      22px;
 
       padding:
-        2px 7px;
+      2px 6px;
 
       border-radius:
-        50%;
+      50%;
+
+      background:
+      var(--gold);
+
+      color:
+      #111;
 
       font-size:
-        12px;
+      12px;
+
     }
+
 
     /* هدر */
 
+
     header {
 
-      padding:
-        25px 15px
-        25px;
-
-      text-align:
-        center;
-    }
-
-    /* لوگوی اصلی */
-
-    .logo {
-
       width:
-        190px;
-
-      height:
-        190px;
+      min(
+      1000px,
+      calc(100% - 24px)
+      );
 
       margin:
-        20px auto;
+      auto;
 
-      border-radius:
-        50%;
+      padding:
+      65px 15px
+      35px;
 
-      overflow:
-        hidden;
+      text-align:
+      center;
 
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          .45
-        );
-
-      border:
-        2px solid
-        rgba(
-          230,
-          169,
-          60,
-          .8
-        );
-
-      box-shadow:
-
-        0 18px 50px
-        rgba(
-          0,
-          0,
-          0,
-          .6
-        ),
-
-        0 0 35px
-        rgba(
-          230,
-          169,
-          60,
-          .25
-        );
-
-      transition:
-        .4s;
     }
 
-    .logo:hover {
 
-      transform:
-        scale(1.05);
-
-      box-shadow:
-
-        0 20px 60px
-        rgba(
-          0,
-          0,
-          0,
-          .7
-        ),
-
-        0 0 50px
-        rgba(
-          230,
-          169,
-          60,
-          .4
-        );
-    }
-
-    .logo img {
+    .brand-icon {
 
       width:
-        100%;
+      105px;
 
       height:
-        100%;
+      105px;
 
-      object-fit:
-        cover;
+      margin:
+      auto;
 
       display:
-        block;
+      grid;
+
+      place-items:
+      center;
+
+      font-size:
+      48px;
+
+      border-radius:
+      35px;
+
+      background:
+      rgba(255,255,255,.06);
+
+      border:
+      1px solid
+      var(--border);
+
+      backdrop-filter:
+      blur(18px);
+
+      box-shadow:
+
+      0 20px 50px
+      rgba(0,0,0,.4),
+
+      0 0 30px
+      rgba(232,181,79,.12);
+
     }
+
 
     h1 {
 
       margin:
-        8px;
+      22px 0 8px;
 
       color:
-        var(--gold-light);
+      var(--gold-light);
 
       font-size:
-        clamp(
-          27px,
-          5vw,
-          45px
-        );
+      clamp(
+      32px,
+      6vw,
+      58px
+      );
+
     }
+
 
     .subtitle {
 
-      opacity:
-        .8;
+      max-width:
+      700px;
 
       margin:
-        0 auto;
+      auto;
 
-      max-width:
-        650px;
+      color:
+      var(--muted);
 
       line-height:
-        2;
-    }
-
-    /* اسلایدر */
-
-    .hero-slider {
-
-      width:
-        min(
-          950px,
-          calc(
-            100% - 24px
-          )
-        );
-
-      height:
-        310px;
-
-      margin:
-        20px auto;
-
-      position:
-        relative;
-
-      overflow:
-        hidden;
-
-      border-radius:
-        28px;
-
-      border:
-        1px solid
-        var(--border);
-
-      background:
-        var(--glass);
-
-      box-shadow:
-        0 20px 55px
-        rgba(
-          0,
-          0,
-          0,
-          .4
-        );
-    }
-
-    .slide {
-
-      position:
-        absolute;
-
-      inset:
-        0;
-
-      opacity:
-        0;
-
-      transition:
-        opacity 1s;
-
-      display:
-        grid;
-
-      place-items:
-        center;
-
-      background-size:
-        cover;
-
-      background-position:
-        center;
-    }
-
-    .slide.active {
-      opacity: 1;
-    }
-
-    .slide::before {
-
-      content:
-        "";
-
-      position:
-        absolute;
-
-      inset:
-        0;
-
-      background:
-
-        linear-gradient(
-
-          120deg,
-
-          rgba(
-            0,
-            0,
-            0,
-            .72
-          ),
-
-          rgba(
-            0,
-            0,
-            0,
-            .15
-          )
-
-        );
-    }
-
-    .slide-text {
-
-      position:
-        relative;
-
-      padding:
-        15px 25px;
-
-      border-radius:
-        18px;
-
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          .55
-        );
-
-      border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          .2
-        );
+      2;
 
       font-size:
-        clamp(
-          18px,
-          3vw,
-          28px
-        );
+      17px;
 
-      font-weight:
-        bold;
     }
 
-    /* کارت‌ها */
 
-    main {
-
-      width:
-        min(
-          950px,
-          calc(
-            100% - 24px
-          )
-        );
-
-      margin:
-        auto;
-    }
-
-    .glass-card {
-
-      padding:
-        28px;
-
-      margin:
-        25px 0;
-
-      background:
-        var(--glass);
-
-      border:
-        1px solid
-        var(--border);
-
-      border-radius:
-        26px;
-
-      backdrop-filter:
-        blur(20px);
-
-      box-shadow:
-        0 18px 50px
-        rgba(
-          0,
-          0,
-          0,
-          .35
-        );
-
-      opacity:
-        0;
-
-      transform:
-        translateY(
-          25px
-        );
-
-      transition:
-        .7s;
-    }
-
-    .glass-card.visible {
-
-      opacity:
-        1;
-
-      transform:
-        translateY(0);
-    }
-
-    h2 {
-
-      color:
-        var(--gold-light);
-
-      text-align:
-        center;
-    }
-
-    /* محصولات */
-
-    .product-grid {
+    .hero-buttons {
 
       display:
-        grid;
+      flex;
 
-      grid-template-columns:
-
-        repeat(
-          auto-fit,
-          minmax(
-            210px,
-            1fr
-          )
-        );
+      justify-content:
+      center;
 
       gap:
-        18px;
+      10px;
+
+      flex-wrap:
+      wrap;
+
+      margin-top:
+      25px;
+
     }
 
-    .product {
 
-      padding:
-        14px;
+    /* دکمه‌ها */
 
-      text-align:
-        center;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          .055
-        );
-
-      border:
-        1px solid
-        rgba(
-          255,
-          220,
-          150,
-          .18
-        );
-
-      border-radius:
-        21px;
-
-      transition:
-        .35s;
-    }
-
-    .product:hover {
-
-      transform:
-        translateY(-8px);
-
-      border-color:
-        var(--gold);
-
-      box-shadow:
-        0 22px 45px
-        rgba(
-          0,
-          0,
-          0,
-          .5
-        );
-    }
-
-    .product-image {
-
-      height:
-        255px;
-
-      overflow:
-        hidden;
-
-      border-radius:
-        16px;
-
-      background:
-        #151118;
-    }
-
-    .product-image img {
-
-      width:
-        100%;
-
-      height:
-        100%;
-
-      object-fit:
-        cover;
-
-      transition:
-        .5s;
-    }
-
-    .product:hover img {
-
-      transform:
-        scale(1.12);
-    }
-
-    .price {
-
-      color:
-        var(--gold-light);
-
-      font-size:
-        17px;
-
-      font-weight:
-        bold;
-    }
-
-    /* دکمه */
 
     .action-btn {
 
       border:
-        0;
+      0;
 
       color:
-        white;
+      white;
 
       padding:
-        11px 18px;
+      12px 20px;
 
       border-radius:
-        30px;
+      30px;
 
       cursor:
-        pointer;
+      pointer;
 
       font-family:
-        inherit;
+      inherit;
 
       font-weight:
-        bold;
+      bold;
 
       background:
 
-        linear-gradient(
+      linear-gradient(
+      135deg,
+      #e8b54f,
+      #a86613
+      );
 
-          135deg,
+      box-shadow:
 
-          #e6a93c,
-
-          #b96e12
-
-        );
+      0 10px 28px
+      rgba(232,181,79,.25);
 
       transition:
-        .25s;
+      .25s;
+
     }
+
 
     .action-btn:hover {
 
       transform:
-        translateY(-3px);
+      translateY(-3px)
+      scale(1.03);
+
+      box-shadow:
+
+      0 15px 35px
+      rgba(232,181,79,.4);
+
     }
+
 
     .secondary-btn {
 
       background:
-        rgba(
-          255,
-          255,
-          255,
-          .1
-        );
+      rgba(255,255,255,.08);
 
       border:
-        1px solid
-        var(--border);
+      1px solid
+      var(--border);
+
     }
 
+
+    /* کارت شیشه‌ای */
+
+
+    main {
+
+      width:
+      min(
+      1150px,
+      calc(100% - 24px)
+      );
+
+      margin:
+      auto;
+
+    }
+
+
+    .glass-card {
+
+      padding:
+      28px;
+
+      margin:
+      24px 0;
+
+      border-radius:
+      28px;
+
+      background:
+      var(--glass);
+
+      border:
+      1px solid
+      var(--border);
+
+      backdrop-filter:
+      blur(22px);
+
+      -webkit-backdrop-filter:
+      blur(22px);
+
+      box-shadow:
+
+      0 20px 55px
+      rgba(0,0,0,.35);
+
+    }
+
+
+    h2 {
+
+      margin-top:
+      0;
+
+      color:
+      var(--gold-light);
+
+      text-align:
+      center;
+
+      font-size:
+      27px;
+
+    }
+
+
+    /* جستجو */
+
+
+    .search-box {
+
+      width:
+      min(
+      650px,
+      100%
+      );
+
+      margin:
+      20px auto;
+
+      display:
+      flex;
+
+      gap:
+      8px;
+
+      padding:
+      8px;
+
+      border-radius:
+      50px;
+
+      background:
+      rgba(255,255,255,.06);
+
+      border:
+      1px solid
+      var(--border);
+
+    }
+
+
+    .search-box input {
+
+      flex:
+      1;
+
+      min-width:
+      0;
+
+      padding:
+      12px;
+
+      border:
+      0;
+
+      outline:
+      0;
+
+      color:
+      white;
+
+      background:
+      transparent;
+
+      font-family:
+      inherit;
+
+    }
+
+
+    /* فیلتر */
+
+
+    .filters {
+
+      display:
+      flex;
+
+      justify-content:
+      center;
+
+      gap:
+      10px;
+
+      flex-wrap:
+      wrap;
+
+      margin:
+      20px 0;
+
+    }
+
+
+    .filter-btn {
+
+      border:
+      1px solid
+      var(--border);
+
+      color:
+      white;
+
+      padding:
+      9px 15px;
+
+      border-radius:
+      25px;
+
+      cursor:
+      pointer;
+
+      background:
+      rgba(255,255,255,.05);
+
+      font-family:
+      inherit;
+
+    }
+
+
+    .filter-btn.active,
+
+    .filter-btn:hover {
+
+      color:
+      #17100a;
+
+      background:
+      var(--gold);
+
+    }
+
+
+    /* محصولات */
+
+
+    .product-grid {
+
+      display:
+      grid;
+
+      grid-template-columns:
+
+      repeat(
+      auto-fit,
+      minmax(220px,1fr)
+      );
+
+      gap:
+      18px;
+
+    }
+
+
+    .product {
+
+      position:
+      relative;
+
+      overflow:
+      hidden;
+
+      padding:
+      13px;
+
+      text-align:
+      center;
+
+      border-radius:
+      22px;
+
+      background:
+      rgba(255,255,255,.055);
+
+      border:
+      1px solid
+      rgba(232,181,79,.18);
+
+      transition:
+      .3s;
+
+    }
+
+
+    .product:hover {
+
+      transform:
+      translateY(-8px);
+
+      border-color:
+      rgba(232,181,79,.65);
+
+      box-shadow:
+
+      0 22px 48px
+      rgba(0,0,0,.5);
+
+    }
+
+
+    .favorite {
+
+      position:
+      absolute;
+
+      top:
+      23px;
+
+      right:
+      23px;
+
+      z-index:
+      5;
+
+      width:
+      40px;
+
+      height:
+      40px;
+
+      border:
+      0;
+
+      border-radius:
+      50%;
+
+      cursor:
+      pointer;
+
+      background:
+      rgba(0,0,0,.55);
+
+      color:
+      white;
+
+      font-size:
+      20px;
+
+    }
+
+
+    .favorite.active {
+
+      color:
+      #ff5474;
+
+    }
+
+
+    .product-image {
+
+      height:
+      270px;
+
+      overflow:
+      hidden;
+
+      border-radius:
+      17px;
+
+      background:
+      #171018;
+
+    }
+
+
+    .product-image img {
+
+      width:
+      100%;
+
+      height:
+      100%;
+
+      object-fit:
+      cover;
+
+      transition:
+      .5s;
+
+    }
+
+
+    .product:hover img {
+
+      transform:
+      scale(1.1);
+
+    }
+
+
+    .product h3 {
+
+      margin:
+      14px 0 8px;
+
+    }
+
+
+    .product-info {
+
+      display:
+      flex;
+
+      justify-content:
+      space-between;
+
+      gap:
+      5px;
+
+      color:
+      var(--muted);
+
+      font-size:
+      13px;
+
+    }
+
+
+    .price {
+
+      margin:
+      12px;
+
+      color:
+      var(--gold-light);
+
+      font-size:
+      18px;
+
+      font-weight:
+      bold;
+
+    }
+
+
+    .old-price {
+
+      color:
+      #999;
+
+      text-decoration:
+      line-through;
+
+      font-size:
+      13px;
+
+    }
+
+
+    .discount {
+
+      position:
+      absolute;
+
+      top:
+      25px;
+
+      left:
+      25px;
+
+      z-index:
+      4;
+
+      padding:
+      6px 9px;
+
+      border-radius:
+      15px;
+
+      background:
+      #e83e61;
+
+      font-size:
+      12px;
+
+    }
+
+
+    /* تخفیف */
+
+
+    .offer {
+
+      text-align:
+      center;
+
+      background:
+
+      linear-gradient(
+      135deg,
+      rgba(232,181,79,.15),
+      rgba(236,93,123,.1)
+      );
+
+    }
+
+
+    #timer {
+
+      display:
+      flex;
+
+      justify-content:
+      center;
+
+      gap:
+      10px;
+
+      flex-wrap:
+      wrap;
+
+      margin:
+      20px;
+
+    }
+
+
+    .time-box {
+
+      min-width:
+      75px;
+
+      padding:
+      15px;
+
+      border-radius:
+      18px;
+
+      background:
+      rgba(0,0,0,.35);
+
+      border:
+      1px solid
+      var(--border);
+
+    }
+
+
+    .time-box b {
+
+      display:
+      block;
+
+      color:
+      var(--gold-light);
+
+      font-size:
+      25px;
+
+    }
+
+
     /* مزایا */
+
 
     .benefits {
 
       display:
-        grid;
+      grid;
 
       grid-template-columns:
 
-        repeat(
-
-          auto-fit,
-
-          minmax(
-            190px,
-            1fr
-          )
-
-        );
+      repeat(
+      auto-fit,
+      minmax(190px,1fr)
+      );
 
       gap:
-        15px;
+      15px;
+
     }
+
 
     .benefit {
 
       padding:
-        22px 15px;
+      22px;
 
       text-align:
-        center;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          .055
-        );
-
-      border:
-        1px solid
-        var(--border);
+      center;
 
       border-radius:
-        20px;
+      20px;
+
+      background:
+      rgba(255,255,255,.05);
+
+      border:
+      1px solid
+      var(--border);
+
     }
+
 
     .benefit span {
 
       display:
-        block;
+      block;
 
       font-size:
-        35px;
+      36px;
+
+      margin-bottom:
+      8px;
+
     }
 
-    /* پنجره */
+
+    /* سوالات */
+
+
+    details {
+
+      margin:
+      12px 0;
+
+      padding:
+      15px;
+
+      border-radius:
+      16px;
+
+      background:
+      rgba(255,255,255,.05);
+
+      border:
+      1px solid
+      var(--border);
+
+    }
+
+
+    summary {
+
+      cursor:
+      pointer;
+
+      font-weight:
+      bold;
+
+      color:
+      var(--gold-light);
+
+    }
+
+
+    details p {
+
+      color:
+      var(--muted);
+
+      line-height:
+      2;
+
+    }
+
+
+    /* مدال */
+
 
     .modal {
 
       display:
-        none;
+      none;
 
       position:
-        fixed;
+      fixed;
 
       inset:
-        0;
+      0;
 
       z-index:
-        2000;
+      3000;
 
       justify-content:
-        center;
+      center;
 
       align-items:
-        center;
+      center;
+
+      padding:
+      15px;
 
       background:
-        rgba(
-          0,
-          0,
-          0,
-          .78
-        );
+      rgba(0,0,0,.75);
 
       backdrop-filter:
-        blur(10px);
+      blur(10px);
+
     }
+
 
     .modal-content {
 
       width:
-        min(
-          500px,
-          90%
-        );
+      min(
+      560px,
+      100%
+      );
+
+      max-height:
+      85vh;
+
+      overflow-y:
+      auto;
 
       padding:
-        28px;
-
-      background:
-        rgba(
-          22,
-          19,
-          26,
-          .9
-        );
-
-      border:
-        1px solid
-        var(--border);
+      28px;
 
       border-radius:
-        25px;
+      25px;
 
-      text-align:
-        center;
+      background:
+      rgba(20,17,24,.92);
+
+      border:
+      1px solid
+      var(--border);
+
     }
+
 
     .close-btn {
 
       float:
-        left;
+      left;
 
       border:
-        0;
+      0;
 
       background:
-        transparent;
+      transparent;
 
       color:
-        white;
+      white;
 
       font-size:
-        25px;
+      28px;
 
       cursor:
-        pointer;
+      pointer;
+
     }
 
+
+    /* سبد */
+
+
+    .cart-item {
+
+      display:
+      flex;
+
+      justify-content:
+      space-between;
+
+      align-items:
+      center;
+
+      gap:
+      10px;
+
+      padding:
+      14px 0;
+
+      border-bottom:
+      1px solid
+      rgba(255,255,255,.1);
+
+    }
+
+
+    .remove-btn {
+
+      border:
+      0;
+
+      padding:
+      7px 12px;
+
+      border-radius:
+      15px;
+
+      cursor:
+      pointer;
+
+      color:
+      white;
+
+      background:
+      #a92e45;
+
+      font-family:
+      inherit;
+
+    }
+
+
+    .cart-total {
+
+      margin:
+      18px 0;
+
+      color:
+      var(--gold-light);
+
+      font-size:
+      19px;
+
+      font-weight:
+      bold;
+
+    }
+
+
     /* پیام */
+
 
     .toast {
 
       position:
-        fixed;
+      fixed;
 
       bottom:
-        25px;
+      25px;
 
       right:
-        25px;
+      25px;
 
       z-index:
-        5000;
+      5000;
 
       padding:
-        14px 20px;
+      14px 20px;
 
       border-radius:
-        16px;
+      17px;
 
       background:
-        rgba(
-          20,
-          18,
-          25,
-          .95
-        );
+      rgba(20,18,25,.94);
 
       border:
-        1px solid
-        var(--border);
+      1px solid
+      var(--border);
 
       transform:
-        translateY(
-          120px
-        );
+      translateY(120px);
 
       opacity:
-        0;
+      0;
 
       transition:
-        .4s;
+      .4s;
+
     }
+
 
     .toast.show {
 
       transform:
-        translateY(0);
+      translateY(0);
 
       opacity:
-        1;
+      1;
+
     }
 
+
     /* واتساپ */
+
 
     .chat {
 
       position:
-        fixed;
+      fixed;
 
       left:
-        22px;
+      20px;
 
       bottom:
-        22px;
+      20px;
 
       z-index:
-        1000;
-
-      color:
-        white;
-
-      text-decoration:
-        none;
+      1000;
 
       padding:
-        13px 19px;
+      14px 20px;
+
+      color:
+      white;
+
+      text-decoration:
+      none;
 
       border-radius:
-        40px;
+      40px;
 
       background:
-        rgba(
-          37,
-          211,
-          102,
-          .85
-        );
+      var(--green);
+
+      box-shadow:
+
+      0 10px 30px
+      rgba(0,0,0,.4);
+
     }
+
+
+    /* برگشت بالا */
+
+
+    .top-btn {
+
+      position:
+      fixed;
+
+      right:
+      20px;
+
+      bottom:
+      20px;
+
+      z-index:
+      1000;
+
+      width:
+      48px;
+
+      height:
+      48px;
+
+      border:
+      1px solid
+      var(--border);
+
+      border-radius:
+      50%;
+
+      color:
+      white;
+
+      background:
+      rgba(20,17,24,.85);
+
+      cursor:
+      pointer;
+
+      font-size:
+      20px;
+
+    }
+
 
     footer {
 
       margin-top:
-        50px;
+      50px;
 
       padding:
-        28px;
+      30px;
 
       text-align:
-        center;
+      center;
+
+      color:
+      var(--muted);
 
       background:
-        rgba(
-          0,
-          0,
-          0,
-          .3
-        );
+      rgba(0,0,0,.25);
+
+      border-top:
+      1px solid
+      var(--border);
+
     }
 
-    @media (
-      max-width:
-      600px
-    ) {
+
+    @media
+    (max-width:600px) {
 
       nav {
 
         justify-content:
-          center;
+        center;
+
       }
 
-      .hero-slider {
+      header {
 
-        height:
-          230px;
-      }
+        padding-top:
+        35px;
 
-      .logo {
-
-        width:
-          150px;
-
-        height:
-          150px;
       }
 
       .glass-card {
 
         padding:
-          18px;
+        20px 13px;
+
+      }
+
+      .product-image {
+
+        height:
+        310px;
+
+      }
+
+      .chat {
+
+        left:
+        10px;
+
+        bottom:
+        10px;
+
+      }
+
+      .top-btn {
+
+        right:
+        10px;
+
+        bottom:
+        10px;
+
       }
 
     }
+
   </style>
+
 </head>
+
 
 <body>
 
-  <!-- خوش‌آمدگویی -->
 
-  <div
-    class="modal"
-    id="welcomeModal"
-    style="display:flex;">
+<nav>
 
-    <div
-      class="modal-content">
+  <div class="nav-links">
 
-      <h2>
-        ✨ پوشاک زنانه احمدی
-      </h2>
+    <a href="#home">
+      🏠 خانه
+    </a>
 
-      <p>
-        به دنیای استایل‌های خاص،
-        شیک و لوکس بانوان
-        خوش آمدید.
-      </p>
+    <a href="#products">
+      👗 محصولات
+    </a>
 
-      <button
-        class="action-btn"
-        onclick="closeWelcome()">
+    <a href="#offer">
+      🔥 تخفیف
+    </a>
 
-        ورود به گالری 🛍️
-
-      </button>
-
-    </div>
+    <a href="#about">
+      ✨ درباره ما
+    </a>
 
   </div>
 
-  <!-- سبد خرید -->
 
-  <div
-    class="modal"
-    id="cartModal">
+  <button
+  class="nav-btn"
+  onclick="openCart()">
 
-    <div
-      class="modal-content">
+    🛒 سبد
 
-      <button
-        class="close-btn"
-        onclick="closeCart()">
+    <span
+    class="cart-badge"
+    id="cartCount">
 
-        ×
+      ۰
 
-      </button>
+    </span>
 
-      <h2>
-        🛒 سبد خرید
-      </h2>
+  </button>
 
-      <div id="cartList">
+</nav>
 
-        سبد خرید خالی است.
 
-      </div>
+<header id="home">
 
-    </div>
+  <div class="brand-icon">
+
+    👗
 
   </div>
 
-  <!-- منو -->
 
-  <nav>
+  <h1>
 
-    <div class="nav-links">
+    پوشاک زنانه احمدی
 
-      <a href="#home">
-        🏠 اصلی
-      </a>
+  </h1>
 
-      <a href="#products">
-        👗 محصولات
-      </a>
 
-      <a href="#benefits">
-        ✨ خدمات
-      </a>
+  <p class="subtitle">
 
-    </div>
+    انتخابی خاص برای استایل‌های
+    شیک، مدرن و متفاوت
+
+  </p>
+
+
+  <div class="hero-buttons">
+
+    <a
+    href="#products"
+    class="action-btn">
+
+      مشاهده محصولات 🛍️
+
+    </a>
+
+
+    <a
+    href="#offer"
+    class="action-btn secondary-btn">
+
+      تخفیف‌های ویژه 🔥
+
+    </a>
+
+  </div>
+
+</header>
+
+
+<main>
+
+
+<section class="glass-card">
+
+  <h2>
+
+    🔎 جستجوی لباس
+
+  </h2>
+
+
+  <div class="search-box">
+
+    <input
+    id="searchInput"
+    oninput="searchProducts()"
+    placeholder=
+    "مثلاً مانتو، شومیز یا ست...">
+
+  </div>
+
+
+  <div class="filters">
 
     <button
-      class="nav-btn"
-      onclick="openCart()">
+    class="filter-btn active"
+    onclick="filterProducts('all',this)">
 
-      🛒 سبد
-
-      <span
-        class="cart-badge"
-        id="cartCount">
-
-        ۰
-
-      </span>
+      همه
 
     </button>
 
-  </nav>
 
-  <!-- هدر -->
+    <button
+    class="filter-btn"
+    onclick="filterProducts('manto',this)">
 
-  <header id="home">
+      مانتو
 
-    <div class="logo">
+    </button>
 
-      <img
-        src="ChatGPT Image ۱۲ مرداد ۱۴۰۵، ۱۶_۴۷_۳۲.png"
-        alt="لوگوی پوشاک زنانه احمدی">
 
-    </div>
+    <button
+    class="filter-btn"
+    onclick="filterProducts('shirt',this)">
 
-    <h1>
-      پوشاک زنانه احمدی
-    </h1>
+      شومیز
 
-    <p class="subtitle">
+    </button>
 
-      انتخابی خاص برای
-      استایل‌های شیک،
-      مدرن و متفاوت
 
-    </p>
+    <button
+    class="filter-btn"
+    onclick="filterProducts('set',this)">
 
-  </header>
+      ست
 
-  <!-- اسلایدر -->
-
-  <section class="hero-slider">
-
-    <div
-      class="slide active"
-      style="
-      background-image:
-      url('images/light-flower.jpg');
-      ">
-
-      <div class="slide-text">
-
-        ترندهای جدید بانوان 🌟
-
-      </div>
-
-    </div>
-
-    <div
-      class="slide"
-      style="
-      background-image:
-      url('images/burgundy.jpg');
-      ">
-
-      <div class="slide-text">
-
-        استایل مجلسی لوکس 🍷
-
-      </div>
-
-    </div>
-
-    <div
-      class="slide"
-      style="
-      background-image:
-      url('images/cream.jpg');
-      ">
-
-      <div class="slide-text">
-
-        کیفیت و ظرافت 🍃
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <main>
-
-    <section class="glass-card">
-
-      <h2>
-        به بوتیک احمدی
-        خوش آمدید 🌸
-      </h2>
-
-      <p>
-
-        مجموعه‌ای از مدل‌های
-        خاص و جدید برای
-        استایل روز شما.
-
-      </p>
-
-    </section>
-
-    <!-- محصولات -->
-
-    <section
-      class="glass-card"
-      id="products">
-
-      <h2>
-        👗 کلکسیون جدید
-      </h2>
-
-      <div class="product-grid">
-
-        <article class="product">
-
-          <div class="product-image">
-
-            <img
-              src="images/light-flower.jpg"
-              alt="شومیز گل‌دار">
-
-          </div>
-
-          <h3>
-            🌺 شومیز گل‌دار
-          </h3>
-
-          <p class="price">
-
-            ۱٬۲۹۰٬۰۰۰ تومان
-
-          </p>
-
-          <button
-            class="action-btn"
-            onclick="
-            addToCart(
-            'شومیز گل‌دار'
-            )">
-
-            افزودن 🛒
-
-          </button>
-
-        </article>
-
-        <article class="product">
-
-          <div class="product-image">
-
-            <img
-              src="images/burgundy.jpg"
-              alt="مانتو زرشکی">
-
-          </div>
-
-          <h3>
-            🍷 مانتو کتی زرشکی
-          </h3>
-
-          <p class="price">
-
-            ۲٬۴۹۰٬۰۰۰ تومان
-
-          </p>
-
-          <button
-            class="action-btn"
-            onclick="
-            addToCart(
-            'مانتو کتی زرشکی'
-            )">
-
-            افزودن 🛒
-
-          </button>
-
-        </article>
-
-        <article class="product">
-
-          <div class="product-image">
-
-            <img
-              src="images/cream.jpg"
-              alt="ست کرم">
-
-          </div>
-
-          <h3>
-            🍃 ست شومیز و شلوار
-          </h3>
-
-          <p class="price">
-
-            ۲٬۱۹۰٬۰۰۰ تومان
-
-          </p>
-
-          <button
-            class="action-btn"
-            onclick="
-            addToCart(
-            'ست شومیز و شلوار'
-            )">
-
-            افزودن 🛒
-
-          </button>
-
-        </article>
-
-      </div>
-
-    </section>
-
-    <!-- مزایا -->
-
-    <section
-      class="glass-card"
-      id="benefits">
-
-      <h2>
-        ✨ چرا پوشاک احمدی؟
-      </h2>
-
-      <div class="benefits">
-
-        <div class="benefit">
-
-          <span>
-            🚚
-          </span>
-
-          <b>
-            ارسال سریع
-          </b>
-
-          <p>
-            ارسال با بسته‌بندی مناسب
-          </p>
-
-        </div>
-
-        <div class="benefit">
-
-          <span>
-            🧵
-          </span>
-
-          <b>
-            کیفیت دوخت
-          </b>
-
-          <p>
-            انتخاب دقیق پارچه
-            و دوخت باکیفیت
-          </p>
-
-        </div>
-
-        <div class="benefit">
-
-          <span>
-            💬
-          </span>
-
-          <b>
-            پشتیبانی
-          </b>
-
-          <p>
-            راهنمایی برای
-            خرید بهتر
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <a
-    class="chat"
-    href="https://wa.me/989000000000"
-    target="_blank">
-
-    💬 مشاوره خرید
-
-  </a>
-
-  <div
-    class="toast"
-    id="toast">
-
-    محصول به سبد اضافه شد ✅
+    </button>
 
   </div>
 
-  <footer>
+</section>
 
-    © پوشاک زنانه احمدی
-    | همه حقوق محفوظ است ❤️
 
-  </footer>
+<section
+class="glass-card offer"
+id="offer">
 
-  <script>
+  <h2>
 
-    let cart = [];
+    🔥 جشنواره تخفیف
 
-    function closeWelcome() {
+  </h2>
 
-      document
-      .getElementById(
-        "welcomeModal"
-      )
-      .style.display =
-      "none";
 
-    }
+  <p>
 
-    function addToCart(name) {
+    فرصت محدود برای خرید
+    مدل‌های منتخب
 
-      cart.push(name);
+  </p>
 
-      updateCart();
 
-      showToast();
+  <div id="timer">
 
-    }
+    <div class="time-box">
 
-    function updateCart() {
+      <b id="days">۰</b>
 
-      document
-      .getElementById(
-        "cartCount"
-      )
-      .textContent =
-      cart.length;
+      روز
 
-      const list =
+    </div>
 
-      document
-      .getElementById(
-        "cartList"
-      );
 
-      if (
-        cart.length === 0
-      ) {
+    <div class="time-box">
 
-        list.innerHTML =
+      <b id="hours">۰</b>
 
-        "سبد خرید خالی است.";
+      ساعت
 
-        return;
+    </div>
 
-      }
 
-      list.innerHTML = "";
+    <div class="time-box">
 
-      cart.forEach(
+      <b id="minutes">۰</b>
 
-        function(
-          item,
-          index
-        ) {
+      دقیقه
 
-          list.innerHTML +=
+    </div>
 
-          `
-          <div
-          style="
-          padding:12px;
-          border-bottom:
-          1px solid
-          rgba(
-          255,
-          255,
-          255,
-          .1
-          );
-          ">
 
-          ${item}
+    <div class="time-box">
 
-          <button
-          class="action-btn"
-          style="
-          float:left;
-          padding:5px 10px;
-          "
+      <b id="seconds">۰</b>
 
-          onclick="
-          removeCart(
-          ${index}
-          )">
+      ثانیه
 
-          حذف
+    </div>
 
-          </button>
+  </div>
 
-          </div>
-          `;
+</section>
 
-        }
 
-      );
+<section
+class="glass-card"
+id="products">
 
-    }
+  <h2>
 
-    function removeCart(index) {
+    👗 کلکسیون جدید
 
-      cart.splice(
-        index,
-        1
-      );
+  </h2>
 
-      updateCart();
 
-    }
+  <div
+  class="product-grid"
+  id="productGrid">
 
-    function openCart() {
 
-      document
-      .getElementById(
-        "cartModal"
-      )
-      .style.display =
-      "flex";
+<article
+class="product"
+data-category="shirt"
+data-name="شومیز گل دار">
 
-    }
+  <span class="discount">
 
-    function closeCart() {
+    ۱۵٪ تخفیف
 
-      document
-      .getElementById(
-        "cartModal"
-      )
-      .style.display =
-      "none";
+  </span>
 
-    }
 
-    function showToast() {
+  <button
+  class="favorite"
+  onclick="toggleFavorite(this)">
 
-      const toast =
+    ♡
 
-      document
-      .getElementById(
-        "toast"
-      );
+  </button>
 
-      toast.classList.add(
-        "show"
-      );
 
-      setTimeout(
+  <div class="product-image">
 
-        function() {
+    <img
+    src="images/light-flower.jpg"
+    alt="شومیز گل‌دار">
 
-          toast.classList.remove(
-            "show"
-          );
+  </div>
 
-        },
 
-        2500
+  <h3>
 
-      );
+    شومیز گل‌دار 🌺
 
-    }
+  </h3>
 
-    /* اسلایدر */
 
-    const slides =
+  <div class="product-info">
 
-    document
-    .querySelectorAll(
-      ".slide"
-    );
+    <span>
 
-    let currentSlide = 0;
+      صورتی
 
-    setInterval(
+    </span>
 
-      function() {
+    <span>
 
-        slides[
-          currentSlide
-        ]
-        .classList.remove(
-          "active"
-        );
+      S تا XL
 
-        currentSlide =
+    </span>
 
-        (
-          currentSlide + 1
-        )
-        %
-        slides.length;
+  </div>
 
-        slides[
-          currentSlide
-        ]
-        .classList.add(
-          "active"
-        );
 
-      },
+  <div class="old-price">
 
-      4000
+    ۱٬۵۲۰٬۰۰۰ تومان
 
-    );
+  </div>
 
-    /* ظاهر شدن کارت‌ها */
 
-    const cards =
+  <div class="price">
 
-    document
-    .querySelectorAll(
-      ".glass-card"
-    );
+    ۱٬۲۹۰٬۰۰۰ تومان
 
-    const observer =
+  </div>
 
-    new IntersectionObserver(
 
-      function(entries) {
+  <button
+  class="action-btn"
+  onclick=
+  "addToCart(
+  'شومیز گل‌دار',
+  1290000
+  )">
 
-        entries.forEach(
+    افزودن 🛒
 
-          function(entry) {
+  </button>
 
-            if (
-              entry.isIntersecting
-            ) {
+</article>
 
-              entry
-              .target
-              .classList.add(
-                "visible"
-              );
 
-            }
 
-          }
+<article
+class="product"
+data-category="manto"
+data-name="مانتو کتی زرشکی">
 
-        );
+  <button
+  class="favorite"
+  onclick="toggleFavorite(this)">
 
-      },
+    ♡
 
-      {
-        threshold:
-        0.1
-      }
+  </button>
 
-    );
 
-    cards.forEach(
+  <div class="product-image">
 
-      function(card) {
+    <img
+    src="images/burgundy.jpg"
+    alt="مانتو زرشکی">
 
-        observer.observe(
-          card
-        );
+  </div>
 
-      }
 
-    );
+  <h3>
 
-  </script>
+    مانتو کتی زرشکی 🍷
+
+  </h3>
+
+
+  <div class="product-info">
+
+    <span>
+
+      زرشکی
+
+    </span>
+
+    <span>
+
+      M تا XL
+
+    </span>
+
+  </div>
+
+
+  <div class="price">
+
+    ۲٬۴۹۰٬۰۰۰ تومان
+
+  </div>
+
+
+  <button
+  class="action-btn"
+  onclick=
+  "addToCart(
+  'مانتو کتی زرشکی',
+  2490000
+  )">
+
+    افزودن 🛒
+
+  </button>
+
+</article>
+
+
+
+<article
+class="product"
+data-category="set"
+data-name="ست شومیز و شلوار">
+
+  <span class="discount">
+
+    ۱۰٪ تخفیف
+
+  </span>
+
+
+  <button
+  class="favorite"
+  onclick="toggleFavorite(this)">
+
+    ♡
+
+  </button>
+
+
+  <div class="product-image">
+
+    <img
+    src="images/cream.jpg"
+    alt="ست کرم">
+
+  </div>
+
+
+  <h3>
+
+    ست شومیز و شلوار 🍃
+
+  </h3>
+
+
+  <div class="product-info">
+
+    <span>
+
+      کرم
+
+    </span>
+
+    <span>
+
+      S تا XL
+
+    </span>
+
+  </div>
+
+
+  <div class="price">
+
+    ۲٬۱۹۰٬۰۰۰ تومان
+
+  </div>
+
+
+  <button
+  class="action-btn"
+  onclick=
+  "addToCart(
+  'ست شومیز و شلوار',
+  2190000
+  )">
+
+    افزودن 🛒
+
+  </button>
+
+</article>
+
+
+  </div>
+
+</section>
+
+
+<section
+class="glass-card"
+id="about">
+
+  <h2>
+
+    ✨ چرا پوشاک احمدی؟
+
+  </h2>
+
+
+  <div class="benefits">
+
+
+    <div class="benefit">
+
+      <span>
+
+        🚚
+
+      </span>
+
+      <b>
+
+        ارسال سریع
+
+      </b>
+
+      <p>
+
+        ارسال با بسته‌بندی مناسب
+
+      </p>
+
+    </div>
+
+
+    <div class="benefit">
+
+      <span>
+
+        🧵
+
+      </span>
+
+      <b>
+
+        کیفیت دوخت
+
+      </b>
+
+      <p>
+
+        انتخاب با دقت و توجه
+
+      </p>
+
+    </div>
+
+
+    <div class="benefit">
+
+      <span>
+
+        💬
+
+      </span>
+
+      <b>
+
+        پشتیبانی خرید
+
+      </b>
+
+      <p>
+
+        راهنمایی قبل از سفارش
+
+      </p>
+
+    </div>
+
+
+    <div class="benefit">
+
+      <span>
+
+        🔄
+
+      </span>
+
+      <b>
+
+        راهنمایی سایز
+
+      </b>
+
+      <p>
+
+        کمک برای انتخاب بهتر
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<section class="glass-card">
+
+  <h2>
+
+    ❓ سوالات پرتکرار
+
+  </h2>
+
+
+  <details>
+
+    <summary>
+
+      سفارش چند روزه می‌رسد؟
+
+    </summary>
+
+    <p>
+
+      زمان ارسال با توجه به
+      شهر و روش ارسال مشخص می‌شود.
+
+    </p>
+
+  </details>
+
+
+  <details>
+
+    <summary>
+
+      برای انتخاب سایز چه کار کنم؟
+
+    </summary>
+
+    <p>
+
+      قبل از خرید از طریق
+      مشاوره پیام بدهید.
+
+    </p>
+
+  </details>
+
+
+  <details>
+
+    <summary>
+
+      چطور سفارش بدهم؟
+
+    </summary>
+
+    <p>
+
+      محصول را به سبد اضافه کنید
+      و سپس ثبت سفارش را بزنید.
+
+    </p>
+
+  </details>
+
+</section>
+
+
+</main>
+
+
+<div
+class="modal"
+id="cartModal">
+
+
+<div class="modal-content">
+
+
+<button
+class="close-btn"
+onclick="closeCart()">
+
+×
+
+
+</button>
+
+
+<h2>
+
+🛒 سبد خرید
+
+</h2>
+
+
+<div id="cartList">
+
+سبد خرید خالی است.
+
+</div>
+
+
+<div
+class="cart-total"
+id="cartTotal">
+
+مجموع: ۰ تومان
+
+</div>
+
+
+<button
+class="action-btn"
+onclick="checkout()">
+
+ثبت سفارش ✅
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+<div
+class="toast"
+id="toast">
+
+محصول اضافه شد ✅
+
+</div>
+
+
+<a
+class="chat"
+href="#"
+onclick="showChat()">
+
+💬 مشاوره خرید
+
+</a>
+
+
+<button
+class="top-btn"
+onclick="window.scrollTo(
+{top:0,
+behavior:'smooth'}
+)">
+
+⬆️
+
+</button>
+
+
+<footer>
+
+© پوشاک زنانه احمدی
+
+<br>
+
+همه حقوق محفوظ است ❤️
+
+</footer>
+
+
+<script>
+
+
+let cart = [];
+
+
+/* افزودن */
+
+
+function addToCart(
+name,
+price
+) {
+
+cart.push({
+
+name:name,
+
+price:price
+
+});
+
+updateCart();
+
+showToast();
+
+}
+
+
+/* سبد */
+
+
+function updateCart() {
+
+document
+.getElementById(
+"cartCount"
+)
+.textContent =
+
+cart.length;
+
+
+const list =
+
+document
+.getElementById(
+"cartList"
+);
+
+
+const totalBox =
+
+document
+.getElementById(
+"cartTotal"
+);
+
+
+if(
+cart.length === 0
+){
+
+list.innerHTML =
+
+"سبد خرید خالی است.";
+
+
+totalBox.textContent =
+
+"مجموع: ۰ تومان";
+
+
+return;
+
+}
+
+
+list.innerHTML = "";
+
+
+let total = 0;
+
+
+cart.forEach(
+
+function(
+item,
+index
+){
+
+total +=
+
+item.price;
+
+
+list.innerHTML +=
+
+`
+
+<div
+class="cart-item">
+
+<span>
+
+${item.name}
+
+</span>
+
+<span>
+
+${item.price.toLocaleString(
+'fa-IR'
+)}
+
+تومان
+
+</span>
+
+<button
+class="remove-btn"
+onclick="
+removeCart(
+${index}
+)">
+
+حذف
+
+</button>
+
+</div>
+
+`;
+
+}
+
+);
+
+
+totalBox.textContent =
+
+"مجموع: " +
+
+total.toLocaleString(
+'fa-IR'
+)
+
++
+
+" تومان";
+
+}
+
+
+/* حذف */
+
+
+function removeCart(
+index
+){
+
+cart.splice(
+index,
+1
+);
+
+updateCart();
+
+}
+
+
+/* باز و بسته */
+
+
+function openCart(){
+
+document
+.getElementById(
+"cartModal"
+)
+.style.display =
+
+"flex";
+
+}
+
+
+function closeCart(){
+
+document
+.getElementById(
+"cartModal"
+)
+.style.display =
+
+"none";
+
+}
+
+
+/* پیام */
+
+
+function showToast(){
+
+const toast =
+
+document
+.getElementById(
+"toast"
+);
+
+
+toast.classList.add(
+"show"
+);
+
+
+setTimeout(
+
+function(){
+
+toast.classList.remove(
+"show"
+);
+
+},
+
+2200
+
+);
+
+}
+
+
+/* علاقه */
+
+
+function toggleFavorite(
+button
+){
+
+button.classList.toggle(
+"active"
+);
+
+
+button.textContent =
+
+button.classList.contains(
+"active"
+)
+
+?
+
+"♥"
+
+:
+
+"♡";
+
+}
+
+
+/* جستجو */
+
+
+function searchProducts(){
+
+const text =
+
+document
+.getElementById(
+"searchInput"
+)
+.value
+.toLowerCase();
+
+
+document
+.querySelectorAll(
+".product"
+)
+.forEach(
+
+function(
+product
+){
+
+const name =
+
+product
+.dataset
+.name
+.toLowerCase();
+
+
+product.style.display =
+
+name.includes(
+text
+)
+
+?
+
+"block"
+
+:
+
+"none";
+
+}
+
+);
+
+}
+
+
+/* فیلتر */
+
+
+function filterProducts(
+category,
+button
+){
+
+document
+.querySelectorAll(
+".filter-btn"
+)
+.forEach(
+
+function(
+btn
+){
+
+btn.classList.remove(
+"active"
+);
+
+}
+
+);
+
+
+button.classList.add(
+"active"
+);
+
+
+document
+.querySelectorAll(
+".product"
+)
+.forEach(
+
+function(
+product
+){
+
+product.style.display =
+
+category ===
+"all"
+
+||
+
+product.dataset.category ===
+category
+
+?
+
+"block"
+
+:
+
+"none";
+
+}
+
+);
+
+}
+
+
+/* شمارشگر */
+
+
+const endDate =
+
+new Date(
+Date.now()
+
++
+
+3 * 24 * 60 * 60 * 1000
+
+);
+
+
+setInterval(
+
+function(){
+
+const now =
+
+new Date();
+
+
+let distance =
+
+endDate - now;
+
+
+if(
+distance < 0
+){
+
+distance = 0;
+
+}
+
+
+const days =
+
+Math.floor(
+
+distance /
+
+(
+1000 *
+60 *
+60 *
+24
+)
+
+);
+
+
+const hours =
+
+Math.floor(
+
+distance %
+
+(
+1000 *
+60 *
+60 *
+24
+)
+
+/
+
+(
+1000 *
+60 *
+60
+)
+
+);
+
+
+const minutes =
+
+Math.floor(
+
+distance %
+
+(
+1000 *
+60 *
+60
+)
+
+/
+
+(
+1000 *
+60
+)
+
+);
+
+
+const seconds =
+
+Math.floor(
+
+distance %
+
+(
+1000 *
+60
+)
+
+/
+
+1000
+
+);
+
+
+document
+.getElementById(
+"days"
+)
+.textContent =
+
+days.toLocaleString(
+'fa-IR'
+);
+
+
+document
+.getElementById(
+"hours"
+)
+.textContent =
+
+hours.toLocaleString(
+'fa-IR'
+);
+
+
+document
+.getElementById(
+"minutes"
+)
+.textContent =
+
+minutes.toLocaleString(
+'fa-IR'
+);
+
+
+document
+.getElementById(
+"seconds"
+)
+.textContent =
+
+seconds.toLocaleString(
+'fa-IR'
+);
+
+},
+
+1000
+
+);
+
+
+/* سفارش */
+
+
+function checkout(){
+
+if(
+cart.length === 0
+){
+
+alert(
+"سبد خرید خالی است."
+);
+
+return;
+
+}
+
+
+alert(
+
+"سفارش شما ثبت شد ✅\n" +
+
+"این بخش فعلاً نمایشی است."
+
+);
+
+}
+
+
+/* مشاوره */
+
+
+function showChat(){
+
+alert(
+
+"شماره یا لینک واتساپ فروشگاه را بعداً اینجا قرار بده."
+
+);
+
+}
+
+
+</script>
+
 
 </body>
+
 </html>
