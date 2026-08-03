@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>پوشاک احمدی 👔</title>
+  <title>پوشاک احمدی 👔 | لوکس‌ترین برند پوشاک</title>
 
   <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='90' fill='%231e1b4b'/><path d='M60 65 L100 85 L140 65 L125 50 L100 65 L75 50 Z' fill='%23f43f5e'/><path d='M60 65 L85 150 L100 150 L100 85 Z' fill='%23fb7185'/><path d='M140 65 L115 150 L100 150 L100 85 Z' fill='%23e11d48'/><polygon points='100,85 93,120 100,128 107,120' fill='%23ffffff'/></svg>" type="image/svg+xml">
 
   <style>
+    /* تم‌های رنگی حرفه‌ای */
     :root {
       --bg-color: #0f172a;
       --card-bg: rgba(30, 27, 75, 0.75);
@@ -19,11 +20,23 @@
       --input-bg: rgba(15, 23, 42, 0.6);
     }
 
-    body.dark-mode {
-      --bg-color: #020617;
-      --card-bg: rgba(15, 23, 42, 0.85);
-      --text-color: #e2e8f0;
-      --border-color: rgba(255, 255, 255, 0.08);
+    body.theme-gold {
+      --bg-color: #0c0a09;
+      --card-bg: rgba(28, 25, 23, 0.85);
+      --text-color: #f5f5f4;
+      --accent-color: #d97706;
+      --accent-hover: #b45309;
+      --border-color: rgba(217, 119, 6, 0.25);
+      --input-bg: rgba(0, 0, 0, 0.5);
+    }
+
+    body.theme-silver {
+      --bg-color: #111827;
+      --card-bg: rgba(31, 41, 55, 0.85);
+      --text-color: #f3f4f6;
+      --accent-color: #64748b;
+      --accent-hover: #475569;
+      --border-color: rgba(100, 116, 139, 0.25);
       --input-bg: rgba(0, 0, 0, 0.4);
     }
 
@@ -41,17 +54,18 @@
       text-align: center;
       min-height: 100vh;
       overflow-x: hidden;
+      transition: background 0.4s ease, color 0.4s ease;
     }
 
-    header { padding: 30px 20px 10px; }
+    header { padding: 20px 20px 10px; }
 
     .brand-logo-svg {
-      width: 110px;
-      height: 110px;
-      transition: transform 0.2s ease;
+      width: 100px;
+      height: 100px;
+      transition: transform 0.3s ease;
     }
 
-    .brand-logo-svg:hover { transform: scale(1.03); }
+    .brand-logo-svg:hover { transform: scale(1.05) rotate(2deg); }
 
     nav {
       position: sticky;
@@ -59,7 +73,7 @@
       z-index: 999;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      max-width: 900px;
+      max-width: 950px;
       margin: 0 auto 20px auto;
       padding: 10px 15px;
       border-radius: 40px;
@@ -68,13 +82,14 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
@@ -83,9 +98,9 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 14px;
-      padding: 8px 16px;
+      padding: 8px 14px;
       border-radius: 20px;
-      transition: background 0.2s ease, color 0.2s ease;
+      transition: all 0.2s ease;
       background: transparent;
       border: none;
       cursor: pointer;
@@ -99,7 +114,7 @@
 
     .nav-cart-btn {
       position: relative;
-      background: rgba(244, 63, 94, 0.2);
+      background: rgba(244, 63, 94, 0.15);
       border: 1px solid var(--accent-color);
       display: flex;
       align-items: center;
@@ -115,36 +130,79 @@
       font-weight: bold;
     }
 
-    .theme-btn {
+    .theme-dropdown {
       background: var(--accent-color);
       color: white;
       border: none;
-      padding: 8px 14px;
+      padding: 8px 12px;
       border-radius: 18px;
       cursor: pointer;
       font-weight: bold;
+      font-size: 13px;
+      font-family: inherit;
     }
 
     main { max-width: 850px; margin: auto; padding: 15px; }
 
+    /* کارت‌های سه‌بعدی با انیمیشن ورود */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      margin: 25px 0;
+      margin: 30px 0;
       padding: 28px;
-      border-radius: 20px;
+      border-radius: 24px;
       text-align: right;
       line-height: 1.8;
-      animation: fadeIn 0.8s ease-out;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .card h2 { text-align: center; color: #fb7185; margin-top: 0; }
+    .card h2 { text-align: center; color: var(--accent-color); margin-top: 0; }
 
+    /* اسلایدر هدر ژورنالی */
+    .hero-slider {
+      width: 100%;
+      height: 220px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      position: relative;
+      border: 1px solid var(--border-color);
+    }
+
+    .slide {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide.active { opacity: 1; }
+
+    .slide-text {
+      background: rgba(0, 0, 0, 0.65);
+      padding: 10px 20px;
+      border-radius: 12px;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* گالری محصولات با هاور سه‌بعدی */
     .color-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -156,30 +214,41 @@
       background: rgba(0, 0, 0, 0.25);
       border: 1px solid var(--border-color);
       padding: 15px;
-      border-radius: 16px;
+      border-radius: 18px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      transition: transform 0.2s ease;
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
     }
 
-    .color-item:hover { transform: translateY(-5px); }
+    .color-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+    }
 
+    /* زوم حرفه‌ای روی تصویر محصول */
     .product-img-box {
       width: 100%;
       height: 240px;
-      border-radius: 12px;
+      border-radius: 14px;
       border: 1px solid var(--border-color);
       margin-bottom: 12px;
       overflow: hidden;
       background: #fff;
+      position: relative;
+      cursor: zoom-in;
     }
 
     .product-img-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-img-box:hover img {
+      transform: scale(1.25);
     }
 
     .tool-box {
@@ -194,14 +263,19 @@
       width: 100%;
       box-sizing: border-box;
       padding: 12px 15px;
-      border-radius: 10px;
+      border-radius: 12px;
       background: var(--input-bg);
       border: 1px solid var(--border-color);
-      color: white;
+      color: var(--text-color);
       font-family: inherit;
       font-size: 14px;
       margin: 6px 0;
       outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent-color);
     }
 
     select option { background: #0f172a; color: white; }
@@ -218,7 +292,7 @@
       transition: background 0.2s ease, transform 0.1s ease;
     }
 
-    button.action-btn:hover { background: var(--accent-hover); transform: scale(1.02); }
+    button.action-btn:hover { background: var(--accent-hover); transform: scale(1.03); }
 
     /* دکمه چت شناور */
     .float-chat {
@@ -231,7 +305,7 @@
       padding: 12px 20px;
       text-decoration: none;
       font-weight: bold;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
       display: flex;
       align-items: center;
       gap: 8px;
@@ -239,30 +313,32 @@
       transition: transform 0.2s ease;
     }
 
-    .float-chat:hover { transform: scale(1.05); }
+    .float-chat:hover { transform: scale(1.08); }
 
-    /* مدال‌ها (جدول سایز و سبد خرید دیجی‌کالایی) */
+    /* مدال‌ها */
     .modal {
       display: none;
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.85);
       z-index: 2000;
       justify-content: center;
       align-items: center;
+      backdrop-filter: blur(5px);
     }
 
     .modal-content {
       background: var(--bg-color);
       border: 1px solid var(--border-color);
-      padding: 25px;
-      border-radius: 20px;
+      padding: 30px;
+      border-radius: 24px;
       max-width: 500px;
       width: 90%;
-      color: white;
+      color: var(--text-color);
       max-height: 85vh;
       overflow-y: auto;
       text-align: right;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     }
 
     .size-table {
@@ -273,17 +349,16 @@
 
     .size-table th, .size-table td {
       border: 1px solid var(--border-color);
-      padding: 8px;
+      padding: 10px;
       text-align: center;
     }
 
-    .size-table th { background: var(--accent-color); }
+    .size-table th { background: var(--accent-color); color: white; }
 
-    /* سبد خرید درون مدال */
     .cart-box {
-      background: rgba(0,0,0,0.3);
+      background: rgba(0,0,0,0.25);
       border: 1px dashed var(--accent-color);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 15px;
       margin-bottom: 15px;
     }
@@ -300,8 +375,8 @@
       background: #ef4444;
       color: white;
       border: none;
-      border-radius: 6px;
-      padding: 2px 8px;
+      border-radius: 8px;
+      padding: 4px 10px;
       cursor: pointer;
       font-size: 12px;
     }
@@ -309,23 +384,33 @@
     footer {
       background: rgba(0, 0, 0, 0.4);
       border-top: 1px solid var(--border-color);
-      padding: 20px;
-      margin-top: 40px;
+      padding: 25px;
+      margin-top: 50px;
     }
   </style>
 </head>
 
-<body>
+<body class="theme-gold">
 
-  <!-- دکمه شناور تماس/واتساپ -->
+  <!-- پاپ‌آپ خوش‌آمدگویی (پوئن مثبت فروشگاه‌های لوکس) -->
+  <div class="modal" id="welcomeModal" style="display: flex;">
+    <div class="modal-content" style="text-align: center;">
+      <h2 style="color: var(--accent-color);">✨ به پوشاک احمدی خوش آمدید</h2>
+      <p style="font-size: 15px; line-height: 1.6;">مرکز تخصصی شیک‌ترین و لوکس‌ترین استایل‌های روز. از مشاهده محصولات لذت ببرید!</p>
+      <br>
+      <button class="action-btn" onclick="closeWelcomeModal()" style="padding: 12px 30px;">ورود به فروشگاه 🚀</button>
+    </div>
+  </div>
+
+  <!-- دکمه شناور واتساپ -->
   <a href="https://wa.me/989000000000" target="_blank" class="float-chat">
     💬 مشاوره و پشتیبانی
   </a>
 
-  <!-- مدال راهنمای ابعاد دقیق -->
+  <!-- مدال راهنمای سایز -->
   <div class="modal" id="sizeModal">
     <div class="modal-content" style="text-align: center;">
-      <h3 style="color:#fb7185; margin-top:0;">📏 جدول ابعاد دقیق (سانتی‌متر)</h3>
+      <h3 style="color:var(--accent-color); margin-top:0;">📏 جدول ابعاد دقیق (سانتی‌متر)</h3>
       <table class="size-table">
         <thead>
           <tr>
@@ -347,21 +432,21 @@
     </div>
   </div>
 
-  <!-- مدال سبد خرید و ثبت سفارش (سبک دیجی‌کالا) -->
+  <!-- مدال سبد خرید و ثبت سفارش -->
   <div class="modal" id="cartModal">
     <div class="modal-content">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-        <h2 style="margin: 0; color: #fb7185;">🛒 سبد خرید و سفارش</h2>
-        <button onclick="closeCartModal()" style="background:none; border:none; color:white; font-size:20px; cursor:pointer;">✕</button>
+        <h2 style="margin: 0; color: var(--accent-color);">🛒 سبد خرید و سفارش</h2>
+        <button onclick="closeCartModal()" style="background:none; border:none; color:var(--text-color); font-size:22px; cursor:pointer;">✕</button>
       </div>
 
       <div class="cart-box">
-        <h4 style="margin-top:0; color:#fbbf24;">محصولات انتخابی شما:</h4>
+        <h4 style="margin-top:0; opacity: 0.9;">محصولات انتخابی شما:</h4>
         <div id="cartList">سبد خرید شما خالی است.</div>
       </div>
 
-      <h3 style="color:#fb7185; text-align:center; margin-top: 20px;">📞 اطلاعات ارسال سفارش</h3>
-      <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 6px;">
+      <h3 style="color:var(--accent-color); text-align:center; margin-top: 20px;">📞 اطلاعات ارسال سفارش</h3>
+      <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 8px;">
         <input type="hidden" name="اقلام سبد خرید" id="cartInputHidden">
         
         <input type="text" name="نام خریدار" placeholder="نام و نام خانوادگی" required>
@@ -388,47 +473,59 @@
         <a href="#models">🎨 مدل‌ها</a>
         <a href="#size-tool">📏 راهنمای سایز</a>
       </div>
-      <div style="display: flex; gap: 10px; align-items: center;">
+      <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
         <button class="nav-cart-btn" onclick="openCartModal()">
           🛒 سبد خرید <span class="cart-badge" id="cartCount">0</span>
         </button>
-        <button class="theme-btn" onclick="toggleDarkMode()">🌙 / ☀️</button>
+        <select class="theme-dropdown" onchange="changeTheme(this.value)">
+          <option value="theme-gold">✨ سلطنتی (طلایی)</option>
+          <option value="theme-silver">🌙 مدرن (نقره‌ای)</option>
+          <option value="">🔥 کلاسیک (سرخ)</option>
+        </select>
       </div>
     </nav>
+
+    <!-- اسلایدر هدر ژورنالی متحرک -->
+    <div class="hero-slider" id="heroSlider">
+      <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/blue.jpg');">
+        <div class="slide-text">ترندهای جدید سال 2026 🌟</div>
+      </div>
+      <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/burgundy.jpg');">
+        <div class="slide-text">طراحی‌های لوکس و فاخر 🍷</div>
+      </div>
+      <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/cream.jpg');">
+        <div class="slide-text">کیفیت بی‌نظیر دوخت پارچه 🍃</div>
+      </div>
+    </div>
 
     <svg class="brand-logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#f43f5e;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#881337;stop-opacity:1" />
-        </linearGradient>
-        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+          <stop offset="0%" style="stop-color:var(--accent-color);stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#1e1b4b;stop-opacity:1" />
         </linearGradient>
       </defs>
       <circle cx="100" cy="100" r="90" fill="rgba(30, 27, 75, 0.85)" stroke="url(#grad1)" stroke-width="4"/>
-      <path d="M 55,60 L 100,85 L 145,60 L 125,45 L 100,60 L 75,45 Z" fill="url(#grad1)" />
+      <path d="M 55,60 L 100,85 L 145,60 L 125,45 L 100,60 L 75,45 Z" fill="var(--accent-color)" />
       <path d="M 55,60 L 82,145 L 100,145 L 100,85 Z" fill="#fb7185" />
       <path d="M 145,60 L 118,145 L 100,145 L 100,85 Z" fill="#e11d48" />
-      <polygon points="100,85 92,118 100,126 108,118" fill="url(#goldGrad)" />
       <text x="100" y="172" font-family="Tahoma, Arial" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">پوشاک احمدی</text>
     </svg>
 
     <h1 style="margin-top: 5px;">پوشاک احمدی</h1>
-    <p style="margin: 0;">جدیدترین ترندهای استایل با بالاترین کیفیت دوخت</p>
+    <p style="margin: 0; opacity: 0.8;">کلکسیون برتر استایل و پوشاک با بالاترین استانداردهای دوخت جهانی</p>
   </header>
 
   <main id="home">
 
     <div class="card">
-      <h2>خوش آمدید به پوشاک احمدی 🌟</h2>
-      <p>محصولات دلخواه خود را از بخش مدل‌ها انتخاب کنید و با کلیک روی دکمه سبد خرید در بالای صفحه، سفارش خود را ثبت کنید.</p>
+      <h2>خوش آمدید به بوتیک آنلاین احمدی 🌟</h2>
+      <p>طرح‌های اصیل و منحصربه‌فرد را بررسی کنید، با یک کلیک به سبد خرید دیجی‌کالایی خود اضافه کنید و سفارش خود را در چند ثانیه نهایی کنید.</p>
     </div>
 
-    <!-- گالری مدل‌ها -->
+    <!-- گالری مدل‌ها همراه با زوم حرفه‌ای عکس -->
     <div class="card" id="models">
-      <h2>🎨 مدل‌ها و طرح‌های موجود</h2>
+      <h2>🎨 گالری مدل‌ها و طرح‌های ویژه</h2>
       
       <div class="color-grid">
         
@@ -469,9 +566,9 @@
 
     <!-- محاسبه‌گر و راهنمای سایز -->
     <div class="card" id="size-tool">
-      <h2>📏 راهنما و محاسبه‌گر سایز</h2>
+      <h2>📏 راهنما و محاسبه‌گر هوشمند سایز</h2>
       <div class="tool-box">
-        <p>قد و وزن خود را وارد کنید یا جدول کامل اندازه‌ها را ببینید:</p>
+        <p>قد و وزن خود را وارد کنید تا بهترین سایز برای شما تخمین زده شود:</p>
         <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
           <input type="number" id="height" placeholder="قد (سانتی‌متر)">
           <input type="number" id="weight" placeholder="وزن (کیلوگرم)">
@@ -479,81 +576,29 @@
         <br>
         <button class="action-btn" onclick="calculateSize()">تخمین سایز من 📐</button>
         <button class="action-btn" style="background:#3b82f6;" onclick="openSizeModal()">جدول ابعاد دقیق 📊</button>
-        <h3 id="sizeResult" style="color: #fb7185; margin-top: 15px;"></h3>
+        <h3 id="sizeResult" style="color: var(--accent-color); margin-top: 15px;"></h3>
       </div>
     </div>
 
   </main>
 
   <footer>
-    <p>© کلیه حقوق برای پوشاک احمدی محفوظ است | طراحی شده با ❤️</p>
+    <p>© کلیه حقوق برای پوشاک احمدی محفوظ است | طراحی شده با بیشترین دقت و زیبایی ❤️</p>
   </footer>
+
+  <!-- صداگذاری ملایم و اسکریپت‌های داینامیک -->
+  <audio id="clickSound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" preload="auto"></audio>
 
   <script>
     let cart = [];
 
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
+    // تغییر تم‌های رنگی لوکس
+    function changeTheme(themeClass) {
+      document.body.className = themeClass;
     }
 
-    function calculateSize() {
-      const h = parseFloat(document.getElementById('height').value);
-      const w = parseFloat(document.getElementById('weight').value);
-      const res = document.getElementById('sizeResult');
-
-      if (!h || !w) {
-        res.innerText = 'لطفاً قد و وزن را به درستی وارد کنید.';
-        return;
-      }
-
-      if (w < 60 && h < 170) res.innerText = 'سایز پیشنهادی: سایز ۱ 📏';
-      else if (w < 75 && h < 180) res.innerText = 'سایز پیشنهادی: سایز ۲ 📏';
-      else if (w < 90) res.innerText = 'سایز پیشنهادی: سایز ۳ 📏';
-      else res.innerText = 'سایز پیشنهادی: سایز ۴ 📏';
-    }
-
-    function addToCart(title) {
-      cart.push(title);
-      updateCartUI();
-      alert(`«${title}» به سبد خرید شما اضافه شد.`);
-    }
-
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      updateCartUI();
-    }
-
-    function updateCartUI() {
-      const cartList = document.getElementById('cartList');
-      const cartCount = document.getElementById('cartCount');
-      const hiddenInput = document.getElementById('cartInputHidden');
-
-      cartCount.innerText = cart.length;
-
-      if (cart.length === 0) {
-        cartList.innerHTML = 'سبد خرید شما خالی است.';
-        hiddenInput.value = '';
-        return;
-      }
-
-      let html = '';
-      cart.forEach((item, index) => {
-        html += `<div class="cart-item">
-          <span>${item}</span>
-          <button class="remove-btn" onclick="removeFromCart(${index})">حذف ❌</button>
-        </div>`;
-      });
-
-      cartList.innerHTML = html;
-      hiddenInput.value = cart.join(' | ');
-    }
-
-    function openSizeModal() { document.getElementById('sizeModal').style.display = 'flex'; }
-    function closeSizeModal() { document.getElementById('sizeModal').style.display = 'none'; }
-
-    function openCartModal() { document.getElementById('cartModal').style.display = 'flex'; }
-    function closeCartModal() { document.getElementById('cartModal').style.display = 'none'; }
-  </script>
-
-</body>
-</html>
+    // اسلایدر خودکار هدر
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    setInterval(() => {
+      slides[curren
