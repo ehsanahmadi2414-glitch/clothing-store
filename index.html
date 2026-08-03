@@ -8,16 +8,14 @@
 
   <style>
     :root {
-      /* پس‌زمینه اصلی با گرادیان جذاب */
       --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
       --text-color: #f8fafc;
       --accent-color: #f43f5e;
       --accent-hover: #e11d48;
       
-      /* افکت شیشه‌ای (Glassmorphism) روشن/تاریک */
-      --glass-bg: rgba(255, 255, 255, 0.08);
-      --glass-border: rgba(255, 255, 255, 0.18);
-      --glass-shadow: 0 20px 40px rgba(0, 0, 0, 0.37);
+      --glass-bg: rgba(255, 255, 255, 0.07);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --glass-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
       
       --nav-bg: rgba(255, 255, 255, 0.12);
       --input-bg: rgba(255, 255, 255, 0.07);
@@ -32,8 +30,26 @@
       --input-bg: rgba(0, 0, 0, 0.25);
     }
 
-    html { scroll-behavior: smooth; }
-    
+    /* اسکرول کاملاً نرم و روان برای تمام صفحه */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* سفارشی‌سازی اسکرول‌بار مرورگر (باریک و روان) */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-color);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-hover);
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -42,11 +58,12 @@
       color: var(--text-color);
       text-align: center;
       min-height: 100vh;
+      overflow-x: hidden;
       transition: background 0.5s ease;
     }
 
     header {
-      padding: 60px 20px 40px;
+      padding: 60px 20px 30px;
     }
 
     /* منوی شناور شیشه‌ای */
@@ -68,6 +85,7 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 12px;
+      transition: all 0.3s ease;
     }
 
     nav a {
@@ -77,13 +95,14 @@
       font-size: 14px;
       padding: 8px 18px;
       border-radius: 25px;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     nav a:hover {
       background: var(--accent-color);
       color: white;
       box-shadow: 0 4px 15px rgba(244, 63, 94, 0.4);
+      transform: translateY(-2px);
     }
 
     .theme-btn {
@@ -94,39 +113,51 @@
       border-radius: 20px;
       cursor: pointer;
       font-weight: bold;
-      transition: transform 0.2s ease, background 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .theme-btn:hover {
-      transform: scale(1.05);
+      transform: scale(1.08);
       background: var(--accent-hover);
     }
 
     main { max-width: 850px; margin: auto; padding: 20px; }
 
-    /* کارت‌های اصلی با پدیده شیشه‌ای شناور (Glassmorphism) */
+    /* کارت‌های شیشه‌ای نرم با انیمیشن ورود (Reveal) */
     .card {
       background: var(--glass-bg);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--glass-border);
       box-shadow: var(--glass-shadow);
-      margin: 35px 0;
+      margin: 40px 0;
       padding: 35px;
       border-radius: 28px;
       text-align: right;
       line-height: 2;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      /* انیمیشن شناور نرم */
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.4s ease;
+      will-change: transform, opacity;
+    }
+
+    /* وقتی کارت دیده شد */
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
     }
 
     .card h2 { text-align: center; color: #fb7185; margin-top: 0; }
 
-    /* ابزار محاسبه سایز */
     .tool-box {
       background: rgba(0, 0, 0, 0.15);
       border: 1px solid var(--glass-border);
@@ -135,7 +166,6 @@
       text-align: center;
     }
 
-    /* ورودی‌ها و فرم‌ها با ظاهر شیشه‌ای */
     input, select, textarea {
       width: 100%;
       box-sizing: border-box;
@@ -149,7 +179,7 @@
       margin: 8px 0;
       outline: none;
       backdrop-filter: blur(5px);
-      transition: border-color 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     input::placeholder, textarea::placeholder {
@@ -158,6 +188,8 @@
 
     input:focus, select:focus, textarea:focus {
       border-color: var(--accent-color);
+      box-shadow: 0 0 15px rgba(244, 63, 94, 0.3);
+      transform: scale(1.01);
     }
 
     select option {
@@ -175,12 +207,12 @@
       font-size: 16px;
       cursor: pointer;
       box-shadow: 0 10px 20px rgba(244, 63, 94, 0.3);
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     button.action-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 25px rgba(244, 63, 94, 0.5);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 18px 30px rgba(244, 63, 94, 0.5);
     }
 
     footer {
@@ -215,7 +247,6 @@
       <p>به آنلاین شاپ ما خوش آمدید. می‌توانید از طریق محاسبه‌گر زیر سایز دقیق خود را مشخص کنید و سپس سفارش خود را ثبت نمایید.</p>
     </div>
 
-    <!-- ابزار آنلاین تخمین سایز عددی ۱ ۲ ۳ ۴ -->
     <div class="card" id="size-tool">
       <h2>📏 محاسبه‌گر آنلاین سایز لباس (۱، ۲، ۳، ۴)</h2>
       <div class="tool-box">
@@ -230,7 +261,6 @@
       </div>
     </div>
 
-    <!-- فرم ثبت سفارش و اتصال مستقیم به ایمیل -->
     <div class="card" id="contact">
       <h2>📞 ثبت سفارش آنلاین</h2>
       <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 8px;">
@@ -279,7 +309,23 @@
         res.innerText = 'سایز پیشنهادی شما: سایز ۴ 📏';
       }
     }
+
+    /* اسکریپت ظاهر شدن نرم کارت‌ها در هنگام اسکرول (Scroll Reveal) */
+    document.addEventListener("DOMContentLoaded", function () {
+      const cards = document.querySelectorAll(".card");
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.15 });
+
+      cards.forEach((card) => observer.observe(card));
+    });
   </script>
 
 </body>
 </html>
+
