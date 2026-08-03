@@ -59,7 +59,7 @@
       z-index: 999;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto 20px auto;
       padding: 10px 15px;
       border-radius: 40px;
@@ -98,7 +98,6 @@
 
     main { max-width: 850px; margin: auto; padding: 15px; }
 
-    /* انیمیشن ظهور کارت‌ها */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
@@ -152,25 +151,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    .price-tag {
-      color: #fbbf24;
-      font-weight: bold;
-      font-size: 16px;
-      margin: 5px 0;
-    }
-
-    .size-badge {
-      background: rgba(244, 63, 94, 0.25);
-      border: 1px solid var(--accent-color);
-      color: #fff;
-      padding: 3px 8px;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 11px;
-      display: inline-block;
-      margin: 2px;
     }
 
     .tool-box {
@@ -284,20 +264,14 @@
       padding: 8px 0;
     }
 
-    /* بخش نظرات */
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-      margin-top: 15px;
-    }
-
-    .review-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border-color);
-      padding: 15px;
-      border-radius: 12px;
-      font-size: 13px;
+    .remove-btn {
+      background: #ef4444;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 2px 8px;
+      cursor: pointer;
+      font-size: 12px;
     }
 
     footer {
@@ -346,8 +320,8 @@
       <a href="#home">🏠 اصلی</a>
       <a href="#models">🎨 مدل‌ها</a>
       <a href="#size-tool">📏 راهنمای سایز</a>
-      <a href="#reviews">⭐ نظرات</a>
-      <a href="#contact">🛒 ثبت سفارش</a>
+      <a href="#cart-section">🛒 سبد خرید</a>
+      <a href="#contact">📞 ثبت سفارش</a>
       <button class="theme-btn" onclick="toggleDarkMode()">🌙 / ☀️</button>
     </nav>
 
@@ -378,10 +352,10 @@
 
     <div class="card">
       <h2>خوش آمدید به پوشاک احمدی 🌟</h2>
-      <p>محصولات مورد نظر خود را به سبد خرید اضافه کنید و سفارش خود را آنلاین و آسان نهایی کنید.</p>
+      <p>محصولات مورد نظر خود را انتخاب کرده و به سبد خرید اضافه کنید تا فرم سفارش شما آماده شود.</p>
     </div>
 
-    <!-- گالری مدل‌ها همراه با سبد خرید -->
+    <!-- گالری مدل‌ها -->
     <div class="card" id="models">
       <h2>🎨 مدل‌ها و طرح‌های موجود</h2>
       
@@ -392,8 +366,7 @@
             <img src="images/blue.jpg" alt="طرح آبی کلاسیک" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%231e3a8a\'/><text x=\'150\' y=\'200\' fill=\'%23fff\' font-size=\'20\' text-anchor=\'middle\'>کت آبی کلاسیک</text></svg>';">
           </div>
           <h3>🦋 طرح آبی کلاسیک</h3>
-          <div class="price-tag">۴۸۰,۰۰۰ تومان</div>
-          <button class="action-btn" onclick="addToCart('طرح آبی کلاسیک', 480000)">افزودن به سبد خرید 🛒</button>
+          <button class="action-btn" onclick="addToCart('طرح آبی کلاسیک')">افزودن به سبد خرید 🛒</button>
         </div>
 
         <div class="color-item">
@@ -401,8 +374,7 @@
             <img src="images/light-flower.jpg" alt="طرح گل‌دار روشن" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%23fce7f3\'/><text x=\'150\' y=\'200\' fill=\'%23881337\' font-size=\'20\' text-anchor=\'middle\'>طرح گل‌دار روشن</text></svg>';">
           </div>
           <h3>🌺 طرح گل‌دار روشن</h3>
-          <div class="price-tag">۴۵۰,۰۰۰ تومان</div>
-          <button class="action-btn" onclick="addToCart('طرح گل‌دار روشن', 450000)">افزودن به سبد خرید 🛒</button>
+          <button class="action-btn" onclick="addToCart('طرح گل‌دار روشن')">افزودن به سبد خرید 🛒</button>
         </div>
 
         <div class="color-item">
@@ -410,8 +382,7 @@
             <img src="images/burgundy.jpg" alt="طرح زرشکی مجلسی" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%234c0519\'/><text x=\'150\' y=\'200\' fill=\'%23fff\' font-size=\'20\' text-anchor=\'middle\'>طرح زرشکی مجلسی</text></svg>';">
           </div>
           <h3>🍷 طرح زرشکی مجلسی</h3>
-          <div class="price-tag">۴۹۰,۰۰۰ تومان</div>
-          <button class="action-btn" onclick="addToCart('طرح زرشکی مجلسی', 490000)">افزودن به سبد خرید 🛒</button>
+          <button class="action-btn" onclick="addToCart('طرح زرشکی مجلسی')">افزودن به سبد خرید 🛒</button>
         </div>
 
         <div class="color-item">
@@ -419,8 +390,7 @@
             <img src="images/cream.jpg" alt="طرح کرم برگ زرشکی" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%23fef3c7\'/><text x=\'150\' y=\'200\' fill=\'%2378350f\' font-size=\'20\' text-anchor=\'middle\'>طرح کرم برگ زرشکی</text></svg>';">
           </div>
           <h3>🍃 طرح کرم برگ زرشکی</h3>
-          <div class="price-tag">۴۶۰,۰۰۰ تومان</div>
-          <button class="action-btn" onclick="addToCart('طرح کرم برگ زرشکی', 460000)">افزودن به سبد خرید 🛒</button>
+          <button class="action-btn" onclick="addToCart('طرح کرم برگ زرشکی')">افزودن به سبد خرید 🛒</button>
         </div>
 
       </div>
@@ -442,53 +412,35 @@
       </div>
     </div>
 
-    <!-- نظرات مشتریان -->
-    <div class="card" id="reviews">
-      <h2>⭐ نظرات خریداران قبلی</h2>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <strong>مریم از تهران:</strong>
-          <p>«کت آبی دستم رسید، کیفیت پارچه و جنس تنخور عالی بود. ممنون از تحویل سریعتون.»</p>
-        </div>
-        <div class="review-card">
-          <strong>زهرا از اصفهان:</strong>
-          <p>«طرح زرشکی رو خریدم، دوختش بسیار تمیزه و دقیقا مطابق عکس بود.»</p>
-        </div>
-        <div class="review-card">
-          <strong>نرگس از شیراز:</strong>
-          <p>«راهنمای سایزشون عالی عمل کرد، دقیقا همون سایزی شد که می‌خواستم.»</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ثبت سفارش همراه با نمایش سبد خرید -->
-    <div class="card" id="contact">
-      <h2>🛒 ثبت سفارش نهایی</h2>
+    <!-- بخش سبد خرید و ثبت سفارش -->
+    <div class="card" id="cart-section">
+      <h2>🛒 سبد خرید شما</h2>
       
-      <!-- پیش‌نمایش سبد خرید -->
       <div class="cart-box">
-        <h4 style="margin-top:0; color:#fbbf24;">اقلام انتخاب شده:</h4>
-        <div id="cartList">سبد خرید شما خالی است.</div>
-        <h3 style="margin-bottom:0;" id="totalPrice">مجموع کل: ۰ تومان</h3>
+        <h4 style="margin-top:0; color:#fbbf24;">محصولات انتخاب شده:</h4>
+        <div id="cartList">هیچ محصولی انتخاب نشده است. از بخش مدل‌ها محصول مورد نظر را اضافه کنید.</div>
       </div>
 
-      <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 6px;">
-        <input type="hidden" name="فاکتور سبد خرید" id="cartInputHidden">
-        
-        <input type="text" name="نام خریدار" placeholder="نام و نام خانوادگی" required>
-        <input type="tel" name="شماره تماس" placeholder="شماره تماس (واتساپ)" required>
+      <div id="contact">
+        <h2>📞 اطلاعات ثبت سفارش</h2>
+        <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 6px;">
+          <input type="hidden" name="اقلام سبد خرید" id="cartInputHidden">
+          
+          <input type="text" name="نام خریدار" placeholder="نام و نام خانوادگی" required>
+          <input type="tel" name="شماره تماس" placeholder="شماره تماس (واتساپ)" required>
 
-        <select name="سایز انتخابی" required>
-          <option value="">سایز مورد نظر را انتخاب کنید</option>
-          <option value="سایز 1">سایز ۱ (مناسب ۳۶ - ۳۸)</option>
-          <option value="سایز 2">سایز ۲ (مناسب ۴۰ - ۴۲)</option>
-          <option value="سایز 3">سایز ۳ (مناسب ۴۴ - ۴۶)</option>
-          <option value="سایز 4">سایز ۴ (مناسب ۴۸ - ۵۰)</option>
-        </select>
+          <select name="سایز انتخابی" required>
+            <option value="">سایز مورد نظر را انتخاب کنید</option>
+            <option value="سایز 1">سایز ۱ (مناسب ۳۶ - ۳۸)</option>
+            <option value="سایز 2">سایز ۲ (مناسب ۴۰ - ۴۲)</option>
+            <option value="سایز 3">سایز ۳ (مناسب ۴۴ - ۴۶)</option>
+            <option value="سایز 4">سایز ۴ (مناسب ۴۸ - ۵۰)</option>
+          </select>
 
-        <textarea name="توضیحات و آدرس" rows="3" placeholder="آدرس دقیق پستی و توضیحات..." required></textarea>
-        <button type="submit" class="action-btn" style="margin-top: 10px; padding: 14px; font-size:16px;">ارسال و نهایی‌سازی سفارش 🚀</button>
-      </form>
+          <textarea name="توضیحات و آدرس" rows="3" placeholder="آدرس دقیق پستی و توضیحات..." required></textarea>
+          <button type="submit" class="action-btn" style="margin-top: 10px; padding: 14px; font-size:16px;">ارسال فرم سفارش 🚀</button>
+        </form>
+      </div>
     </div>
 
   </main>
@@ -499,7 +451,6 @@
 
   <script>
     let cart = [];
-    let total = 0;
 
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
@@ -521,37 +472,36 @@
       else res.innerText = 'سایز پیشنهادی: سایز ۴ 📏';
     }
 
-    function addToCart(title, price) {
-      cart.push({title, price});
-      total += price;
+    function addToCart(title) {
+      cart.push(title);
+      updateCartUI();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
       updateCartUI();
     }
 
     function updateCartUI() {
       const cartList = document.getElementById('cartList');
-      const totalPrice = document.getElementById('totalPrice');
       const hiddenInput = document.getElementById('cartInputHidden');
 
       if (cart.length === 0) {
-        cartList.innerHTML = 'سبد خرید شما خالی است.';
-        totalPrice.innerText = 'مجموع کل: ۰ تومان';
+        cartList.innerHTML = 'هیچ محصولی انتخاب نشده است. از بخش مدل‌ها محصول مورد نظر را اضافه کنید.';
         hiddenInput.value = '';
         return;
       }
 
       let html = '';
-      let cartSummaryText = '';
       cart.forEach((item, index) => {
         html += `<div class="cart-item">
-          <span>${item.title}</span>
-          <span>${item.price.toLocaleString('fa-IR')} تومان</span>
+          <span>${item}</span>
+          <button class="remove-btn" onclick="removeFromCart(${index})">حذف ❌</button>
         </div>`;
-        cartSummaryText += `${item.title} (${item.price} تومان) | `;
       });
 
       cartList.innerHTML = html;
-      totalPrice.innerText = `مجموع کل: ${total.toLocaleString('fa-IR')} تومان`;
-      hiddenInput.value = `${cartSummaryText} - کل: ${total} تومان`;
+      hiddenInput.value = cart.join(' | ');
     }
 
     function openModal() { document.getElementById('sizeModal').style.display = 'flex'; }
