@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>پوشاک احمدی 👔</title>
 
-  <!-- آیکون سایت (لوگوی اختصاصی پوشاک احمدی) -->
+  <!-- آیکون اختصاصی وب‌سایت -->
   <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='90' fill='%231e1b4b'/><path d='M60 65 L100 85 L140 65 L125 50 L100 65 L75 50 Z' fill='%23f43f5e'/><path d='M60 65 L85 150 L100 150 L100 85 Z' fill='%23fb7185'/><path d='M140 65 L115 150 L100 150 L100 85 Z' fill='%23e11d48'/><polygon points='100,85 93,120 100,128 107,120' fill='%23ffffff'/></svg>" type="image/svg+xml">
 
   <style>
@@ -33,23 +33,12 @@
       --input-bg: rgba(0, 0, 0, 0.25);
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #0f172a;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: var(--accent-color);
-      border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--accent-hover);
-    }
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent-hover); }
 
     body {
       margin: 0;
@@ -63,21 +52,16 @@
       transition: background 0.5s ease;
     }
 
-    header {
-      padding: 40px 20px 20px;
-    }
+    header { padding: 40px 20px 20px; }
 
-    /* استایل لوگوی اختصاصی SVG */
     .brand-logo-svg {
-      width: 130px;
-      height: 130px;
+      width: 120px;
+      height: 120px;
       filter: drop-shadow(0 10px 20px rgba(244, 63, 94, 0.35));
       transition: transform 0.4s ease;
     }
 
-    .brand-logo-svg:hover {
-      transform: scale(1.05) rotate(2deg);
-    }
+    .brand-logo-svg:hover { transform: scale(1.05) rotate(2deg); }
 
     nav {
       position: sticky;
@@ -97,7 +81,6 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 12px;
-      transition: all 0.3s ease;
     }
 
     nav a {
@@ -125,12 +108,6 @@
       border-radius: 20px;
       cursor: pointer;
       font-weight: bold;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .theme-btn:hover {
-      transform: scale(1.08);
-      background: var(--accent-hover);
     }
 
     main { max-width: 850px; margin: auto; padding: 20px; }
@@ -148,23 +125,42 @@
       line-height: 2;
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                  box-shadow 0.4s ease;
-      will-change: transform, opacity;
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card:hover {
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-    }
-
+    .card.visible { opacity: 1; transform: translateY(0); }
     .card h2 { text-align: center; color: #fb7185; margin-top: 0; }
+
+    /* شبکه‌بندی مدل‌ها */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .color-item {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--glass-border);
+      padding: 15px;
+      border-radius: 16px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .color-item:hover { transform: translateY(-5px); }
+
+    .size-badge {
+      background: rgba(244, 63, 94, 0.2);
+      border: 1px solid var(--accent-color);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 13px;
+      display: inline-block;
+      margin: 3px;
+    }
 
     .tool-box {
       background: rgba(0, 0, 0, 0.15);
@@ -186,24 +182,9 @@
       font-size: 15px;
       margin: 8px 0;
       outline: none;
-      backdrop-filter: blur(5px);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    input::placeholder, textarea::placeholder {
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--accent-color);
-      box-shadow: 0 0 15px rgba(244, 63, 94, 0.3);
-      transform: scale(1.01);
-    }
-
-    select option {
-      background: #1e1b4b;
-      color: white;
-    }
+    select option { background: #1e1b4b; color: white; }
 
     button.action-btn {
       background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
@@ -215,19 +196,12 @@
       font-size: 16px;
       cursor: pointer;
       box-shadow: 0 10px 20px rgba(244, 63, 94, 0.3);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    button.action-btn:hover {
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 18px 30px rgba(244, 63, 94, 0.5);
     }
 
     footer {
       background: rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px);
       border-top: 1px solid var(--glass-border);
-      color: var(--text-color);
       padding: 25px;
       margin-top: 60px;
     }
@@ -239,12 +213,12 @@
   <header>
     <nav>
       <a href="#home">🏠 اصلی</a>
+      <a href="#models">🎨 مدل‌ها و رنگ‌بندی</a>
       <a href="#size-tool">📏 راهنمای سایز</a>
       <a href="#contact">📞 ثبت سفارش</a>
       <button class="theme-btn" onclick="toggleDarkMode()">🌙 / ☀️</button>
     </nav>
     
-    <!-- لوگوی برداری (SVG) شیک و مدرن "پوشاک احمدی" -->
     <svg class="brand-logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -256,14 +230,11 @@
           <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
         </linearGradient>
       </defs>
-      <!-- حلقه پس‌زمینه -->
       <circle cx="100" cy="100" r="90" fill="rgba(30, 27, 75, 0.85)" stroke="url(#grad1)" stroke-width="4"/>
-      <!-- نشان کت و یقه -->
       <path d="M 55,60 L 100,85 L 145,60 L 125,45 L 100,60 L 75,45 Z" fill="url(#grad1)" />
       <path d="M 55,60 L 82,145 L 100,145 L 100,85 Z" fill="#fb7185" />
       <path d="M 145,60 L 118,145 L 100,145 L 100,85 Z" fill="#e11d48" />
       <polygon points="100,85 92,118 100,126 108,118" fill="url(#goldGrad)" />
-      <!-- متن مدرن پوشاک احمدی -->
       <text x="100" y="172" font-family="Tahoma, Arial" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">پوشاک احمدی</text>
     </svg>
 
@@ -275,7 +246,51 @@
 
     <div class="card">
       <h2>خوش آمدید به پوشاک احمدی 🌟</h2>
-      <p>به فروشگاه آنلاین پوشاک احمدی خوش آمدید. می‌توانید از طریق محاسبه‌گر زیر سایز دقیق خود را مشخص کنید و سپس سفارش خود را ثبت نمایید.</p>
+      <p>به فروشگاه آنلاین پوشاک احمدی خوش آمدید. طرح و رنگ مورد نظر خود را انتخاب کرده و از طریق فرم زیر ثبت سفارش کنید.</p>
+    </div>
+
+    <!-- کارت گالری طرح‌ها و رنگ‌ها -->
+    <div class="card" id="models">
+      <h2>🎨 تنوع طرح و رنگ‌بندی مدل سنتی</h2>
+      <p style="text-align: center;">تمامی مدل‌های زیر در سایزهای <strong>۱، ۲، ۳ و ۴</strong> موجود می‌باشند:</p>
+      
+      <div class="color-grid">
+        <div class="color-item">
+          <h3>🌺 طرح گل‌دار روشن</h3>
+          <p>زمینه روشن با گل‌های صورتی و آستین پاکتی</p>
+          <div>
+            <span class="size-badge">سایز ۱</span><span class="size-badge">سایز ۲</span>
+            <span class="size-badge">سایز ۳</span><span class="size-badge">سایز ۴</span>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <h3>🍷 طرح زرشکی مجلسی</h3>
+          <p>زمینه تیره زرشکی با لبه آستین عسلی شیک</p>
+          <div>
+            <span class="size-badge">سایز ۱</span><span class="size-badge">سایز ۲</span>
+            <span class="size-badge">سایز ۳</span><span class="size-badge">سایز ۴</span>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <h3>🍃 طرح کرم برگ زرشکی</h3>
+          <p>ترکیب خاص کرم با برگ‌های زرشکی سنتی</p>
+          <div>
+            <span class="size-badge">سایز ۱</span><span class="size-badge">سایز ۲</span>
+            <span class="size-badge">سایز ۳</span><span class="size-badge">سایز ۴</span>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <h3>🦋 طرح آبی کلاسیک</h3>
+          <p>طرح اسلیمی آبی با ترکیب مشکی</p>
+          <div>
+            <span class="size-badge">سایز ۱</span><span class="size-badge">سایز ۲</span>
+            <span class="size-badge">سایز ۳</span><span class="size-badge">سایز ۴</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="card" id="size-tool">
@@ -292,19 +307,30 @@
       </div>
     </div>
 
+    <!-- فرم سفارش شامل انتخاب طرح و سایز -->
     <div class="card" id="contact">
       <h2>📞 ثبت سفارش آنلاین در پوشاک احمدی</h2>
       <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 8px;">
         <input type="text" name="نام خریدار" placeholder="نام و نام خانوادگی" required>
         <input type="tel" name="شماره تماس" placeholder="شماره تماس" required>
+        
+        <select name="طرح و رنگ انتخابی" required>
+          <option value="">طرح و رنگ مورد نظر را انتخاب کنید</option>
+          <option value="طرح گل‌دار روشن">طرح گل‌دار روشن</option>
+          <option value="طرح زرشکی مجلسی">طرح زرشکی مجلسی (لبه عسلی)</option>
+          <option value="طرح کرم برگ زرشکی">طرح کرم برگ زرشکی</option>
+          <option value="طرح آبی کلاسیک">طرح آبی کلاسیک</option>
+        </select>
+
         <select name="سایز انتخابی" required>
           <option value="">سایز مورد نظر را انتخاب کنید</option>
-          <option value="سایز 1">سایز ۱</option>
-          <option value="سایز 2">سایز ۲</option>
-          <option value="سایز 3">سایز ۳</option>
-          <option value="سایز 4">سایز ۴</option>
+          <option value="سایز 1">سایز ۱ (مناسب ۳۶ - ۳۸)</option>
+          <option value="سایز 2">سایز ۲ (مناسب ۴۰ - ۴۲)</option>
+          <option value="سایز 3">سایز ۳ (مناسب ۴۴ - ۴۶)</option>
+          <option value="سایز 4">سایز ۴ (مناسب ۴۸ - ۵۰)</option>
         </select>
-        <textarea name="توضیحات سفارش" rows="4" placeholder="توضیحات لباس یا مدل درخواستی..." required></textarea>
+
+        <textarea name="توضیحات سفارش" rows="4" placeholder="آدرس دقیق پستی، کد پستی یا توضیحات بیشتر..." required></textarea>
         <button type="submit" class="action-btn" style="margin-top: 10px;">ارسال فرم سفارش</button>
       </form>
     </div>
