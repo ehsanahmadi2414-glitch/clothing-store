@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>گالری پوشاک و مد 👗👕</title>
+
+  <style>
+    :root {
+      --bg-color: #f8f9fa;
+      --text-color: #212529;
+      --card-bg: #ffffff;
+      --header-bg: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      --accent-color: #e11d48;
+      --border-color: #e2e8f0;
+      --nav-bg: rgba(255, 255, 255, 0.9);
+      --nav-text: #334155;
+    }
+
+    body.dark-mode {
+      --bg-color: #0f172a;
+      --text-color: #f8fafc;
+      --card-bg: #1e293b;
+      --header-bg: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+      --border-color: #334155;
+      --nav-bg: rgba(30, 41, 59, 0.9);
+      --nav-text: #cbd5e1;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      text-align: center;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      background: var(--header-bg);
+      color: white;
+      padding: 50px 20px 60px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    nav {
+      position: sticky;
+      top: 15px;
+      z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      max-width: 850px;
+      margin: 0 auto 30px auto;
+      padding: 10px 15px;
+      border-radius: 50px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a {
+      color: var(--nav-text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background: var(--accent-color);
+      color: white;
+    }
+
+    .theme-btn {
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    main { max-width: 900px; margin: auto; padding: 20px; }
+
+    .card {
+      background: var(--card-bg);
+      margin: 30px 0;
+      padding: 30px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border-color);
+      text-align: right;
+      line-height: 2;
+    }
+
+    .card h2 { text-align: center; color: var(--accent-color); }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .product-card {
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .product-card .icon { font-size: 50px; }
+    .product-card .price { color: var(--accent-color); font-weight: bold; font-size: 18px; }
+
+    .tool-box {
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    input, select {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      margin: 5px;
+      font-family: inherit;
+    }
+
+    button.action-btn {
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer { background: #0f172a; color: white; padding: 25px; margin-top: 50px; }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="#home">🏠 اصلی</a>
+      <a href="#products">🛍️ محصولات</a>
+      <a href="#size-tool">📏 راهنمای سایز</a>
+      <a href="#contact">📞 تماس</a>
+      <button class="theme-btn" onclick="toggleDarkMode()">🌙 / ☀️</button>
+    </nav>
+    <div style="font-size: 70px;">👗✨👕</div>
+    <h1>بوتیک و فروشگاه پوشاک آنلاین</h1>
+    <p>جدیدترین ترندهای استایل، پوشاک مردانه و زنانه با بالاترین کیفیت 🐾</p>
+  </header>
+
+  <main id="home">
+
+    <div class="card">
+      <h2>کالکشن جدید فصل 🌟</h2>
+      <p>به گالری پوشاک خوش آمدید. در این وب‌سایت می‌توانید جدیدترین مجموعه‌های لباس را مشاهده کرده، سایز دقیق خود را محاسبه کنید و سفارش خود را ثبت نمایید.</p>
+    </div>
+
+    <div class="card" id="size-tool">
+      <h2>📏 محاسبه‌گر آنلاین سایز لباس</h2>
+      <div class="tool-box">
+        <p>قد (سانتی‌متر) و وزن (کیلوگرم) خود را وارد کنید تا بهترین سایز پیشنهادی مشخص شود:</p>
+        <input type="number" id="height" placeholder="قد (مثلاً ۱۷۵)">
+        <input type="number" id="weight" placeholder="وزن (مثلاً ۷۰)">
+        <br><br>
+        <button class="action-btn" onclick="calculateSize()">تخمین سایز من 📐</button>
+        <h3 id="sizeResult" style="color: var(--accent-color); margin-top: 15px;"></h3>
+      </div>
+    </div>
+
+    <div class="card" id="products">
+      <h2>🛍️ کاتالوگ محصولات</h2>
+      <p style="text-align: center;">فیلتر بر اساس دسته‌بندی:</p>
+      <div style="text-align: center; margin-bottom: 20px;">
+        <button class="action-btn" onclick="filterProducts('all')">همه</button>
+        <button class="action-btn" onclick="filterProducts('men')">مردانه 👔</button>
+        <button class="action-btn" onclick="filterProducts('women')">زنانه 👗</button>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card" data-category="men">
+          <div class="icon">کت مردانه 🧥</div>
+          <h3>کت تک رسمی</h3>
+          <p class="price">۱,۸۵۰,۰۰۰ تومان</p>
+        </div>
+        <div class="product-card" data-category="women">
+          <div class="icon">پیراهن 👗</div>
+          <h3>پیراهن مجلسی زنانه</h3>
+          <p class="price">۲,۲۰۰,۰۰۰ تومان</p>
+        </div>
+        <div class="product-card" data-category="men">
+          <div class="icon">هودی 🧥</div>
+          <h3>هودی اسپرت کژوال</h3>
+          <p class="price">۸۵۰,۰۰۰ تومان</p>
+        </div>
+        <div class="product-card" data-category="women">
+          <div class="icon">مانتو 🧥</div>
+          <h3>مانتو بهاره مدرن</h3>
+          <p class="price">۱,۴۰۰,۰۰۰ تومان</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="contact">
+      <h2>📞 مشاوره و ثبت سفارش</h2>
+      <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 12px;">
+        <input type="text" name="name" placeholder="نام و نام خانوادگی" required>
+        <input type="tel" name="phone" placeholder="شماره تماس" required>
+        <textarea name="message" rows="4" placeholder="نام محصول یا کد مورد نظر جهت ثبت سفارش..." required></textarea>
+        <button type="submit" class="action-btn">ارسال فرم سفارش</button>
+      </form>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© کلیه حقوق برای گالری آنلاین پوشاک محفوظ است | طراحی شده با ❤️</p>
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function calculateSize() {
+      const h = parseFloat(document.getElementById('height').value);
+      const w = parseFloat(document.getElementById('weight').value);
+      const res = document.getElementById('sizeResult');
+
+      if (!h || !w) {
+        res.innerText = 'لطفاً قد و وزن را به درستی وارد کنید.';
+        return;
+      }
+
+      if (w < 60 && h < 170) {
+        res.innerText = 'سایز پیشنهادی شما: Small (S) 📏';
+      } else if (w < 75 && h < 180) {
+        res.innerText = 'سایز پیشنهادی شما: Medium (M) 📏';
+      } else if (w < 90) {
+        res.innerText = 'سایز پیشنهادی شما: Large (L) 📏';
+      } else {
+        res.innerText = 'سایز پیشنهادی شما: X-Large (XL) 📏';
+      }
+    }
+
+    function filterProducts(category) {
+      const items = document.querySelectorAll('.product-card');
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+  </html>
+  
