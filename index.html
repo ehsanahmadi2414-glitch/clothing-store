@@ -11,76 +11,66 @@
 
   <style>
     :root {
-      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+      --bg-color: #0f172a;
+      --card-bg: rgba(30, 27, 75, 0.75);
       --text-color: #f8fafc;
       --accent-color: #f43f5e;
       --accent-hover: #e11d48;
-      
-      --glass-bg: rgba(255, 255, 255, 0.07);
-      --glass-border: rgba(255, 255, 255, 0.15);
-      --glass-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-      
-      --nav-bg: rgba(255, 255, 255, 0.12);
-      --input-bg: rgba(255, 255, 255, 0.07);
+      --border-color: rgba(255, 255, 255, 0.12);
+      --input-bg: rgba(15, 23, 42, 0.6);
     }
 
     body.dark-mode {
-      --bg-gradient: linear-gradient(135deg, #020617 0%, #090d16 50%, #111827 100%);
+      --bg-color: #020617;
+      --card-bg: rgba(15, 23, 42, 0.85);
       --text-color: #e2e8f0;
-      --glass-bg: rgba(15, 23, 42, 0.45);
-      --glass-border: rgba(255, 255, 255, 0.08);
-      --nav-bg: rgba(15, 23, 42, 0.5);
-      --input-bg: rgba(0, 0, 0, 0.25);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --input-bg: rgba(0, 0, 0, 0.4);
     }
 
     html { scroll-behavior: smooth; }
 
-    ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-track { background: #0f172a; }
-    ::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 10px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--accent-hover); }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-color); }
+    ::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 4px; }
 
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg-gradient);
-      background-attachment: fixed;
+      background-color: var(--bg-color);
       color: var(--text-color);
       text-align: center;
       min-height: 100vh;
       overflow-x: hidden;
-      transition: background 0.5s ease;
+      text-rendering: optimizeSpeed;
     }
 
-    header { padding: 40px 20px 20px; }
+    header { padding: 30px 20px 10px; }
 
     .brand-logo-svg {
-      width: 120px;
-      height: 120px;
-      filter: drop-shadow(0 10px 20px rgba(244, 63, 94, 0.35));
-      transition: transform 0.4s ease;
+      width: 110px;
+      height: 110px;
+      transition: transform 0.2s ease;
     }
 
-    .brand-logo-svg:hover { transform: scale(1.05) rotate(2deg); }
+    .brand-logo-svg:hover { transform: scale(1.03); }
 
     nav {
       position: sticky;
-      top: 20px;
+      top: 15px;
       z-index: 1000;
-      background: var(--nav-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--glass-border);
-      max-width: 800px;
-      margin: 0 auto 30px auto;
-      padding: 12px 20px;
-      border-radius: 50px;
-      box-shadow: var(--glass-shadow);
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      max-width: 750px;
+      margin: 0 auto 20px auto;
+      padding: 10px 15px;
+      border-radius: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
+      transform: translateZ(0);
     }
 
     nav a {
@@ -88,122 +78,126 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 14px;
-      padding: 8px 18px;
-      border-radius: 25px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: background 0.2s ease, color 0.2s ease;
     }
 
     nav a:hover {
       background: var(--accent-color);
       color: white;
-      box-shadow: 0 4px 15px rgba(244, 63, 94, 0.4);
-      transform: translateY(-2px);
     }
 
     .theme-btn {
       background: var(--accent-color);
       color: white;
       border: none;
-      padding: 8px 16px;
-      border-radius: 20px;
+      padding: 8px 14px;
+      border-radius: 18px;
       cursor: pointer;
       font-weight: bold;
     }
 
-    main { max-width: 850px; margin: auto; padding: 20px; }
+    main { max-width: 850px; margin: auto; padding: 15px; }
 
     .card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-shadow);
-      margin: 40px 0;
-      padding: 35px;
-      border-radius: 28px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      margin: 25px 0;
+      padding: 28px;
+      border-radius: 20px;
       text-align: right;
-      line-height: 2;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      line-height: 1.8;
+      transform: translateZ(0);
+      will-change: transform;
     }
 
-    .card.visible { opacity: 1; transform: translateY(0); }
     .card h2 { text-align: center; color: #fb7185; margin-top: 0; }
 
-    /* شبکه‌بندی مدل‌ها */
     .color-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
       margin-top: 20px;
     }
 
     .color-item {
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid var(--glass-border);
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--border-color);
       padding: 15px;
       border-radius: 16px;
       text-align: center;
-      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .color-item:hover { transform: translateY(-5px); }
+    /* استایل عکس محصولات */
+    .product-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 12px;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
 
     .size-badge {
-      background: rgba(244, 63, 94, 0.2);
+      background: rgba(244, 63, 94, 0.25);
       border: 1px solid var(--accent-color);
       color: #fff;
-      padding: 4px 12px;
-      border-radius: 10px;
+      padding: 3px 10px;
+      border-radius: 8px;
       font-weight: bold;
-      font-size: 13px;
+      font-size: 12px;
       display: inline-block;
-      margin: 3px;
+      margin: 2px;
     }
 
     .tool-box {
-      background: rgba(0, 0, 0, 0.15);
-      border: 1px solid var(--glass-border);
-      padding: 25px;
-      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 16px;
       text-align: center;
     }
 
     input, select, textarea {
       width: 100%;
       box-sizing: border-box;
-      padding: 14px 18px;
-      border-radius: 12px;
+      padding: 12px 15px;
+      border-radius: 10px;
       background: var(--input-bg);
-      border: 1px solid var(--glass-border);
+      border: 1px solid var(--border-color);
       color: white;
       font-family: inherit;
-      font-size: 15px;
-      margin: 8px 0;
+      font-size: 14px;
+      margin: 6px 0;
       outline: none;
     }
 
-    select option { background: #1e1b4b; color: white; }
+    select option { background: #0f172a; color: white; }
 
     button.action-btn {
-      background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+      background: var(--accent-color);
       color: white;
       border: none;
-      padding: 14px 30px;
-      border-radius: 50px;
+      padding: 12px 25px;
+      border-radius: 30px;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 15px;
       cursor: pointer;
-      box-shadow: 0 10px 20px rgba(244, 63, 94, 0.3);
+      transition: background 0.2s ease;
     }
 
+    button.action-btn:hover { background: var(--accent-hover); }
+
     footer {
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(10px);
-      border-top: 1px solid var(--glass-border);
-      padding: 25px;
-      margin-top: 60px;
+      background: rgba(0, 0, 0, 0.4);
+      border-top: 1px solid var(--border-color);
+      padding: 20px;
+      margin-top: 40px;
     }
   </style>
 </head>
@@ -213,7 +207,7 @@
   <header>
     <nav>
       <a href="#home">🏠 اصلی</a>
-      <a href="#models">🎨 مدل‌ها و رنگ‌بندی</a>
+      <a href="#models">🎨 مدل‌ها</a>
       <a href="#size-tool">📏 راهنمای سایز</a>
       <a href="#contact">📞 ثبت سفارش</a>
       <button class="theme-btn" onclick="toggleDarkMode()">🌙 / ☀️</button>
@@ -238,8 +232,8 @@
       <text x="100" y="172" font-family="Tahoma, Arial" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">پوشاک احمدی</text>
     </svg>
 
-    <h1 style="margin-top: 10px;">پوشاک احمدی</h1>
-    <p>جدیدترین ترندهای استایل با بالاترین کیفیت</p>
+    <h1 style="margin-top: 5px;">پوشاک احمدی</h1>
+    <p style="margin: 0;">جدیدترین ترندهای استایل با بالاترین کیفیت</p>
   </header>
 
   <main id="home">
@@ -249,15 +243,17 @@
       <p>به فروشگاه آنلاین پوشاک احمدی خوش آمدید. طرح و رنگ مورد نظر خود را انتخاب کرده و از طریق فرم زیر ثبت سفارش کنید.</p>
     </div>
 
-    <!-- کارت گالری طرح‌ها و رنگ‌ها -->
+    <!-- گالری مدل‌ها به همراه عکس -->
     <div class="card" id="models">
       <h2>🎨 تنوع طرح و رنگ‌بندی مدل سنتی</h2>
       <p style="text-align: center;">تمامی مدل‌های زیر در سایزهای <strong>۱، ۲، ۳ و ۴</strong> موجود می‌باشند:</p>
       
       <div class="color-grid">
         <div class="color-item">
+          <!-- عکس طرح گل‌دار روشن -->
+          <img src="images/light-flower.jpg" alt="طرح گل‌دار روشن" class="product-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x300/1e1b4b/ffffff?text=عکس+محصول';">
           <h3>🌺 طرح گل‌دار روشن</h3>
-          <p>زمینه روشن با گل‌های صورتی و آستین پاکتی</p>
+          <p>زمینه روشن با گل‌های صورتی</p>
           <div>
             <span class="size-badge">سایز ۱</span><span class="size-badge">سایز ۲</span>
             <span class="size-badge">سایز ۳</span><span class="size-badge">سایز ۴</span>
@@ -265,8 +261,10 @@
         </div>
 
         <div class="color-item">
+          <!-- عکس طرح زرشکی -->
+          <img src="images/burgundy.jpg" alt="طرح زرشکی مجلسی" class="product-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x300/1e1b4b/ffffff?text=عکس+محصول';">
           <h3>🍷 طرح زرشکی مجلسی</h3>
-          <p>زمینه تیره زرشکی با لبه آستین عسلی شیک</p>
+          <p>زرشکی تیره با لبه آستین عسلی</p>
           <div>
             <span class="size-badge">سایز ۱</span><span class="size-badge">سایز ۲</span>
             <span class="size-badge">سایز ۳</span><span class="size-badge">سایز ۴</span>
@@ -274,8 +272,10 @@
         </div>
 
         <div class="color-item">
+          <!-- عکس طرح کرم -->
+          <img src="images/cream.jpg" alt="طرح کرم برگ زرشکی" class="product-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x300/1e1b4b/ffffff?text=عکس+محصول';">
           <h3>🍃 طرح کرم برگ زرشکی</h3>
-          <p>ترکیب خاص کرم با برگ‌های زرشکی سنتی</p>
+          <p>ترکیب کرم با برگ‌های زرشکی</p>
           <div>
             <span class="size-badge">سایز ۱</span><span class="size-badge">سایز ۲</span>
             <span class="size-badge">سایز ۳</span><span class="size-badge">سایز ۴</span>
@@ -283,6 +283,8 @@
         </div>
 
         <div class="color-item">
+          <!-- عکس طرح آبی -->
+          <img src="images/blue.jpg" alt="طرح آبی کلاسیک" class="product-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x300/1e1b4b/ffffff?text=عکس+محصول';">
           <h3>🦋 طرح آبی کلاسیک</h3>
           <p>طرح اسلیمی آبی با ترکیب مشکی</p>
           <div>
@@ -303,14 +305,13 @@
         </div>
         <br>
         <button class="action-btn" onclick="calculateSize()">تخمین سایز من 📐</button>
-        <h3 id="sizeResult" style="color: #fb7185; margin-top: 20px;"></h3>
+        <h3 id="sizeResult" style="color: #fb7185; margin-top: 15px;"></h3>
       </div>
     </div>
 
-    <!-- فرم سفارش شامل انتخاب طرح و سایز -->
     <div class="card" id="contact">
       <h2>📞 ثبت سفارش آنلاین در پوشاک احمدی</h2>
-      <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 8px;">
+      <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 6px;">
         <input type="text" name="نام خریدار" placeholder="نام و نام خانوادگی" required>
         <input type="tel" name="شماره تماس" placeholder="شماره تماس" required>
         
@@ -366,20 +367,6 @@
         res.innerText = 'سایز پیشنهادی شما: سایز ۴ 📏';
       }
     }
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const cards = document.querySelectorAll(".card");
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, { threshold: 0.15 });
-
-      cards.forEach((card) => observer.observe(card));
-    });
   </script>
 
 </body>
