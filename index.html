@@ -4,12 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>پوشاک احمدی 👔 | لوکس‌ترین برند پوشاک</title>
+  <title>پوشاک زنانه احمدی 👗 | لوکس‌ترین برند مد و پوشاک بانوان</title>
 
   <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='90' fill='%231e1b4b'/><path d='M60 65 L100 85 L140 65 L125 50 L100 65 L75 50 Z' fill='%23f43f5e'/><path d='M60 65 L85 150 L100 150 L100 85 Z' fill='%23fb7185'/><path d='M140 65 L115 150 L100 150 L100 85 Z' fill='%23e11d48'/><polygon points='100,85 93,120 100,128 107,120' fill='%23ffffff'/></svg>" type="image/svg+xml">
 
   <style>
-    /* تم‌های رنگی حرفه‌ای */
     :root {
       --bg-color: #0f172a;
       --card-bg: rgba(30, 27, 75, 0.75);
@@ -144,7 +143,6 @@
 
     main { max-width: 850px; margin: auto; padding: 15px; }
 
-    /* کارت‌های سه‌بعدی با انیمیشن ورود */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
@@ -166,7 +164,6 @@
 
     .card h2 { text-align: center; color: var(--accent-color); margin-top: 0; }
 
-    /* اسلایدر هدر ژورنالی */
     .hero-slider {
       width: 100%;
       height: 220px;
@@ -202,7 +199,6 @@
       border: 1px solid rgba(255,255,255,0.2);
     }
 
-    /* گالری محصولات با هاور سه‌بعدی */
     .color-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -227,7 +223,6 @@
       box-shadow: 0 12px 25px rgba(0,0,0,0.4);
     }
 
-    /* زوم حرفه‌ای روی تصویر محصول */
     .product-img-box {
       width: 100%;
       height: 240px;
@@ -294,7 +289,6 @@
 
     button.action-btn:hover { background: var(--accent-hover); transform: scale(1.03); }
 
-    /* دکمه چت شناور */
     .float-chat {
       position: fixed;
       bottom: 25px;
@@ -315,7 +309,6 @@
 
     .float-chat:hover { transform: scale(1.08); }
 
-    /* مدال‌ها */
     .modal {
       display: none;
       position: fixed;
@@ -327,7 +320,6 @@
       backdrop-filter: blur(5px);
     }
 
-    /* کلاس مخصوص برای نمایش پاپ‌آپ در ابتدا */
     .modal.active-modal {
       display: flex !important;
     }
@@ -397,39 +389,38 @@
 
 <body class="theme-gold">
 
-  <!-- پاپ‌آپ خوش‌آمدگویی (اصلاح شده و کاملاً واکنش‌گرا) -->
+  <!-- پاپ‌آپ خوش‌آمدگویی زنانه -->
   <div class="modal active-modal" id="welcomeModal">
     <div class="modal-content" style="text-align: center;">
-      <h2 style="color: var(--accent-color);">✨ به پوشاک احمدی خوش آمدید</h2>
-      <p style="font-size: 15px; line-height: 1.6;">مرکز تخصصی شیک‌ترین و لوکس‌ترین استایل‌های روز. از مشاهده محصولات لذت ببرید!</p>
+      <h2 style="color: var(--accent-color);">✨ پوشاک زنانه احمدی</h2>
+      <p style="font-size: 15px; line-height: 1.6;">لوکس‌ترین و جدیدترین کلکسیون مانتو، شومیز و لباس‌های مجلسی زنانه. با افتخار در کنار شما هستیم!</p>
       <br>
-      <button type="button" class="action-btn" onclick="closeWelcomeModal()" style="padding: 12px 30px; cursor: pointer;">ورود به فروشگاه 🚀</button>
+      <button type="button" class="action-btn" onclick="closeWelcomeModal()" style="padding: 12px 30px; cursor: pointer;">ورود به گالری بانوان 🛍️</button>
     </div>
   </div>
 
-  <!-- دکمه شناور واتساپ -->
   <a href="https://wa.me/989000000000" target="_blank" class="float-chat">
-    💬 مشاوره و پشتیبانی
+    💬 مشاوره خرید بانوان
   </a>
 
-  <!-- مدال راهنمای سایز -->
+  <!-- مدال راهنمای سایز زنانه -->
   <div class="modal" id="sizeModal">
     <div class="modal-content" style="text-align: center;">
-      <h3 style="color:var(--accent-color); margin-top:0;">📏 جدول ابعاد دقیق (سانتی‌متر)</h3>
+      <h3 style="color:var(--accent-color); margin-top:0;">📏 جدول راهنمای سایز بانوان (سانتی‌متر)</h3>
       <table class="size-table">
         <thead>
           <tr>
             <th>سایز</th>
             <th>دور سینه</th>
-            <th>عرض سرشانه</th>
-            <th>قد لباس</th>
+            <th>دور کمر</th>
+            <th>دور باسن</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>سایز ۱</td><td>۹۲</td><td>۳۸</td><td>۸۰</td></tr>
-          <tr><td>سایز ۲</td><td>۹۸</td><td>۴۰</td><td>۸۲</td></tr>
-          <tr><td>سایز ۳</td><td>۱۰۴</td><td>۴۲</td><td>۸۴</td></tr>
-          <tr><td>سایز ۴</td><td>۱۱۰</td><td>۴۴</td><td>۸۵</td></tr>
+          <tr><td>سایز ۳۶ (S)</td><td>۸۸</td><td>۷۰</td><td>۹۴</td></tr>
+          <tr><td>سایز ۳۸-۴۰ (M)</td><td>۹۴</td><td>۷۶</td><td>۱۰۰</td></tr>
+          <tr><td>سایز ۴۲-۴۴ (L)</td><td>۱۰۰</td><td>۸۲</td><td>۱۰۶</td></tr>
+          <tr><td>سایز ۴۶-۴۸ (XL)</td><td>۱۰۶</td><td>۸۸</td><td>۱۱۲</td></tr>
         </tbody>
       </table>
       <br>
@@ -437,16 +428,16 @@
     </div>
   </div>
 
-  <!-- مدال سبد خرید و ثبت سفارش -->
+  <!-- مدال سبد خرید -->
   <div class="modal" id="cartModal">
     <div class="modal-content">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-        <h2 style="margin: 0; color: var(--accent-color);">🛒 سبد خرید و سفارش</h2>
+        <h2 style="margin: 0; color: var(--accent-color);">🛒 سبد خرید شما</h2>
         <button type="button" onclick="closeCartModal()" style="background:none; border:none; color:var(--text-color); font-size:22px; cursor:pointer;">✕</button>
       </div>
 
       <div class="cart-box">
-        <h4 style="margin-top:0; opacity: 0.9;">محصولات انتخابی شما:</h4>
+        <h4 style="margin-top:0; opacity: 0.9;">محصولات انتخابی:</h4>
         <div id="cartList">سبد خرید شما خالی است.</div>
       </div>
 
@@ -454,18 +445,18 @@
       <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 8px;">
         <input type="hidden" name="اقلام سبد خرید" id="cartInputHidden">
         
-        <input type="text" name="نام خریدار" placeholder="نام و نام خانوادگی" required>
-        <input type="tel" name="شماره تماس" placeholder="شماره تماس (واتساپ)" required>
+        <input type="text" name="نام و نام خانوادگی" placeholder="نام و نام خانوادگی" required>
+        <input type="tel" name="شماره تماس" placeholder="شماره تماس (واتساپ/موبایل)" required>
 
-        <select name="سایز انتخابی" required>
-          <option value="">سایز مورد نظر را انتخاب کنید</option>
-          <option value="سایز 1">سایز ۱ (مناسب ۳۶ - ۳۸)</option>
-          <option value="سایز 2">سایز ۲ (مناسب ۴۰ - ۴۲)</option>
-          <option value="سایز 3">سایز ۳ (مناسب ۴۴ - ۴۶)</option>
-          <option value="سایز 4">سایز ۴ (مناسب ۴۸ - ۵۰)</option>
+        <select name="سایز لباس" required>
+          <option value="">انتخاب سایز بانوان</option>
+          <option value="سایز 36 (S)">سایز ۳۶ (S)</option>
+          <option value="سایز 38-40 (M)">سایز ۳۸ تا ۴۰ (M)</option>
+          <option value="سایز 42-44 (L)">سایز ۴۲ تا ۴۴ (L)</option>
+          <option value="سایز 46-48 (XL)">سایز ۴۶ تا ۴۸ (XL)</option>
         </select>
 
-        <textarea name="توضیحات و آدرس" rows="3" placeholder="آدرس دقیق پستی و توضیحات..." required></textarea>
+        <textarea name="آدرس پستی دقیق" rows="3" placeholder="آدرس دقیق پستی (استان، شهر، پلاک، واحد)..." required></textarea>
         <button type="submit" class="action-btn" style="margin-top: 10px; padding: 12px; font-size:15px;">ثبت نهایی سفارش 🚀</button>
       </form>
     </div>
@@ -475,7 +466,7 @@
     <nav>
       <div class="nav-links">
         <a href="#home">🏠 اصلی</a>
-        <a href="#models">🎨 مدل‌ها</a>
+        <a href="#models">👗 کلکسیون زنانه</a>
         <a href="#size-tool">📏 راهنمای سایز</a>
       </div>
       <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
@@ -490,16 +481,16 @@
       </div>
     </nav>
 
-    <!-- اسلایدر هدر ژورنالی متحرک -->
+    <!-- اسلایدر هدر ژورنالی زنانه -->
     <div class="hero-slider" id="heroSlider">
-      <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/blue.jpg');">
-        <div class="slide-text">ترندهای جدید سال 2026 🌟</div>
+      <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/light-flower.jpg');">
+        <div class="slide-text">ترندهای شیک و لوکس بانوان 🌟</div>
       </div>
       <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/burgundy.jpg');">
-        <div class="slide-text">طراحی‌های لوکس و فاخر 🍷</div>
+        <div class="slide-text">شومیز و مانتوهای مجلسی فاخر 🍷</div>
       </div>
       <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/cream.jpg');">
-        <div class="slide-text">کیفیت بی‌نظیر دوخت پارچه 🍃</div>
+        <div class="slide-text">کیفیت بی‌نظیر دوخت و پارچه 🍃</div>
       </div>
     </div>
 
@@ -514,73 +505,73 @@
       <path d="M 55,60 L 100,85 L 145,60 L 125,45 L 100,60 L 75,45 Z" fill="var(--accent-color)" />
       <path d="M 55,60 L 82,145 L 100,145 L 100,85 Z" fill="#fb7185" />
       <path d="M 145,60 L 118,145 L 100,145 L 100,85 Z" fill="#e11d48" />
-      <text x="100" y="172" font-family="Tahoma, Arial" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">پوشاک احمدی</text>
+      <text x="100" y="172" font-family="Tahoma, Arial" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">پوشاک بانوان احمدی</text>
     </svg>
 
-    <h1 style="margin-top: 5px;">پوشاک احمدی</h1>
-    <p style="margin: 0; opacity: 0.8;">کلکسیون برتر استایل و پوشاک با بالاترین استانداردهای دوخت جهانی</p>
+    <h1 style="margin-top: 5px;">پوشاک زنانه احمدی</h1>
+    <p style="margin: 0; opacity: 0.8;">مرجع تخصصی شیک‌ترین استایل‌های روز بانوان با بالاترین کیفیت دوخت</p>
   </header>
 
   <main id="home">
 
     <div class="card">
-      <h2>خوش آمدید به بوتیک آنلاین احمدی 🌟</h2>
-      <p>طرح‌های اصیل و منحصربه‌فرد را بررسی کنید، با یک کلیک به سبد خرید دیجی‌کالایی خود اضافه کنید و سفارش خود را در چند ثانیه نهایی کنید.</p>
+      <h2>به بوتیک آنلاین بانوان احمدی خوش آمدید 🌸</h2>
+      <p>زیباترین و خاص‌ترین مدل‌های مانتو، شومیز و لباس‌های مجلسی را در محیطی لوکس بررسی کنید، به سبد خرید اضافه کنید و سفارش خود را به آسانی ثبت نمایید.</p>
     </div>
 
-    <!-- گالری مدل‌ها همراه با زوم حرفه‌ای عکس -->
+    <!-- گالری مدل‌های زنانه -->
     <div class="card" id="models">
-      <h2>🎨 گالری مدل‌ها و طرح‌های ویژه</h2>
+      <h2>👗 کلکسیون جدید لباس‌های زنانه</h2>
       
       <div class="color-grid">
         
         <div class="color-item">
           <div class="product-img-box">
-            <img src="images/blue.jpg" alt="طرح آبی کلاسیک" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%231e3a8a\'/><text x=\'150\' y=\'200\' fill=\'%23fff\' font-size=\'20\' text-anchor=\'middle\'>کت آبی کلاسیک</text></svg>';">
+            <img src="images/light-flower.jpg" alt="شومیز گل‌دار بهاره" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%23fce7f3\'/><text x=\'150\' y=\'200\' fill=\'%23881337\' font-size=\'18\' text-anchor=\'middle\'>شومیز گل‌دار بهاره</text></svg>';">
           </div>
-          <h3>🦋 طرح آبی کلاسیک</h3>
-          <button type="button" class="action-btn" onclick="addToCart('طرح آبی کلاسیک')">افزودن به سبد خرید 🛒</button>
+          <h3>🌺 شومیز گل‌دار بهاره</h3>
+          <button type="button" class="action-btn" onclick="addToCart('شومیز گل‌دار بهاره')">افزودن به سبد خرید 🛒</button>
         </div>
 
         <div class="color-item">
           <div class="product-img-box">
-            <img src="images/light-flower.jpg" alt="طرح گل‌دار روشن" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%23fce7f3\'/><text x=\'150\' y=\'200\' fill=\'%23881337\' font-size=\'20\' text-anchor=\'middle\'>طرح گل‌دار روشن</text></svg>';">
+            <img src="images/burgundy.jpg" alt="مانتو کتی مجلسی زرشکی" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%234c0519\'/><text x=\'150\' y=\'200\' fill=\'%23fff\' font-size=\'18\' text-anchor=\'middle\'>مانتو کتی زرشکی</text></svg>';">
           </div>
-          <h3>🌺 طرح گل‌دار روشن</h3>
-          <button type="button" class="action-btn" onclick="addToCart('طرح گل‌دار روشن')">افزودن به سبد خرید 🛒</button>
+          <h3>🍷 مانتو کتی مجلسی زرشکی</h3>
+          <button type="button" class="action-btn" onclick="addToCart('مانتو کتی مجلسی زرشکی')">افزودن به سبد خرید 🛒</button>
         </div>
 
         <div class="color-item">
           <div class="product-img-box">
-            <img src="images/burgundy.jpg" alt="طرح زرشکی مجلسی" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%234c0519\'/><text x=\'150\' y=\'200\' fill=\'%23fff\' font-size=\'20\' text-anchor=\'middle\'>طرح زرشکی مجلسی</text></svg>';">
+            <img src="images/cream.jpg" alt="ست شومیز و شلوار کرم" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%23fef3c7\'/><text x=\'150\' y=\'200\' fill=\'%2378350f\' font-size=\'18\' text-anchor=\'middle\'>ست شومیز و شلوار کرم</text></svg>';">
           </div>
-          <h3>🍷 طرح زرشکی مجلسی</h3>
-          <button type="button" class="action-btn" onclick="addToCart('طرح زرشکی مجلسی')">افزودن به سبد خرید 🛒</button>
+          <h3>🍃 ست شومیز و شلوار کرم</h3>
+          <button type="button" class="action-btn" onclick="addToCart('ست شومیز و شلوار کرم')">افزودن به سبد خرید 🛒</button>
         </div>
 
         <div class="color-item">
           <div class="product-img-box">
-            <img src="images/cream.jpg" alt="طرح کرم برگ زرشکی" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%23fef3c7\'/><text x=\'150\' y=\'200\' fill=\'%2378350f\' font-size=\'20\' text-anchor=\'middle\'>طرح کرم برگ زرشکی</text></svg>';">
+            <img src="images/blue.jpg" alt="پیراهن بلند مجلسی" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%231e3a8a\'/><text x=\'150\' y=\'200\' fill=\'%23fff\' font-size=\'18\' text-anchor=\'middle\'>پیراهن بلند مجلسی</text></svg>';">
           </div>
-          <h3>🍃 طرح کرم برگ زرشکی</h3>
-          <button type="button" class="action-btn" onclick="addToCart('طرح کرم برگ زرشکی')">افزودن به سبد خرید 🛒</button>
+          <h3>🦋 پیراهن بلند مجلسی</h3>
+          <button type="button" class="action-btn" onclick="addToCart('پیراهن بلند مجلسی')">افزودن به سبد خرید 🛒</button>
         </div>
 
       </div>
     </div>
 
-    <!-- محاسبه‌گر و راهنمای سایز -->
+    <!-- راهنمای سایز زنانه -->
     <div class="card" id="size-tool">
-      <h2>📏 راهنما و محاسبه‌گر هوشمند سایز</h2>
+      <h2>📏 راهنما و محاسبه‌گر هوشمند سایز بانوان</h2>
       <div class="tool-box">
-        <p>قد و وزن خود را وارد کنید تا بهترین سایز برای شما تخمین زده شود:</p>
+        <p>قد و وزن خود را وارد کنید تا بهترین سایز برای شما پیشنهاد شود:</p>
         <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
           <input type="number" id="height" placeholder="قد (سانتی‌متر)">
           <input type="number" id="weight" placeholder="وزن (کیلوگرم)">
         </div>
         <br>
         <button type="button" class="action-btn" onclick="calculateSize()">تخمین سایز من 📐</button>
-        <button type="button" class="action-btn" style="background:#3b82f6;" onclick="openSizeModal()">جدول ابعاد دقیق 📊</button>
+        <button type="button" class="action-btn" style="background:#3b82f6;" onclick="openSizeModal()">جدول سایزبندی بانوان 📊</button>
         <h3 id="sizeResult" style="color: var(--accent-color); margin-top: 15px;"></h3>
       </div>
     </div>
@@ -588,121 +579,18 @@
   </main>
 
   <footer>
-    <p>© کلیه حقوق برای پوشاک احمدی محفوظ است | طراحی شده با بیشترین دقت و زیبایی ❤️</p>
+    <p>© کلیه حقوق برای پوشاک زنانه احمدی محفوظ است | طراحی شده با بیشترین دقت و زیبایی ❤️</p>
   </footer>
 
-  <!-- صداگذاری ملایم و اسکریپت‌های داینامیک -->
   <audio id="clickSound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" preload="auto"></audio>
 
   <script>
     let cart = [];
 
-    // تغییر تم‌های رنگی لوکس
     function changeTheme(themeClass) {
       document.body.className = themeClass;
     }
 
-    // اسلایدر خودکار هدر
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
-    if(slides.length > 0) {
-      setInterval(() => {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-      }, 4000);
-    }
-
-    // انیمیشن نرم اسکرول (AOS داخلی)
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.card').forEach(card => observer.observe(card));
-
-    function playSound() {
-      const sound = document.getElementById('clickSound');
-      if (sound) {
-        sound.currentTime = 0;
-        sound.play().catch(e => {});
-      }
-    }
-
-    function calculateSize() {
-      playSound();
-      const h = parseFloat(document.getElementById('height').value);
-      const w = parseFloat(document.getElementById('weight').value);
-      const res = document.getElementById('sizeResult');
-
-      if (!h || !w) {
-        res.innerText = 'لطفاً قد و وزن را به درستی وارد کنید.';
-        return;
-      }
-
-      if (w < 60 && h < 170) res.innerText = 'سایز پیشنهادی: سایز ۱ 📏';
-      else if (w < 75 && h < 180) res.innerText = 'سایز پیشنهادی: سایز ۲ 📏';
-      else if (w < 90) res.innerText = 'سایز پیشنهادی: سایز ۳ 📏';
-      else res.innerText = 'سایز پیشنهادی: سایز ۴ 📏';
-    }
-
-    function addToCart(title) {
-      playSound();
-      cart.push(title);
-      updateCartUI();
-      alert(`«${title}» با موفقیت به سبد خرید اضافه شد!`);
-    }
-
-    function removeFromCart(index) {
-      playSound();
-      cart.splice(index, 1);
-      updateCartUI();
-    }
-
-    function updateCartUI() {
-      const cartList = document.getElementById('cartList');
-      const cartCount = document.getElementById('cartCount');
-      const hiddenInput = document.getElementById('cartInputHidden');
-
-      if(cartCount) cartCount.innerText = cart.length;
-
-      if (cart.length === 0) {
-        if(cartList) cartList.innerHTML = 'سبد خرید شما خالی است.';
-        if(hiddenInput) hiddenInput.value = '';
-        return;
-      }
-
-      let html = '';
-      cart.forEach((item, index) => {
-        html += `<div class="cart-item">
-          <span>${item}</span>
-          <button type="button" class="remove-btn" onclick="removeFromCart(${index})">حذف ❌</button>
-        </div>`;
-      });
-
-      if(cartList) cartList.innerHTML = html;
-      if(hiddenInput) hiddenInput.value = cart.join(' | ');
-    }
-
-    function openSizeModal() { playSound(); document.getElementById('sizeModal').style.display = 'flex'; }
-    function closeSizeModal() { document.getElementById('sizeModal').style.display = 'none'; }
-
-    function openCartModal() { playSound(); document.getElementById('cartModal').style.display = 'flex'; }
-    function closeCartModal() { document.getElementById('cartModal').style.display = 'none'; }
-
-    // تابع اصلاح شده برای بستن قطعی پاپ‌آپ خوش‌آمدگویی
-    function closeWelcomeModal() {
-      playSound();
-      const modal = document.getElementById('welcomeModal');
-      if (modal) {
-        modal.classList.remove('active-modal');
-        modal.style.display = 'none';
-      }
-    }
-  </script>
-
-</body>
-</html>
+    if(slides.leng
