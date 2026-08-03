@@ -41,7 +41,6 @@
       text-align: center;
       min-height: 100vh;
       overflow-x: hidden;
-      text-rendering: optimizeSpeed;
     }
 
     header { padding: 30px 20px 10px; }
@@ -57,10 +56,10 @@
     nav {
       position: sticky;
       top: 15px;
-      z-index: 1000;
+      z-index: 999;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      max-width: 750px;
+      max-width: 800px;
       margin: 0 auto 20px auto;
       padding: 10px 15px;
       border-radius: 40px;
@@ -69,7 +68,7 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
-      transform: translateZ(0);
+      backdrop-filter: blur(10px);
     }
 
     nav a {
@@ -99,6 +98,7 @@
 
     main { max-width: 850px; margin: auto; padding: 15px; }
 
+    /* انیمیشن ظهور کارت‌ها */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
@@ -107,8 +107,12 @@
       border-radius: 20px;
       text-align: right;
       line-height: 1.8;
-      transform: translateZ(0);
-      will-change: transform;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .card h2 { text-align: center; color: #fb7185; margin-top: 0; }
@@ -129,16 +133,18 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      transition: transform 0.2s ease;
     }
+
+    .color-item:hover { transform: translateY(-5px); }
 
     .product-img-box {
       width: 100%;
-      height: 260px;
+      height: 240px;
       border-radius: 12px;
       border: 1px solid var(--border-color);
       margin-bottom: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       background: #fff;
     }
 
@@ -148,14 +154,21 @@
       object-fit: cover;
     }
 
+    .price-tag {
+      color: #fbbf24;
+      font-weight: bold;
+      font-size: 16px;
+      margin: 5px 0;
+    }
+
     .size-badge {
       background: rgba(244, 63, 94, 0.25);
       border: 1px solid var(--accent-color);
       color: #fff;
-      padding: 3px 10px;
+      padding: 3px 8px;
       border-radius: 8px;
       font-weight: bold;
-      font-size: 12px;
+      font-size: 11px;
       display: inline-block;
       margin: 2px;
     }
@@ -188,15 +201,104 @@
       background: var(--accent-color);
       color: white;
       border: none;
-      padding: 12px 25px;
+      padding: 10px 20px;
       border-radius: 30px;
       font-weight: bold;
-      font-size: 15px;
+      font-size: 14px;
       cursor: pointer;
-      transition: background 0.2s ease;
+      transition: background 0.2s ease, transform 0.1s ease;
     }
 
-    button.action-btn:hover { background: var(--accent-hover); }
+    button.action-btn:hover { background: var(--accent-hover); transform: scale(1.02); }
+
+    /* دکمه چت شناور */
+    .float-chat {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      background: #25d366;
+      color: white;
+      border-radius: 50px;
+      padding: 12px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 1000;
+      transition: transform 0.2s ease;
+    }
+
+    .float-chat:hover { transform: scale(1.05); }
+
+    /* مدال جدول سایز */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      padding: 25px;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 90%;
+      color: white;
+    }
+
+    .size-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .size-table th, .size-table td {
+      border: 1px solid var(--border-color);
+      padding: 8px;
+      text-align: center;
+    }
+
+    .size-table th { background: var(--accent-color); }
+
+    /* سبد خرید */
+    .cart-box {
+      background: rgba(0,0,0,0.3);
+      border: 1px dashed var(--accent-color);
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding: 8px 0;
+    }
+
+    /* بخش نظرات */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .review-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-color);
+      padding: 15px;
+      border-radius: 12px;
+      font-size: 13px;
+    }
 
     footer {
       background: rgba(0, 0, 0, 0.4);
@@ -209,12 +311,43 @@
 
 <body>
 
+  <!-- دکمه شناور تماس/واتساپ -->
+  <a href="https://wa.me/989000000000" target="_blank" class="float-chat">
+    💬 مشاوره و پشتیبانی
+  </a>
+
+  <!-- مدال راهنمای ابعاد دقیق -->
+  <div class="modal" id="sizeModal">
+    <div class="modal-content">
+      <h3 style="color:#fb7185; margin-top:0;">📏 جدول ابعاد دقیق (سانتی‌متر)</h3>
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th>سایز</th>
+            <th>دور سینه</th>
+            <th>عرض سرشانه</th>
+            <th>قد لباس</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>سایز ۱</td><td>۹۲</td><td>۳۸</td><td>۸۰</td></tr>
+          <tr><td>سایز ۲</td><td>۹۸</td><td>۴۰</td><td>۸۲</td></tr>
+          <tr><td>سایز ۳</td><td>۱۰۴</td><td>۴۲</td><td>۸۴</td></tr>
+          <tr><td>سایز ۴</td><td>۱۱۰</td><td>۴۴</td><td>۸۵</td></tr>
+        </tbody>
+      </table>
+      <br>
+      <button class="action-btn" onclick="closeModal()">بستن راهنما</button>
+    </div>
+  </div>
+
   <header>
     <nav>
       <a href="#home">🏠 اصلی</a>
       <a href="#models">🎨 مدل‌ها</a>
       <a href="#size-tool">📏 راهنمای سایز</a>
-      <a href="#contact">📞 ثبت سفارش</a>
+      <a href="#reviews">⭐ نظرات</a>
+      <a href="#contact">🛒 ثبت سفارش</a>
       <button class="theme-btn" onclick="toggleDarkMode()">🌙 / ☀️</button>
     </nav>
 
@@ -238,101 +371,112 @@
     </svg>
 
     <h1 style="margin-top: 5px;">پوشاک احمدی</h1>
-    <p style="margin: 0;">جدیدترین ترندهای استایل با بالاترین کیفیت</p>
+    <p style="margin: 0;">جدیدترین ترندهای استایل با بالاترین کیفیت دوخت</p>
   </header>
 
   <main id="home">
 
     <div class="card">
       <h2>خوش آمدید به پوشاک احمدی 🌟</h2>
-      <p>به فروشگاه آنلاین پوشاک احمدی خوش آمدید. طرح و رنگ مورد نظر خود را انتخاب کرده و از طریق فرم زیر ثبت سفارش کنید.</p>
+      <p>محصولات مورد نظر خود را به سبد خرید اضافه کنید و سفارش خود را آنلاین و آسان نهایی کنید.</p>
     </div>
 
+    <!-- گالری مدل‌ها همراه با سبد خرید -->
     <div class="card" id="models">
-      <h2>🎨 تنوع طرح و رنگ‌بندی مدل سنتی</h2>
-      <p style="text-align: center;">تمامی مدل‌های زیر در سایزهای <strong>۱، ۲، ۳ و ۴</strong> موجود می‌باشند:</p>
+      <h2>🎨 مدل‌ها و طرح‌های موجود</h2>
       
       <div class="color-grid">
         
-        <!-- عکس واقعی طرح آبی -->
         <div class="color-item">
           <div class="product-img-box">
-            <img src="images/blue.jpg" alt="طرح آبی کلاسیک">
+            <img src="images/blue.jpg" alt="طرح آبی کلاسیک" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%231e3a8a\'/><text x=\'150\' y=\'200\' fill=\'%23fff\' font-size=\'20\' text-anchor=\'middle\'>کت آبی کلاسیک</text></svg>';">
           </div>
           <h3>🦋 طرح آبی کلاسیک</h3>
-          <p>طرح اسلیمی آبی با حاشیه کنگره‌ای</p>
-          <div>
-            <span class="size-badge">سایز ۱</span><span class="size-badge">سایز ۲</span>
-            <span class="size-badge">سایز ۳</span><span class="size-badge">سایز ۴</span>
-          </div>
+          <div class="price-tag">۴۸۰,۰۰۰ تومان</div>
+          <button class="action-btn" onclick="addToCart('طرح آبی کلاسیک', 480000)">افزودن به سبد خرید 🛒</button>
         </div>
 
         <div class="color-item">
           <div class="product-img-box">
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'><rect width='300' height='400' fill='%23fce7f3'/><g fill='%23f43f5e' opacity='0.7'><circle cx='50' cy='50' r='18'/><circle cx='80' cy='120' r='14'/><circle cx='200' cy='80' r='20'/><circle cx='230' cy='220' r='16'/><circle cx='100' cy='300' r='22'/></g><rect x='0' y='320' width='300' height='80' fill='%23fbcfe8'/><text x='150' y='365' font-family='Tahoma' font-size='20' font-weight='bold' fill='%23881337' text-anchor='middle'>طرح گل‌دار روشن</text></svg>" alt="طرح گل‌دار روشن">
+            <img src="images/light-flower.jpg" alt="طرح گل‌دار روشن" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%23fce7f3\'/><text x=\'150\' y=\'200\' fill=\'%23881337\' font-size=\'20\' text-anchor=\'middle\'>طرح گل‌دار روشن</text></svg>';">
           </div>
           <h3>🌺 طرح گل‌دار روشن</h3>
-          <p>زمینه روشن با گل‌های صورتی</p>
-          <div>
-            <span class="size-badge">سایز ۱</span><span class="size-badge">سایز ۲</span>
-            <span class="size-badge">سایز ۳</span><span class="size-badge">سایز ۴</span>
-          </div>
+          <div class="price-tag">۴۵۰,۰۰۰ تومان</div>
+          <button class="action-btn" onclick="addToCart('طرح گل‌دار روشن', 450000)">افزودن به سبد خرید 🛒</button>
         </div>
 
         <div class="color-item">
           <div class="product-img-box">
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'><rect width='300' height='400' fill='%234c0519'/><g fill='%23fda4af' opacity='0.8'><polygon points='100,50 120,90 80,90'/><polygon points='220,150 240,190 200,190'/></g><rect x='0' y='320' width='300' height='80' fill='%23d97706'/><text x='150' y='365' font-family='Tahoma' font-size='20' font-weight='bold' fill='%23ffffff' text-anchor='middle'>طرح زرشکی</text></svg>" alt="طرح زرشکی مجلسی">
+            <img src="images/burgundy.jpg" alt="طرح زرشکی مجلسی" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%234c0519\'/><text x=\'150\' y=\'200\' fill=\'%23fff\' font-size=\'20\' text-anchor=\'middle\'>طرح زرشکی مجلسی</text></svg>';">
           </div>
           <h3>🍷 طرح زرشکی مجلسی</h3>
-          <p>زرشکی تیره با لبه آستین عسلی</p>
-          <div>
-            <span class="size-badge">سایز ۱</span><span class="size-badge">سایز ۲</span>
-            <span class="size-badge">سایز ۳</span><span class="size-badge">سایز ۴</span>
-          </div>
+          <div class="price-tag">۴۹۰,۰۰۰ تومان</div>
+          <button class="action-btn" onclick="addToCart('طرح زرشکی مجلسی', 490000)">افزودن به سبد خرید 🛒</button>
         </div>
 
         <div class="color-item">
           <div class="product-img-box">
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'><rect width='300' height='400' fill='%23fef3c7'/><g fill='%23881337' opacity='0.75'><path d='M60 40 C 90 20, 110 60, 60 90 C 10 60, 30 20, 60 40 Z'/></g><rect x='0' y='320' width='300' height='80' fill='%23fde68a'/><text x='150' y='365' font-family='Tahoma' font-size='20' font-weight='bold' fill='%2378350f' text-anchor='middle'>طرح کرم</text></svg>" alt="طرح کرم برگ زرشکی">
+            <img src="images/cream.jpg" alt="طرح کرم برگ زرشکی" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%23fef3c7\'/><text x=\'150\' y=\'200\' fill=\'%2378350f\' font-size=\'20\' text-anchor=\'middle\'>طرح کرم برگ زرشکی</text></svg>';">
           </div>
           <h3>🍃 طرح کرم برگ زرشکی</h3>
-          <p>ترکیب کرم با برگ‌های زرشکی</p>
-          <div>
-            <span class="size-badge">سایز ۱</span><span class="size-badge">سایز ۲</span>
-            <span class="size-badge">سایز ۳</span><span class="size-badge">سایز ۴</span>
-          </div>
+          <div class="price-tag">۴۶۰,۰۰۰ تومان</div>
+          <button class="action-btn" onclick="addToCart('طرح کرم برگ زرشکی', 460000)">افزودن به سبد خرید 🛒</button>
         </div>
 
       </div>
     </div>
 
+    <!-- محاسبه‌گر و راهنمای سایز -->
     <div class="card" id="size-tool">
-      <h2>📏 محاسبه‌گر آنلاین سایز لباس (۱، ۲، ۳، ۴)</h2>
+      <h2>📏 راهنما و محاسبه‌گر سایز</h2>
       <div class="tool-box">
-        <p>قد (سانتی‌متر) و وزن (کیلوگرم) خود را وارد کنید تا سایز عددی شما مشخص شود:</p>
-        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-          <input type="number" id="height" placeholder="قد (مثلاً ۱۷۵)">
-          <input type="number" id="weight" placeholder="وزن (مثلاً ۷۰)">
+        <p>قد و وزن خود را وارد کنید یا جدول کامل اندازه‌ها را ببینید:</p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+          <input type="number" id="height" placeholder="قد (سانتی‌متر)">
+          <input type="number" id="weight" placeholder="وزن (کیلوگرم)">
         </div>
         <br>
         <button class="action-btn" onclick="calculateSize()">تخمین سایز من 📐</button>
+        <button class="action-btn" style="background:#3b82f6;" onclick="openModal()">جدول ابعاد دقیق 📊</button>
         <h3 id="sizeResult" style="color: #fb7185; margin-top: 15px;"></h3>
       </div>
     </div>
 
+    <!-- نظرات مشتریان -->
+    <div class="card" id="reviews">
+      <h2>⭐ نظرات خریداران قبلی</h2>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <strong>مریم از تهران:</strong>
+          <p>«کت آبی دستم رسید، کیفیت پارچه و جنس تنخور عالی بود. ممنون از تحویل سریعتون.»</p>
+        </div>
+        <div class="review-card">
+          <strong>زهرا از اصفهان:</strong>
+          <p>«طرح زرشکی رو خریدم، دوختش بسیار تمیزه و دقیقا مطابق عکس بود.»</p>
+        </div>
+        <div class="review-card">
+          <strong>نرگس از شیراز:</strong>
+          <p>«راهنمای سایزشون عالی عمل کرد، دقیقا همون سایزی شد که می‌خواستم.»</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ثبت سفارش همراه با نمایش سبد خرید -->
     <div class="card" id="contact">
-      <h2>📞 ثبت سفارش آنلاین در پوشاک احمدی</h2>
+      <h2>🛒 ثبت سفارش نهایی</h2>
+      
+      <!-- پیش‌نمایش سبد خرید -->
+      <div class="cart-box">
+        <h4 style="margin-top:0; color:#fbbf24;">اقلام انتخاب شده:</h4>
+        <div id="cartList">سبد خرید شما خالی است.</div>
+        <h3 style="margin-bottom:0;" id="totalPrice">مجموع کل: ۰ تومان</h3>
+      </div>
+
       <form action="https://formsubmit.co/ehsanahmadi2414@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 6px;">
-        <input type="text" name="نام خریدار" placeholder="نام و نام خانوادگی" required>
-        <input type="tel" name="شماره تماس" placeholder="شماره تماس" required>
+        <input type="hidden" name="فاکتور سبد خرید" id="cartInputHidden">
         
-        <select name="طرح و رنگ انتخابی" required>
-          <option value="">طرح و رنگ مورد نظر را انتخاب کنید</option>
-          <option value="طرح آبی کلاسیک">طرح آبی کلاسیک</option>
-          <option value="طرح گل‌دار روشن">طرح گل‌دار روشن</option>
-          <option value="طرح زرشکی مجلسی">طرح زرشکی مجلسی (لبه عسلی)</option>
-          <option value="طرح کرم برگ زرشکی">طرح کرم برگ زرشکی</option>
-        </select>
+        <input type="text" name="نام خریدار" placeholder="نام و نام خانوادگی" required>
+        <input type="tel" name="شماره تماس" placeholder="شماره تماس (واتساپ)" required>
 
         <select name="سایز انتخابی" required>
           <option value="">سایز مورد نظر را انتخاب کنید</option>
@@ -342,8 +486,8 @@
           <option value="سایز 4">سایز ۴ (مناسب ۴۸ - ۵۰)</option>
         </select>
 
-        <textarea name="توضیحات سفارش" rows="4" placeholder="آدرس دقیق پستی، کد پستی یا توضیحات بیشتر..." required></textarea>
-        <button type="submit" class="action-btn" style="margin-top: 10px;">ارسال فرم سفارش</button>
+        <textarea name="توضیحات و آدرس" rows="3" placeholder="آدرس دقیق پستی و توضیحات..." required></textarea>
+        <button type="submit" class="action-btn" style="margin-top: 10px; padding: 14px; font-size:16px;">ارسال و نهایی‌سازی سفارش 🚀</button>
       </form>
     </div>
 
@@ -354,6 +498,9 @@
   </footer>
 
   <script>
+    let cart = [];
+    let total = 0;
+
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
     }
@@ -368,16 +515,47 @@
         return;
       }
 
-      if (w < 60 && h < 170) {
-        res.innerText = 'سایز پیشنهادی شما: سایز ۱ 📏';
-      } else if (w < 75 && h < 180) {
-        res.innerText = 'سایز پیشنهادی شما: سایز ۲ 📏';
-      } else if (w < 90) {
-        res.innerText = 'سایز پیشنهادی شما: سایز ۳ 📏';
-      } else {
-        res.innerText = 'سایز پیشنهادی شما: سایز ۴ 📏';
-      }
+      if (w < 60 && h < 170) res.innerText = 'سایز پیشنهادی: سایز ۱ 📏';
+      else if (w < 75 && h < 180) res.innerText = 'سایز پیشنهادی: سایز ۲ 📏';
+      else if (w < 90) res.innerText = 'سایز پیشنهادی: سایز ۳ 📏';
+      else res.innerText = 'سایز پیشنهادی: سایز ۴ 📏';
     }
+
+    function addToCart(title, price) {
+      cart.push({title, price});
+      total += price;
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const cartList = document.getElementById('cartList');
+      const totalPrice = document.getElementById('totalPrice');
+      const hiddenInput = document.getElementById('cartInputHidden');
+
+      if (cart.length === 0) {
+        cartList.innerHTML = 'سبد خرید شما خالی است.';
+        totalPrice.innerText = 'مجموع کل: ۰ تومان';
+        hiddenInput.value = '';
+        return;
+      }
+
+      let html = '';
+      let cartSummaryText = '';
+      cart.forEach((item, index) => {
+        html += `<div class="cart-item">
+          <span>${item.title}</span>
+          <span>${item.price.toLocaleString('fa-IR')} تومان</span>
+        </div>`;
+        cartSummaryText += `${item.title} (${item.price} تومان) | `;
+      });
+
+      cartList.innerHTML = html;
+      totalPrice.innerText = `مجموع کل: ${total.toLocaleString('fa-IR')} تومان`;
+      hiddenInput.value = `${cartSummaryText} - کل: ${total} تومان`;
+    }
+
+    function openModal() { document.getElementById('sizeModal').style.display = 'flex'; }
+    function closeModal() { document.getElementById('sizeModal').style.display = 'none'; }
   </script>
 
 </body>
