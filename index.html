@@ -1,216 +1,203 @@
 <!DOCTYPE html>
 
 <html lang="fa" dir="rtl">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>پوشاک زنانه احمدی 👗 | لوکس‌ترین برند مد و پوشاک بانوان</title>
 
-  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='90' fill='%231e1b4b'/><path d='M60 65 L100 85 L140 65 L125 50 L100 65 L75 50 Z' fill='%23f43f5e'/><path d='M60 65 L85 150 L100 150 L100 85 Z' fill='%23fb7185'/><path d='M140 65 L115 150 L100 150 L100 85 Z' fill='%23e11d48'/><polygon points='100,85 93,120 100,128 107,120' fill='%23ffffff'/></svg>" type="image/svg+xml">
+  <title>پوشاک زنانه احمدی 👗 | بوتیک آنلاین بانوان</title>
 
   <style>
     :root {
-      --bg-color: #0f172a;
-      --card-bg: rgba(30, 27, 75, 0.75);
-      --text-color: #f8fafc;
-      --accent-color: #f43f5e;
-      --accent-hover: #e11d48;
-      --border-color: rgba(255, 255, 255, 0.12);
-      --input-bg: rgba(15, 23, 42, 0.6);
+      --gold: #e6a93c;
+      --gold-light: #ffd77a;
+      --pink: #f43f5e;
+      --dark: #08090f;
+      --glass: rgba(25, 22, 30, 0.55);
+      --glass-light: rgba(255, 255, 255, 0.08);
+      --text: #f8fafc;
+      --border: rgba(255, 220, 150, 0.22);
     }
 
-    body.theme-gold {
-      --bg-color: #0c0a09;
-      --card-bg: rgba(28, 25, 23, 0.85);
-      --text-color: #f5f5f4;
-      --accent-color: #d97706;
-      --accent-hover: #b45309;
-      --border-color: rgba(217, 119, 6, 0.25);
-      --input-bg: rgba(0, 0, 0, 0.5);
-    }
-
-    body.theme-silver {
-      --bg-color: #111827;
-      --card-bg: rgba(31, 41, 55, 0.85);
-      --text-color: #f3f4f6;
-      --accent-color: #64748b;
-      --accent-hover: #475569;
-      --border-color: rgba(100, 116, 139, 0.25);
-      --input-bg: rgba(0, 0, 0, 0.4);
+    * {
+      box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
     }
 
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--bg-color);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--accent-color);
-      border-radius: 4px;
-    }
-
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      text-align: center;
       min-height: 100vh;
+      font-family: Tahoma, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(230, 169, 60, 0.18), transparent 30%),
+        radial-gradient(circle at 85% 75%, rgba(244, 63, 94, 0.14), transparent 35%),
+        linear-gradient(135deg, #07070b, #16100c, #080b16);
+      background-attachment: fixed;
       overflow-x: hidden;
-      transition: background 0.4s ease, color 0.4s ease;
     }
 
-    header {
-      padding: 20px 20px 10px;
+    /* نورهای متحرک پس‌زمینه */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.18;
+      z-index: -1;
+      animation: floatLight 12s ease-in-out infinite;
     }
 
-    .brand-logo-svg {
-      width: 100px;
-      height: 100px;
-      transition: transform 0.3s ease;
+    body::before {
+      background: var(--gold);
+      top: -100px;
+      right: -100px;
     }
 
-    .brand-logo-svg:hover {
-      transform: scale(1.05) rotate(2deg);
+    body::after {
+      background: var(--pink);
+      bottom: -120px;
+      left: -100px;
+      animation-delay: -6s;
     }
 
+    @keyframes floatLight {
+      0%, 100% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(-50px, 45px);
+      }
+    }
+
+    /* نوار بالا */
     nav {
       position: sticky;
       top: 15px;
-      z-index: 999;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      max-width: 950px;
-      margin: 0 auto 20px;
-      padding: 10px 15px;
-      border-radius: 40px;
+      z-index: 100;
+      width: min(950px, calc(100% - 24px));
+      margin: 15px auto;
+      padding: 11px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
       gap: 10px;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      flex-wrap: wrap;
+
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: 8px;
+      gap: 5px;
       flex-wrap: wrap;
     }
 
     nav a,
-    .nav-cart-btn {
-      color: var(--text-color);
+    .nav-btn {
+      color: var(--text);
       text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      padding: 8px 14px;
-      border-radius: 20px;
-      transition: all 0.2s ease;
+      border: 0;
       background: transparent;
-      border: none;
+      padding: 9px 14px;
+      border-radius: 25px;
       cursor: pointer;
       font-family: inherit;
+      font-weight: bold;
+      transition: 0.25s;
     }
 
     nav a:hover,
-    .nav-cart-btn:hover {
-      background: var(--accent-color);
-      color: white;
-    }
-
-    .nav-cart-btn {
-      position: relative;
-      background: rgba(244, 63, 94, 0.15);
-      border: 1px solid var(--accent-color);
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    .nav-btn:hover {
+      background: rgba(230, 169, 60, 0.2);
+      color: var(--gold-light);
     }
 
     .cart-badge {
-      background: var(--accent-color);
-      color: white;
-      font-size: 11px;
-      padding: 2px 6px;
+      background: var(--gold);
+      color: #111;
+      padding: 2px 7px;
       border-radius: 50%;
-      font-weight: bold;
+      font-size: 12px;
     }
 
-    .theme-dropdown {
-      background: var(--accent-color);
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 18px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 13px;
-      font-family: inherit;
-    }
-
-    main {
-      max-width: 850px;
-      margin: auto;
-      padding: 15px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      margin: 30px 0;
-      padding: 28px;
-      border-radius: 24px;
-      text-align: right;
-      line-height: 1.8;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card h2 {
+    /* هدر */
+    header {
+      padding: 20px 15px 30px;
       text-align: center;
-      color: var(--accent-color);
-      margin-top: 0;
     }
 
+    .logo {
+      width: 105px;
+      height: 105px;
+      margin: 15px auto;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 45px;
+
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
+
+      backdrop-filter: blur(18px);
+
+      box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    h1 {
+      margin: 8px;
+      color: var(--gold-light);
+      font-size: clamp(27px, 5vw, 45px);
+    }
+
+    .subtitle {
+      opacity: 0.8;
+      margin: 0 auto;
+      max-width: 650px;
+      line-height: 2;
+    }
+
+    /* اسلایدر */
     .hero-slider {
-      width: 100%;
-      height: 220px;
-      border-radius: 16px;
-      overflow: hidden;
-      margin-bottom: 20px;
+      width: min(950px, calc(100% - 24px));
+      height: 310px;
+      margin: 20px auto;
       position: relative;
-      border: 1px solid var(--border-color);
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+
+      background: var(--glass);
+      backdrop-filter: blur(15px);
+
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.4);
     }
 
     .slide {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       opacity: 0;
-      transition: opacity 1s ease-in-out;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      transition: opacity 1s;
+      display: grid;
+      place-items: center;
       background-size: cover;
       background-position: center;
     }
@@ -219,356 +206,608 @@
       opacity: 1;
     }
 
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        120deg,
+        rgba(0, 0, 0, 0.65),
+        rgba(0, 0, 0, 0.18)
+      );
+    }
+
     .slide-text {
-      background: rgba(0, 0, 0, 0.65);
-      padding: 10px 20px;
-      border-radius: 12px;
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .color-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 18px;
-      margin-top: 20px;
-    }
-
-    .color-item {
-      background: rgba(0, 0, 0, 0.25);
-      border: 1px solid var(--border-color);
-      padding: 15px;
-      border-radius: 18px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .color-item:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
-    }
-
-    .product-img-box {
-      width: 100%;
-      height: 240px;
-      border-radius: 14px;
-      border: 1px solid var(--border-color);
-      margin-bottom: 12px;
-      overflow: hidden;
-      background: #fff;
       position: relative;
-      cursor: zoom-in;
+      padding: 15px 25px;
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.48);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      font-size: clamp(18px, 3vw, 28px);
+      font-weight: bold;
     }
 
-    .product-img-box img {
+    /* کارت‌ها */
+    main {
+      width: min(950px, calc(100% - 24px));
+      margin: auto;
+    }
+
+    .glass-card {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      margin: 25px 0;
+
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+      opacity: 0;
+      transform: translateY(25px);
+      transition: 0.7s;
+    }
+
+    .glass-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 15%;
+      left: 15%;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--gold-light),
+        transparent
+      );
+    }
+
+    h2 {
+      color: var(--gold-light);
+      text-align: center;
+      margin-top: 0;
+    }
+
+    /* محصولات */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+    }
+
+    .product {
+      position: relative;
+      overflow: hidden;
+      padding: 14px;
+      text-align: center;
+
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(255, 220, 150, 0.18);
+      border-radius: 21px;
+
+      transition: 0.35s;
+    }
+
+    .product:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(255, 210, 100, 0.65);
+
+      box-shadow:
+        0 22px 45px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(230, 169, 60, 0.13);
+    }
+
+    .product-image {
+      height: 255px;
+      overflow: hidden;
+      border-radius: 16px;
+      background:
+        linear-gradient(
+          135deg,
+          #35251b,
+          #18121a
+        );
+    }
+
+    .product-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      transition: 0.55s;
     }
 
-    .product-img-box:hover img {
-      transform: scale(1.25);
+    .product:hover img {
+      transform: scale(1.14);
     }
 
-    .tool-box {
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid var(--border-color);
-      padding: 20px;
-      border-radius: 16px;
-      text-align: center;
+    .product h3 {
+      margin: 14px 0 8px;
     }
 
-    input,
-    select,
-    textarea {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 12px 15px;
-      border-radius: 12px;
-      background: var(--input-bg);
-      border: 1px solid var(--border-color);
-      color: var(--text-color);
-      font-family: inherit;
-      font-size: 14px;
-      margin: 6px 0;
-      outline: none;
+    .product-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 10px 0;
+      font-size: 13px;
+      opacity: 0.85;
     }
 
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: var(--accent-color);
+    .price {
+      color: var(--gold-light);
+      font-size: 17px;
+      font-weight: bold;
     }
 
-    select option {
-      background: #0f172a;
+    /* دکمه‌ها */
+    .action-btn {
+      border: 0;
       color: white;
-    }
-
-    button.action-btn {
-      background: var(--accent-color);
-      color: white;
-      border: none;
-      padding: 10px 20px;
+      padding: 11px 18px;
       border-radius: 30px;
-      font-weight: bold;
-      font-size: 14px;
       cursor: pointer;
-      transition: 0.2s;
-    }
-
-    button.action-btn:hover {
-      background: var(--accent-hover);
-      transform: scale(1.03);
-    }
-
-    .float-chat {
-      position: fixed;
-      bottom: 25px;
-      left: 25px;
-      background: #25d366;
-      color: white;
-      border-radius: 50px;
-      padding: 12px 20px;
-      text-decoration: none;
+      font-family: inherit;
       font-weight: bold;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-      z-index: 1000;
+
+      background:
+        linear-gradient(
+          135deg,
+          #e6a93c,
+          #b96e12
+        );
+
+      box-shadow:
+        0 8px 25px rgba(230, 169, 60, 0.22);
+
+      transition: 0.25s;
     }
 
+    .action-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+
+      box-shadow:
+        0 12px 32px rgba(255, 190, 60, 0.42);
+    }
+
+    .secondary-btn {
+      background:
+        rgba(255, 255, 255, 0.08);
+
+      border:
+        1px solid rgba(255, 220, 150, 0.25);
+
+      margin: 6px;
+    }
+
+    /* مزایا */
+    .benefits {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(190px, 1fr));
+
+      gap: 15px;
+    }
+
+    .benefit {
+      padding: 22px 15px;
+      text-align: center;
+
+      background:
+        rgba(255, 255, 255, 0.055);
+
+      border:
+        1px solid rgba(255, 220, 150, 0.17);
+
+      border-radius: 20px;
+    }
+
+    .benefit span {
+      display: block;
+      font-size: 35px;
+      margin-bottom: 8px;
+    }
+
+    /* مدال */
     .modal {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.85);
       z-index: 2000;
+
       justify-content: center;
       align-items: center;
-      backdrop-filter: blur(5px);
+
+      background:
+        rgba(0, 0, 0, 0.72);
+
+      backdrop-filter: blur(10px);
     }
 
     .modal-content {
-      background: var(--bg-color);
-      border: 1px solid var(--border-color);
-      padding: 30px;
-      border-radius: 24px;
-      max-width: 500px;
-      width: 90%;
-      color: var(--text-color);
+      width: min(500px, 90%);
       max-height: 85vh;
       overflow-y: auto;
-      text-align: right;
+
+      padding: 28px;
+
+      background:
+        rgba(22, 19, 26, 0.72);
+
+      border:
+        1px solid rgba(255, 220, 150, 0.25);
+
+      border-radius: 25px;
+
+      backdrop-filter: blur(22px);
+
+      box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.65);
     }
 
-    .size-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .size-table th,
-    .size-table td {
-      border: 1px solid var(--border-color);
-      padding: 10px;
-      text-align: center;
-    }
-
-    .size-table th {
-      background: var(--accent-color);
+    .close-btn {
+      float: left;
+      border: 0;
+      background: transparent;
       color: white;
-    }
-
-    .cart-box {
-      background: rgba(0, 0, 0, 0.25);
-      border: 1px dashed var(--accent-color);
-      border-radius: 14px;
-      padding: 15px;
-    }
-
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border-color);
-      padding: 8px;
-    }
-
-    .remove-btn {
-      background: #ef4444;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 4px 10px;
+      font-size: 25px;
       cursor: pointer;
     }
 
+    /* پیام */
+    .toast {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 5000;
+
+      padding: 14px 20px;
+
+      border-radius: 16px;
+
+      background:
+        rgba(20, 18, 25, 0.85);
+
+      border:
+        1px solid var(--border);
+
+      backdrop-filter: blur(18px);
+
+      transform:
+        translateY(120px);
+
+      opacity: 0;
+
+      transition: 0.4s;
+    }
+
+    .toast.show {
+      transform:
+        translateY(0);
+
+      opacity: 1;
+    }
+
+    /* چت */
+    .chat {
+      position: fixed;
+      left: 22px;
+      bottom: 22px;
+      z-index: 1000;
+
+      color: white;
+      text-decoration: none;
+
+      padding: 13px 19px;
+
+      border-radius: 40px;
+
+      background:
+        rgba(37, 211, 102, 0.8);
+
+      backdrop-filter: blur(12px);
+
+      box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.35);
+    }
+
     footer {
-      background: rgba(0, 0, 0, 0.4);
-      padding: 25px;
       margin-top: 50px;
+      padding: 28px 15px;
+      text-align: center;
+
+      background:
+        rgba(0, 0, 0, 0.28);
+
+      border-top:
+        1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero-slider {
+        height: 230px;
+      }
+
+      .glass-card {
+        padding: 20px 14px;
+      }
+
+      .chat {
+        left: 12px;
+        bottom: 12px;
+      }
+
     }
   </style>
 
 </head>
 
-<body class="theme-gold">
+<body>
 
-  <div class="modal" id="welcomeModal" style="display:flex;">
-    <div class="modal-content" style="text-align:center;">
-      <h2 style="color:var(--accent-color);">✨ پوشاک زنانه احمدی</h2>
-      <p>لوکس‌ترین و جدیدترین کلکسیون مانتو، شومیز و لباس‌های مجلسی زنانه. با افتخار در کنار شما هستیم!</p>
-      <br>
-      <button type="button" class="action-btn" onclick="closeWelcomeModal()">
-        ورود به گالری بانوان 🛍️
-      </button>
-    </div>
+  <!-- پنجره ورود -->
+
+  <div
+    class="modal"
+    id="welcomeModal"
+    style="display:flex;">
+
+```
+<div
+  class="modal-content"
+  style="text-align:center;">
+
+  <h2>
+    ✨ پوشاک زنانه احمدی
+  </h2>
+
+  <p>
+    به دنیای استایل‌های خاص،
+    شیک و لوکس بانوان خوش آمدید.
+  </p>
+
+  <br>
+
+  <button
+    class="action-btn"
+    onclick="closeWelcome()">
+
+    ورود به گالری 🛍️
+
+  </button>
+
+</div>
+```
+
   </div>
 
-  <a href="https://wa.me/989000000000" target="_blank" class="float-chat">
-    💬 مشاوره خرید بانوان
+  <!-- جزئیات محصول -->
+
+  <div
+    class="modal"
+    id="productModal">
+
+```
+<div class="modal-content">
+
+  <button
+    class="close-btn"
+    onclick="closeProduct()">
+
+    ×
+
+  </button>
+
+  <h2 id="detailName"></h2>
+
+  <p id="detailText"></p>
+
+  <h3
+    id="detailPrice"
+    class="price">
+
+  </h3>
+
+  <button
+    class="action-btn"
+    onclick="addDetailToCart()">
+
+    افزودن به سبد 🛒
+
+  </button>
+
+</div>
+```
+
+  </div>
+
+  <!-- سبد خرید -->
+
+  <div
+    class="modal"
+    id="cartModal">
+
+```
+<div class="modal-content">
+
+  <button
+    class="close-btn"
+    onclick="closeCart()">
+
+    ×
+
+  </button>
+
+  <h2>
+    🛒 سبد خرید
+  </h2>
+
+  <div id="cartList">
+
+    سبد خرید خالی است.
+
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <nav>
+
+```
+<div class="nav-links">
+
+  <a href="#home">
+    🏠 اصلی
   </a>
 
-  <div class="modal" id="sizeModal">
-    <div class="modal-content" style="text-align:center;">
-      <h2>📏 جدول راهنمای سایز</h2>
+  <a href="#products">
+    👗 محصولات
+  </a>
 
-```
-  <table class="size-table">
-    <tr>
-      <th>سایز</th>
-      <th>دور سینه</th>
-      <th>دور کمر</th>
-      <th>دور باسن</th>
-    </tr>
-    <tr><td>S</td><td>۸۸</td><td>۷۰</td><td>۹۴</td></tr>
-    <tr><td>M</td><td>۹۴</td><td>۷۶</td><td>۱۰۰</td></tr>
-    <tr><td>L</td><td>۱۰۰</td><td>۸۲</td><td>۱۰۶</td></tr>
-    <tr><td>XL</td><td>۱۰۶</td><td>۸۸</td><td>۱۱۲</td></tr>
-  </table>
-
-  <br>
-
-  <button class="action-btn" onclick="closeSizeModal()">
-    بستن
-  </button>
-</div>
-```
-
-  </div>
-
-  <div class="modal" id="cartModal">
-    <div class="modal-content">
-
-```
-  <h2>🛒 سبد خرید</h2>
-
-  <div class="cart-box">
-    <div id="cartList">
-      سبد خرید شما خالی است.
-    </div>
-  </div>
-
-  <br>
-
-  <button class="action-btn" onclick="closeCartModal()">
-    بستن
-  </button>
-
-</div>
-```
-
-  </div>
-
-  <header>
-
-```
-<nav>
-
-  <div class="nav-links">
-    <a href="#home">🏠 اصلی</a>
-    <a href="#models">👗 کلکسیون</a>
-    <a href="#size-tool">📏 سایز</a>
-  </div>
-
-  <button class="nav-cart-btn" onclick="openCartModal()">
-    🛒 سبد
-    <span class="cart-badge" id="cartCount">0</span>
-  </button>
-
-</nav>
-
-<div class="hero-slider">
-
-  <div class="slide active"
-    style="background-image:url('images/light-flower.jpg');">
-
-    <div class="slide-text">
-      ترندهای شیک بانوان 🌟
-    </div>
-
-  </div>
-
-  <div class="slide"
-    style="background-image:url('images/burgundy.jpg');">
-
-    <div class="slide-text">
-      مانتوهای مجلسی 🍷
-    </div>
-
-  </div>
-
-  <div class="slide"
-    style="background-image:url('images/cream.jpg');">
-
-    <div class="slide-text">
-      کیفیت عالی 🍃
-    </div>
-
-  </div>
+  <a href="#benefits">
+    ✨ خدمات
+  </a>
 
 </div>
 
-<h1>پوشاک زنانه احمدی 👗</h1>
+<button
+  class="nav-btn"
+  onclick="openCart()">
 
-<p>
-  مرجع تخصصی استایل‌های روز بانوان
+  🛒 سبد
+
+  <span
+    class="cart-badge"
+    id="cartCount">
+
+    ۰
+
+  </span>
+
+</button>
+```
+
+  </nav>
+
+  <header id="home">
+
+```
+<div class="logo">
+  👗
+</div>
+
+<h1>
+  پوشاک زنانه احمدی
+</h1>
+
+<p class="subtitle">
+
+  انتخابی خاص برای استایل‌های
+  شیک، مدرن و متفاوت
+
 </p>
 ```
 
   </header>
 
-  <main id="home">
+  <section class="hero-slider">
 
 ```
-<div class="card">
+<div
+  class="slide active"
+  style="
+  background-image:
+  url('images/light-flower.jpg');">
+
+  <div class="slide-text">
+
+    ترندهای جدید بانوان 🌟
+
+  </div>
+
+</div>
+
+<div
+  class="slide"
+  style="
+  background-image:
+  url('images/burgundy.jpg');">
+
+  <div class="slide-text">
+
+    استایل مجلسی لوکس 🍷
+
+  </div>
+
+</div>
+
+<div
+  class="slide"
+  style="
+  background-image:
+  url('images/cream.jpg');">
+
+  <div class="slide-text">
+
+    کیفیت و ظرافت 🍃
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <main>
+
+```
+<section class="glass-card">
 
   <h2>
     به بوتیک احمدی خوش آمدید 🌸
   </h2>
 
   <p>
-    جدیدترین مدل‌های مانتو، شومیز و لباس مجلسی را مشاهده کنید.
+
+    مجموعه‌ای از مدل‌های خاص
+    و جدید برای استایل روز شما.
+
   </p>
 
-</div>
+</section>
 
-<div class="card" id="models">
+<section
+  class="glass-card"
+  id="products">
 
   <h2>
     👗 کلکسیون جدید
   </h2>
 
-  <div class="color-grid">
+  <div class="product-grid">
 
-    <div class="color-item">
+    <article class="product">
 
-      <div class="product-img-box">
+      <div class="product-image">
 
         <img
           src="images/light-flower.jpg"
@@ -580,19 +819,55 @@
         🌺 شومیز گل‌دار
       </h3>
 
+      <div class="product-info">
+
+        <span>
+          رنگ: صورتی
+        </span>
+
+        <span>
+          سایز: S تا XL
+        </span>
+
+      </div>
+
+      <div class="price">
+
+        ۱٬۲۹۰٬۰۰۰ تومان
+
+      </div>
+
+      <br>
+
+      <button
+        class="action-btn secondary-btn"
+        onclick="
+        showProduct(
+        'شومیز گل‌دار',
+        'شومیز سبک و شیک مناسب استایل روزانه.',
+        '۱٬۲۹۰٬۰۰۰ تومان'
+        )">
+
+        جزئیات
+
+      </button>
+
       <button
         class="action-btn"
-        onclick="addToCart('شومیز گل‌دار')">
+        onclick="
+        addToCart(
+        'شومیز گل‌دار'
+        )">
 
         افزودن 🛒
 
       </button>
 
-    </div>
+    </article>
 
-    <div class="color-item">
+    <article class="product">
 
-      <div class="product-img-box">
+      <div class="product-image">
 
         <img
           src="images/burgundy.jpg"
@@ -601,22 +876,58 @@
       </div>
 
       <h3>
-        🍷 مانتو زرشکی
+        🍷 مانتو کتی زرشکی
       </h3>
+
+      <div class="product-info">
+
+        <span>
+          رنگ: زرشکی
+        </span>
+
+        <span>
+          سایز: M تا XL
+        </span>
+
+      </div>
+
+      <div class="price">
+
+        ۲٬۴۹۰٬۰۰۰ تومان
+
+      </div>
+
+      <br>
+
+      <button
+        class="action-btn secondary-btn"
+        onclick="
+        showProduct(
+        'مانتو کتی زرشکی',
+        'مانتوی مجلسی با طراحی مدرن و دوخت باکیفیت.',
+        '۲٬۴۹۰٬۰۰۰ تومان'
+        )">
+
+        جزئیات
+
+      </button>
 
       <button
         class="action-btn"
-        onclick="addToCart('مانتو زرشکی')">
+        onclick="
+        addToCart(
+        'مانتو کتی زرشکی'
+        )">
 
         افزودن 🛒
 
       </button>
 
-    </div>
+    </article>
 
-    <div class="color-item">
+    <article class="product">
 
-      <div class="product-img-box">
+      <div class="product-image">
 
         <img
           src="images/cream.jpg"
@@ -625,72 +936,150 @@
       </div>
 
       <h3>
-        🍃 ست کرم
+        🍃 ست شومیز و شلوار
       </h3>
+
+      <div class="product-info">
+
+        <span>
+          رنگ: کرم
+        </span>
+
+        <span>
+          سایز: S تا XL
+        </span>
+
+      </div>
+
+      <div class="price">
+
+        ۲٬۱۹۰٬۰۰۰ تومان
+
+      </div>
+
+      <br>
+
+      <button
+        class="action-btn secondary-btn"
+        onclick="
+        showProduct(
+        'ست شومیز و شلوار',
+        'ست راحت و شیک برای استایل روزمره.',
+        '۲٬۱۹۰٬۰۰۰ تومان'
+        )">
+
+        جزئیات
+
+      </button>
 
       <button
         class="action-btn"
-        onclick="addToCart('ست کرم')">
+        onclick="
+        addToCart(
+        'ست شومیز و شلوار'
+        )">
 
         افزودن 🛒
 
       </button>
 
+    </article>
+
+  </div>
+
+</section>
+
+<section
+  class="glass-card"
+  id="benefits">
+
+  <h2>
+    ✨ چرا پوشاک احمدی؟
+  </h2>
+
+  <div class="benefits">
+
+    <div class="benefit">
+
+      <span>
+        🚚
+      </span>
+
+      <b>
+        ارسال سریع
+      </b>
+
+      <p>
+        ارسال سفارش با بسته‌بندی مناسب
+      </p>
+
+    </div>
+
+    <div class="benefit">
+
+      <span>
+        🧵
+      </span>
+
+      <b>
+        کیفیت دوخت
+      </b>
+
+      <p>
+        انتخاب پارچه و دوخت با دقت
+      </p>
+
+    </div>
+
+    <div class="benefit">
+
+      <span>
+        💬
+      </span>
+
+      <b>
+        پشتیبانی
+      </b>
+
+      <p>
+        پاسخ‌گویی برای راهنمایی خرید
+      </p>
+
     </div>
 
   </div>
 
-</div>
-
-<div class="card" id="size-tool">
-
-  <h2>
-    📏 محاسبه سایز
-  </h2>
-
-  <div class="tool-box">
-
-    <input
-      type="number"
-      id="height"
-      placeholder="قد">
-
-    <input
-      type="number"
-      id="weight"
-      placeholder="وزن">
-
-    <br><br>
-
-    <button
-      class="action-btn"
-      onclick="calculateSize()">
-
-      محاسبه
-
-    </button>
-
-    <button
-      class="action-btn"
-      onclick="openSizeModal()">
-
-      جدول سایز
-
-    </button>
-
-    <h3 id="sizeResult"></h3>
-
-  </div>
-
-</div>
+</section>
 ```
 
   </main>
+
+<a
+ class="chat"
+ href="https://wa.me/989000000000"
+ target="_blank">
+
+```
+💬 مشاوره خرید
+```
+
+  </a>
+
+  <div
+    class="toast"
+    id="toast">
+
+```
+محصول به سبد اضافه شد ✅
+```
+
+  </div>
 
   <footer>
 
 ```
 © پوشاک زنانه احمدی
+| همه حقوق محفوظ است ❤️
 ```
 
   </footer>
@@ -699,209 +1088,305 @@
 
     let cart = [];
 
-    function closeWelcomeModal() {
+    let selectedProduct = "";
+
+    function closeWelcome() {
 
       document
-        .getElementById("welcomeModal")
-        .style.display = "none";
-
-      document
-        .getElementById("home")
-        .scrollIntoView({
-          behavior: "smooth"
-        });
+      .getElementById(
+      "welcomeModal"
+      )
+      .style.display =
+      "none";
 
     }
 
-    function openSizeModal() {
+    function showToast() {
 
-      document
-        .getElementById("sizeModal")
-        .style.display = "flex";
+      const toast =
+      document.getElementById(
+      "toast"
+      );
 
-    }
+      toast.classList.add(
+      "show"
+      );
 
-    function closeSizeModal() {
+      setTimeout(
+      function() {
 
-      document
-        .getElementById("sizeModal")
-        .style.display = "none";
+      toast.classList.remove(
+      "show"
+      );
 
-    }
-
-    function openCartModal() {
-
-      document
-        .getElementById("cartModal")
-        .style.display = "flex";
-
-    }
-
-    function closeCartModal() {
-
-      document
-        .getElementById("cartModal")
-        .style.display = "none";
+      },
+      2500
+      );
 
     }
 
-    function addToCart(product) {
+    function addToCart(name) {
 
-      cart.push(product);
+      cart.push(name);
 
       updateCart();
 
-      alert(
-        product +
-        " به سبد خرید اضافه شد ✅"
-      );
+      showToast();
 
     }
 
     function updateCart() {
 
       document
-        .getElementById("cartCount")
-        .textContent = cart.length;
+      .getElementById(
+      "cartCount"
+      )
+      .textContent =
+      cart.length;
 
       const list =
-        document.getElementById("cartList");
+      document.getElementById(
+      "cartList"
+      );
 
-      if (cart.length === 0) {
+      if (
+      cart.length === 0
+      ) {
 
-        list.textContent =
-          "سبد خرید شما خالی است.";
+      list.innerHTML =
+      "سبد خرید خالی است.";
 
-        return;
+      return;
 
       }
 
       list.innerHTML = "";
 
       cart.forEach(
-        function(product, index) {
+      function(
+      item,
+      index
+      ) {
 
-          list.innerHTML +=
+      list.innerHTML +=
 
-          `
-          <div class="cart-item">
+      `
+      <div
+      style="
+      padding:12px;
+      border-bottom:
+      1px solid
+      rgba(255,255,255,.1);
+      ">
 
-          ${product}
+      ${item}
 
-          <button
-          class="remove-btn"
-          onclick="removeFromCart(${index})">
+      <button
+      class="action-btn"
+      style="
+      float:left;
+      padding:5px 10px;
+      "
 
-          حذف
+      onclick="
+      removeCart(
+      ${index}
+      )">
 
-          </button>
+      حذف
 
-          </div>
-          `;
+      </button>
 
-        }
+      </div>
+      `;
+
+      }
       );
 
     }
 
-    function removeFromCart(index) {
+    function removeCart(index) {
 
-      cart.splice(index, 1);
+      cart.splice(
+      index,
+      1
+      );
 
       updateCart();
 
     }
 
-    function calculateSize() {
+    function openCart() {
 
-      const weight =
-        Number(
-          document
-          .getElementById("weight")
-          .value
-        );
+      document
+      .getElementById(
+      "cartModal"
+      )
+      .style.display =
+      "flex";
 
-      const result =
-        document
-        .getElementById("sizeResult");
+    }
 
-      if (!weight) {
+    function closeCart() {
 
-        result.textContent =
-          "وزن را وارد کنید ⚠️";
+      document
+      .getElementById(
+      "cartModal"
+      )
+      .style.display =
+      "none";
 
-        return;
+    }
 
-      }
+    function showProduct(
+    name,
+    text,
+    price
+    ) {
 
-      if (weight < 50) {
+      selectedProduct =
+      name;
 
-        result.textContent =
-          "سایز پیشنهادی: S";
+      document
+      .getElementById(
+      "detailName"
+      )
+      .textContent =
+      name;
 
-      }
+      document
+      .getElementById(
+      "detailText"
+      )
+      .textContent =
+      text;
 
-      else if (weight < 65) {
+      document
+      .getElementById(
+      "detailPrice"
+      )
+      .textContent =
+      price;
 
-        result.textContent =
-          "سایز پیشنهادی: M";
+      document
+      .getElementById(
+      "productModal"
+      )
+      .style.display =
+      "flex";
 
-      }
+    }
 
-      else if (weight < 80) {
+    function closeProduct() {
 
-        result.textContent =
-          "سایز پیشنهادی: L";
+      document
+      .getElementById(
+      "productModal"
+      )
+      .style.display =
+      "none";
 
-      }
+    }
 
-      else {
+    function addDetailToCart() {
 
-        result.textContent =
-          "سایز پیشنهادی: XL";
+      addToCart(
+      selectedProduct
+      );
 
-      }
+      closeProduct();
 
     }
 
     const slides =
-      document.querySelectorAll(".slide");
+    document.querySelectorAll(
+    ".slide"
+    );
 
     let currentSlide = 0;
 
     setInterval(
-      function() {
+    function() {
 
-        slides[
-          currentSlide
-        ].classList.remove("active");
+      slides[
+      currentSlide
+      ]
+      .classList.remove(
+      "active"
+      );
 
-        currentSlide =
-          (
-            currentSlide + 1
-          )
-          %
-          slides.length;
+      currentSlide =
+      (
+      currentSlide + 1
+      )
+      %
+      slides.length;
 
-        slides[
-          currentSlide
-        ].classList.add("active");
+      slides[
+      currentSlide
+      ]
+      .classList.add(
+      "active"
+      );
 
-      },
-      4000
+    },
+    4000
     );
 
     const cards =
-      document.querySelectorAll(".card");
+    document.querySelectorAll(
+    ".glass-card"
+    );
 
-    cards.forEach(
-      function(card) {
+    const observer =
+    new IntersectionObserver(
 
-        card.classList.add(
-          "visible"
-        );
+    function(
+    entries
+    ) {
+
+      entries.forEach(
+
+      function(
+      entry
+      ) {
+
+      if (
+      entry.isIntersecting
+      ) {
+
+      entry.target
+      .classList.add(
+      "visible"
+      );
 
       }
+
+      }
+
+      );
+
+    },
+
+    {
+    threshold:
+    0.12
+    }
+
+    );
+
+    cards.forEach(
+
+    function(
+    card
+    ) {
+
+    observer.observe(
+    card
+    );
+
+    }
+
     );
 
   </script>
