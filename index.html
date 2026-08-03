@@ -327,6 +327,11 @@
       backdrop-filter: blur(5px);
     }
 
+    /* کلاس مخصوص برای نمایش پاپ‌آپ در ابتدا */
+    .modal.active-modal {
+      display: flex !important;
+    }
+
     .modal-content {
       background: var(--bg-color);
       border: 1px solid var(--border-color);
@@ -392,13 +397,13 @@
 
 <body class="theme-gold">
 
-  <!-- پاپ‌آپ خوش‌آمدگویی (پوئن مثبت فروشگاه‌های لوکس) -->
-  <div class="modal" id="welcomeModal" style="display: flex;">
+  <!-- پاپ‌آپ خوش‌آمدگویی (اصلاح شده و کاملاً واکنش‌گرا) -->
+  <div class="modal active-modal" id="welcomeModal">
     <div class="modal-content" style="text-align: center;">
       <h2 style="color: var(--accent-color);">✨ به پوشاک احمدی خوش آمدید</h2>
       <p style="font-size: 15px; line-height: 1.6;">مرکز تخصصی شیک‌ترین و لوکس‌ترین استایل‌های روز. از مشاهده محصولات لذت ببرید!</p>
       <br>
-      <button class="action-btn" onclick="closeWelcomeModal()" style="padding: 12px 30px;">ورود به فروشگاه 🚀</button>
+      <button type="button" class="action-btn" onclick="closeWelcomeModal()" style="padding: 12px 30px; cursor: pointer;">ورود به فروشگاه 🚀</button>
     </div>
   </div>
 
@@ -428,7 +433,7 @@
         </tbody>
       </table>
       <br>
-      <button class="action-btn" onclick="closeSizeModal()">بستن راهنما</button>
+      <button type="button" class="action-btn" onclick="closeSizeModal()">بستن راهنما</button>
     </div>
   </div>
 
@@ -437,7 +442,7 @@
     <div class="modal-content">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
         <h2 style="margin: 0; color: var(--accent-color);">🛒 سبد خرید و سفارش</h2>
-        <button onclick="closeCartModal()" style="background:none; border:none; color:var(--text-color); font-size:22px; cursor:pointer;">✕</button>
+        <button type="button" onclick="closeCartModal()" style="background:none; border:none; color:var(--text-color); font-size:22px; cursor:pointer;">✕</button>
       </div>
 
       <div class="cart-box">
@@ -474,7 +479,7 @@
         <a href="#size-tool">📏 راهنمای سایز</a>
       </div>
       <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
-        <button class="nav-cart-btn" onclick="openCartModal()">
+        <button type="button" class="nav-cart-btn" onclick="openCartModal()">
           🛒 سبد خرید <span class="cart-badge" id="cartCount">0</span>
         </button>
         <select class="theme-dropdown" onchange="changeTheme(this.value)">
@@ -534,7 +539,7 @@
             <img src="images/blue.jpg" alt="طرح آبی کلاسیک" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%231e3a8a\'/><text x=\'150\' y=\'200\' fill=\'%23fff\' font-size=\'20\' text-anchor=\'middle\'>کت آبی کلاسیک</text></svg>';">
           </div>
           <h3>🦋 طرح آبی کلاسیک</h3>
-          <button class="action-btn" onclick="addToCart('طرح آبی کلاسیک')">افزودن به سبد خرید 🛒</button>
+          <button type="button" class="action-btn" onclick="addToCart('طرح آبی کلاسیک')">افزودن به سبد خرید 🛒</button>
         </div>
 
         <div class="color-item">
@@ -542,7 +547,7 @@
             <img src="images/light-flower.jpg" alt="طرح گل‌دار روشن" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%23fce7f3\'/><text x=\'150\' y=\'200\' fill=\'%23881337\' font-size=\'20\' text-anchor=\'middle\'>طرح گل‌دار روشن</text></svg>';">
           </div>
           <h3>🌺 طرح گل‌دار روشن</h3>
-          <button class="action-btn" onclick="addToCart('طرح گل‌دار روشن')">افزودن به سبد خرید 🛒</button>
+          <button type="button" class="action-btn" onclick="addToCart('طرح گل‌دار روشن')">افزودن به سبد خرید 🛒</button>
         </div>
 
         <div class="color-item">
@@ -550,7 +555,7 @@
             <img src="images/burgundy.jpg" alt="طرح زرشکی مجلسی" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%234c0519\'/><text x=\'150\' y=\'200\' fill=\'%23fff\' font-size=\'20\' text-anchor=\'middle\'>طرح زرشکی مجلسی</text></svg>';">
           </div>
           <h3>🍷 طرح زرشکی مجلسی</h3>
-          <button class="action-btn" onclick="addToCart('طرح زرشکی مجلسی')">افزودن به سبد خرید 🛒</button>
+          <button type="button" class="action-btn" onclick="addToCart('طرح زرشکی مجلسی')">افزودن به سبد خرید 🛒</button>
         </div>
 
         <div class="color-item">
@@ -558,7 +563,7 @@
             <img src="images/cream.jpg" alt="طرح کرم برگ زرشکی" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 300 400\'><rect width=\'300\' height=\'400\' fill=\'%23fef3c7\'/><text x=\'150\' y=\'200\' fill=\'%2378350f\' font-size=\'20\' text-anchor=\'middle\'>طرح کرم برگ زرشکی</text></svg>';">
           </div>
           <h3>🍃 طرح کرم برگ زرشکی</h3>
-          <button class="action-btn" onclick="addToCart('طرح کرم برگ زرشکی')">افزودن به سبد خرید 🛒</button>
+          <button type="button" class="action-btn" onclick="addToCart('طرح کرم برگ زرشکی')">افزودن به سبد خرید 🛒</button>
         </div>
 
       </div>
@@ -574,8 +579,8 @@
           <input type="number" id="weight" placeholder="وزن (کیلوگرم)">
         </div>
         <br>
-        <button class="action-btn" onclick="calculateSize()">تخمین سایز من 📐</button>
-        <button class="action-btn" style="background:#3b82f6;" onclick="openSizeModal()">جدول ابعاد دقیق 📊</button>
+        <button type="button" class="action-btn" onclick="calculateSize()">تخمین سایز من 📐</button>
+        <button type="button" class="action-btn" style="background:#3b82f6;" onclick="openSizeModal()">جدول ابعاد دقیق 📊</button>
         <h3 id="sizeResult" style="color: var(--accent-color); margin-top: 15px;"></h3>
       </div>
     </div>
@@ -600,5 +605,104 @@
     // اسلایدر خودکار هدر
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
-    setInterval(() => {
-      slides[curren
+    if(slides.length > 0) {
+      setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }, 4000);
+    }
+
+    // انیمیشن نرم اسکرول (AOS داخلی)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+    function playSound() {
+      const sound = document.getElementById('clickSound');
+      if (sound) {
+        sound.currentTime = 0;
+        sound.play().catch(e => {});
+      }
+    }
+
+    function calculateSize() {
+      playSound();
+      const h = parseFloat(document.getElementById('height').value);
+      const w = parseFloat(document.getElementById('weight').value);
+      const res = document.getElementById('sizeResult');
+
+      if (!h || !w) {
+        res.innerText = 'لطفاً قد و وزن را به درستی وارد کنید.';
+        return;
+      }
+
+      if (w < 60 && h < 170) res.innerText = 'سایز پیشنهادی: سایز ۱ 📏';
+      else if (w < 75 && h < 180) res.innerText = 'سایز پیشنهادی: سایز ۲ 📏';
+      else if (w < 90) res.innerText = 'سایز پیشنهادی: سایز ۳ 📏';
+      else res.innerText = 'سایز پیشنهادی: سایز ۴ 📏';
+    }
+
+    function addToCart(title) {
+      playSound();
+      cart.push(title);
+      updateCartUI();
+      alert(`«${title}» با موفقیت به سبد خرید اضافه شد!`);
+    }
+
+    function removeFromCart(index) {
+      playSound();
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const cartList = document.getElementById('cartList');
+      const cartCount = document.getElementById('cartCount');
+      const hiddenInput = document.getElementById('cartInputHidden');
+
+      if(cartCount) cartCount.innerText = cart.length;
+
+      if (cart.length === 0) {
+        if(cartList) cartList.innerHTML = 'سبد خرید شما خالی است.';
+        if(hiddenInput) hiddenInput.value = '';
+        return;
+      }
+
+      let html = '';
+      cart.forEach((item, index) => {
+        html += `<div class="cart-item">
+          <span>${item}</span>
+          <button type="button" class="remove-btn" onclick="removeFromCart(${index})">حذف ❌</button>
+        </div>`;
+      });
+
+      if(cartList) cartList.innerHTML = html;
+      if(hiddenInput) hiddenInput.value = cart.join(' | ');
+    }
+
+    function openSizeModal() { playSound(); document.getElementById('sizeModal').style.display = 'flex'; }
+    function closeSizeModal() { document.getElementById('sizeModal').style.display = 'none'; }
+
+    function openCartModal() { playSound(); document.getElementById('cartModal').style.display = 'flex'; }
+    function closeCartModal() { document.getElementById('cartModal').style.display = 'none'; }
+
+    // تابع اصلاح شده برای بستن قطعی پاپ‌آپ خوش‌آمدگویی
+    function closeWelcomeModal() {
+      playSound();
+      const modal = document.getElementById('welcomeModal');
+      if (modal) {
+        modal.classList.remove('active-modal');
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>
