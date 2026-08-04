@@ -15,21 +15,12 @@
 --pink:#ec5d7a;
 --bg:#09090d;
 --bg2:#171016;
---glass:rgba(25,22,30,.82);
+--glass:rgba(25,22,30,.88);
 --card:rgba(255,255,255,.06);
 --text:#f8f8fa;
 --muted:#b9b5bd;
---border:rgba(231,183,95,.25);
+--border:rgba(231,183,95,.28);
 --green:#18a866;
-}
-
-body.light{
---bg:#f7f1e8;
---bg2:#ffffff;
---glass:rgba(255,255,255,.88);
---card:rgba(255,255,255,.94);
---text:#19151b;
---muted:#665f68;
 }
 
 *{
@@ -43,21 +34,21 @@ scroll-behavior:smooth;
 body{
 margin:0;
 font-family:Tahoma,Arial,sans-serif;
+color:var(--text);
 background:
-radial-gradient(circle at 10% 15%,rgba(231,183,95,.17),transparent 30%),
+radial-gradient(circle at 10% 15%,rgba(231,183,95,.18),transparent 30%),
 radial-gradient(circle at 90% 80%,rgba(236,93,122,.12),transparent 35%),
 linear-gradient(135deg,var(--bg),var(--bg2));
 background-attachment:fixed;
-color:var(--text);
 overflow-x:hidden;
 }
 
 .top-bar{
-background:linear-gradient(90deg,#b56e16,#edc36c,#b56e16);
-color:#17110a;
-font-weight:bold;
-text-align:center;
 padding:11px;
+text-align:center;
+font-weight:bold;
+color:#17110a;
+background:linear-gradient(90deg,#b56e16,#edc36c,#b56e16);
 }
 
 nav{
@@ -79,9 +70,21 @@ backdrop-filter:blur(20px);
 }
 
 .brand{
+display:flex;
+align-items:center;
+gap:10px;
 font-size:20px;
 font-weight:bold;
 color:var(--gold2);
+}
+
+.logo{
+width:42px;
+height:42px;
+object-fit:contain;
+border-radius:50%;
+border:1px solid var(--border);
+background:#111;
 }
 
 .nav-links{
@@ -108,7 +111,7 @@ gap:7px;
 
 .icon-btn{
 border:1px solid var(--border);
-background:rgba(255,255,255,.07);
+background:rgba(255,255,255,.06);
 color:var(--text);
 border-radius:22px;
 padding:9px 13px;
@@ -121,15 +124,6 @@ width:min(1050px,calc(100% - 25px));
 margin:auto;
 padding:70px 15px 45px;
 text-align:center;
-}
-
-.hero-label{
-display:inline-block;
-padding:8px 15px;
-border:1px solid var(--border);
-border-radius:25px;
-color:var(--gold2);
-background:rgba(231,183,95,.08);
 }
 
 header h1{
@@ -163,7 +157,6 @@ color:#17120c;
 background:linear-gradient(135deg,var(--gold2),#ba751c);
 text-decoration:none;
 display:inline-block;
-transition:.25s;
 }
 
 .button:hover{
@@ -183,7 +176,6 @@ padding:28px;
 background:var(--glass);
 border:1px solid var(--border);
 border-radius:28px;
-backdrop-filter:blur(20px);
 }
 
 .section-title{
@@ -195,7 +187,7 @@ margin-top:0;
 
 .search-box{
 display:grid;
-grid-template-columns:2fr 1fr 1fr 1fr;
+grid-template-columns:2fr 1fr 1fr;
 gap:10px;
 }
 
@@ -210,7 +202,6 @@ border:1px solid var(--border);
 background:rgba(255,255,255,.07);
 color:var(--text);
 font-family:inherit;
-outline:none;
 }
 
 .product-grid{
@@ -229,7 +220,8 @@ transition:.3s;
 }
 
 .product:hover{
-transform:translateY(-7px);
+transform:translateY(-8px);
+box-shadow:0 20px 45px rgba(0,0,0,.3);
 }
 
 .product img{
@@ -237,7 +229,7 @@ width:100%;
 height:280px;
 object-fit:cover;
 border-radius:17px;
-background:#111;
+background:#17131a;
 }
 
 .badge{
@@ -353,6 +345,14 @@ color:white;
 background:var(--green);
 }
 
+#topBtn{
+position:fixed;
+bottom:20px;
+right:20px;
+display:none;
+z-index:100;
+}
+
 .modal{
 display:none;
 position:fixed;
@@ -360,8 +360,7 @@ inset:0;
 z-index:3000;
 align-items:center;
 justify-content:center;
-background:rgba(0,0,0,.72);
-backdrop-filter:blur(10px);
+background:rgba(0,0,0,.75);
 padding:15px;
 }
 
@@ -371,7 +370,7 @@ max-height:85vh;
 overflow:auto;
 padding:25px;
 border-radius:25px;
-background:var(--glass);
+background:#201a22;
 border:1px solid var(--border);
 }
 
@@ -382,12 +381,6 @@ align-items:center;
 gap:10px;
 padding:12px 0;
 border-bottom:1px solid var(--border);
-}
-
-.total{
-font-size:20px;
-color:var(--gold2);
-margin:18px 0;
 }
 
 .toast{
@@ -443,7 +436,8 @@ height:240px;
 <nav>
 
 <div class="brand">
-👗 پوشاک زنانه احمدی
+<img class="logo" src="logo.png" alt="لوگوی احمدی">
+پوشاک زنانه احمدی 👗
 </div>
 
 <div class="nav-links">
@@ -455,10 +449,6 @@ height:240px;
 </div>
 
 <div class="nav-actions">
-
-<button class="icon-btn" onclick="toggleTheme()">
-🌙
-</button>
 
 <button class="icon-btn" onclick="openFavorites()">
 ❤️ <span id="favoriteCount">۰</span>
@@ -474,13 +464,7 @@ height:240px;
 
 <header id="home">
 
-<div class="hero-label">
-✨ استایل خاص، انتخاب خاص
-</div>
-
-<h1>
-پوشاک زنانه احمدی
-</h1>
+<h1>پوشاک زنانه احمدی</h1>
 
 <p>
 انتخابی خاص برای استایل‌های شیک، مدرن و متفاوت
@@ -513,29 +497,47 @@ id="searchInput"
 placeholder="نام لباس را بنویسید..."
 oninput="filterProducts()">
 
-<select id="typeFilter" onchange="filterProducts()">
+<select
+id="typeFilter"
+onchange="filterProducts()">
 
-<option value="">همه مدل‌ها</option>
-<option value="شومیز">شومیز</option>
-<option value="مانتو">مانتو</option>
-<option value="ست">ست</option>
+<option value="">
+همه مدل‌ها
+</option>
+
+<option value="شومیز">
+شومیز
+</option>
+
+<option value="مانتو">
+مانتو
+</option>
+
+<option value="ست">
+ست
+</option>
 
 </select>
 
-<select id="colorFilter" onchange="filterProducts()">
+<select
+id="colorFilter"
+onchange="filterProducts()">
 
-<option value="">همه رنگ‌ها</option>
-<option value="صورتی">صورتی</option>
-<option value="زرشکی">زرشکی</option>
-<option value="کرم">کرم</option>
+<option value="">
+همه رنگ‌ها
+</option>
 
-</select>
+<option value="صورتی">
+صورتی
+</option>
 
-<select id="priceFilter" onchange="filterProducts()">
+<option value="زرشکی">
+زرشکی
+</option>
 
-<option value="">همه قیمت‌ها</option>
-<option value="1500000">تا ۱.۵ میلیون</option>
-<option value="2500000">تا ۲.۵ میلیون</option>
+<option value="کرم">
+کرم
+</option>
 
 </select>
 
@@ -549,7 +551,11 @@ oninput="filterProducts()">
 🔥 جدیدترین و پرفروش‌ترین‌ها
 </h2>
 
-<div class="product-grid" id="productGrid"></div>
+<div
+class="product-grid"
+id="productGrid">
+
+</div>
 
 </section>
 
@@ -660,7 +666,9 @@ oninput="filterProducts()">
 💬 تماس و ثبت سفارش
 </h2>
 
-<form class="contact-form" onsubmit="sendForm(event)">
+<form
+class="contact-form"
+onsubmit="sendForm(event)">
 
 <input required placeholder="نام شما">
 
@@ -683,6 +691,13 @@ placeholder="پیام یا سفارش شما">
 <a class="chat" href="#contact">
 💬 مشاوره خرید
 </a>
+
+<button
+id="topBtn"
+class="button"
+onclick="scrollToTop()">
+⬆️
+</button>
 
 <footer>
 
@@ -712,13 +727,11 @@ onclick="closeModal('cartModal')">
 
 </button>
 
-<h2>
-🛒 سبد خرید
-</h2>
+<h2>🛒 سبد خرید</h2>
 
 <div id="cartList"></div>
 
-<div class="total" id="totalPrice"></div>
+<h3 id="totalPrice"></h3>
 
 </div>
 
@@ -736,9 +749,7 @@ onclick="closeModal('favoriteModal')">
 
 </button>
 
-<h2>
-❤️ علاقه‌مندی‌ها
-</h2>
+<h2>❤️ علاقه‌مندی‌ها</h2>
 
 <div id="favoriteList"></div>
 
@@ -746,8 +757,12 @@ onclick="closeModal('favoriteModal')">
 
 </div>
 
-<div class="toast" id="toast">
+<div
+class="toast"
+id="toast">
+
 انجام شد ✅
+
 </div>
 
 <script>
@@ -760,8 +775,7 @@ name:"شومیز گل‌دار",
 type:"شومیز",
 color:"صورتی",
 price:1290000,
-image:"logo.png",
-description:"شومیز سبک و شیک برای استایل روزانه.",
+image:"https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=80",
 badge:"جدید"
 },
 
@@ -771,8 +785,7 @@ name:"مانتو کتی زرشکی",
 type:"مانتو",
 color:"زرشکی",
 price:2490000,
-image:"logo.png",
-description:"مانتوی مدرن با طراحی خاص.",
+image:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=900&q=80",
 badge:"پرفروش"
 },
 
@@ -782,22 +795,21 @@ name:"ست شومیز و شلوار",
 type:"ست",
 color:"کرم",
 price:2190000,
-image:"logo.png",
-description:"ست راحت و شیک برای استفاده روزمره.",
+image:"https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=900&q=80",
 badge:"ویژه"
 }
 
 ];
 
-let cart=
-JSON.parse(localStorage.getItem("ahmadiCart"))||[];
+let cart=[];
 
-let favorites=
-JSON.parse(localStorage.getItem("ahmadiFavorites"))||[];
+let favorites=[];
 
 function money(number){
 
-return number.toLocaleString("fa-IR");
+return number.toLocaleString(
+"fa-IR"
+);
 
 }
 
@@ -810,11 +822,17 @@ toast.textContent=text;
 
 toast.classList.add("show");
 
-setTimeout(function(){
+setTimeout(
+
+()=>{
 
 toast.classList.remove("show");
 
-},2500);
+},
+
+2000
+
+);
 
 }
 
@@ -825,16 +843,9 @@ document.getElementById("productGrid");
 
 grid.innerHTML="";
 
-if(list.length===0){
+list.forEach(
 
-grid.innerHTML=
-"<p>😕 محصولی پیدا نشد.</p>";
-
-return;
-
-}
-
-list.forEach(function(p){
+p=>{
 
 grid.innerHTML+=`
 
@@ -848,7 +859,11 @@ ${p.badge}
 class="favorite"
 onclick="toggleFavorite(${p.id})">
 
-${favorites.includes(p.id)?"❤️":"🤍"}
+${favorites.includes(p.id)
+?
+"❤️"
+:
+"🤍"}
 
 </button>
 
@@ -862,7 +877,8 @@ ${p.name}
 
 <div class="product-info">
 
-رنگ: ${p.color}
+رنگ:
+${p.color}
 
 <br>
 
@@ -894,52 +910,46 @@ onclick="addCart(${p.id})">
 
 `;
 
-});
+}
+
+);
 
 }
 
 function filterProducts(){
 
 const search=
-document.getElementById("searchInput")
-.value.trim();
+document
+.getElementById("searchInput")
+.value;
 
 const type=
-document.getElementById("typeFilter")
+document
+.getElementById("typeFilter")
 .value;
 
 const color=
-document.getElementById("colorFilter")
+document
+.getElementById("colorFilter")
 .value;
 
-const max=
-Number(
-document.getElementById("priceFilter")
-.value
-);
-
 const result=
-products.filter(function(p){
 
-return(
+products.filter(
+
+p=>
 
 p.name.includes(search)
 
 &&
 
-(!type||p.type===type)
+(!type || p.type===type)
 
 &&
 
-(!color||p.color===color)
-
-&&
-
-(!max||p.price<=max)
+(!color || p.color===color)
 
 );
-
-});
 
 renderProducts(result);
 
@@ -947,16 +957,15 @@ renderProducts(result);
 
 function addCart(id){
 
-const found=
-cart.find(function(x){
+const item=
 
-return x.id===id;
+cart.find(
+x=>x.id===id
+);
 
-});
+if(item){
 
-if(found){
-
-found.quantity++;
+item.quantity++;
 
 }
 
@@ -971,14 +980,6 @@ quantity:1
 
 }
 
-localStorage.setItem(
-
-"ahmadiCart",
-
-JSON.stringify(cart)
-
-);
-
 updateCart();
 
 showToast(
@@ -990,21 +991,20 @@ showToast(
 function updateCart(){
 
 const count=
+
 cart.reduce(
 
-function(sum,x){
+(sum,item)=>
 
-return sum+x.quantity;
-
-},
+sum+item.quantity,
 
 0
 
 );
 
-document.getElementById(
-"cartCount"
-).textContent=
+document
+.getElementById("cartCount")
+.textContent=
 
 count.toLocaleString("fa-IR");
 
@@ -1012,40 +1012,33 @@ count.toLocaleString("fa-IR");
 
 function openCart(){
 
-document.getElementById(
-"cartModal"
-).style.display="flex";
+document
+.getElementById("cartModal")
+.style.display="flex";
 
 const list=
-document.getElementById(
-"cartList"
-);
+document.getElementById("cartList");
 
 let total=0;
+
+list.innerHTML="";
 
 if(cart.length===0){
 
 list.innerHTML=
 "سبد خرید خالی است.";
 
-document.getElementById(
-"totalPrice"
-).textContent="";
-
-return;
-
 }
 
-list.innerHTML="";
+cart.forEach(
 
-cart.forEach(function(item){
+item=>{
 
 const p=
-products.find(function(x){
 
-return x.id===item.id;
-
-});
+products.find(
+x=>x.id===item.id
+);
 
 total+=
 p.price*item.quantity;
@@ -1081,28 +1074,33 @@ p.price*item.quantity
 
 `;
 
-});
+}
 
-document.getElementById(
-"totalPrice"
-).textContent=
+);
+
+document
+.getElementById("totalPrice")
+.textContent=
 
 "جمع کل: "+
+
 money(total)+
+
 " تومان";
 
 }
 
 function toggleFavorite(id){
 
-if(favorites.includes(id)){
+if(
+favorites.includes(id)
+){
 
 favorites=
-favorites.filter(function(x){
 
-return x!==id;
-
-});
+favorites.filter(
+x=>x!==id
+);
 
 }
 
@@ -1112,17 +1110,9 @@ favorites.push(id);
 
 }
 
-localStorage.setItem(
-
-"ahmadiFavorites",
-
-JSON.stringify(favorites)
-
-);
-
-document.getElementById(
-"favoriteCount"
-).textContent=
+document
+.getElementById("favoriteCount")
+.textContent=
 
 favorites.length
 .toLocaleString("fa-IR");
@@ -1133,68 +1123,60 @@ renderProducts();
 
 function openFavorites(){
 
-document.getElementById(
-"favoriteModal"
-).style.display="flex";
-
-const selected=
-products.filter(function(p){
-
-return favorites.includes(p.id);
-
-});
+document
+.getElementById("favoriteModal")
+.style.display="flex";
 
 const list=
-document.getElementById(
-"favoriteList"
+
+document
+.getElementById("favoriteList");
+
+const selected=
+
+products.filter(
+
+p=>
+
+favorites.includes(p.id)
+
 );
 
-if(selected.length===0){
-
-list.innerHTML=
-"هنوز محصولی ذخیره نشده است.";
-
-return;
-
-}
-
 list.innerHTML=
 
-selected.map(function(p){
+selected.length
 
-return`
+?
 
-<p>
+selected.map(
 
-❤️
-${p.name}
+p=>
+
+`<p>
+
+❤️ ${p.name}
 
 -
+
 ${money(p.price)}
 
 تومان
 
-</p>
+</p>`
 
-`;
+).join("")
 
-}).join("");
+:
+
+"هنوز محصولی ذخیره نشده است.";
 
 }
 
 function closeModal(id){
 
-document.getElementById(
-id
-).style.display="none";
-
-}
-
-function toggleTheme(){
-
-document.body.classList.toggle(
-"light"
-);
+document
+.getElementById(id)
+.style.display="none";
 
 }
 
@@ -1210,16 +1192,39 @@ event.target.reset();
 
 }
 
+function scrollToTop(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+window.onscroll=
+
+function(){
+
+document
+.getElementById("topBtn")
+.style.display=
+
+window.scrollY>500
+
+?
+
+"block"
+
+:
+
+"none";
+
+};
+
 renderProducts();
-
-updateCart();
-
-document.getElementById(
-"favoriteCount"
-).textContent=
-
-favorites.length
-.toLocaleString("fa-IR");
 
 </script>
 
